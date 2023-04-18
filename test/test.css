@@ -1,0 +1,48 @@
+header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+header {
+  width: 90%;
+  padding: 10px 0;
+  margin: 0 auto;
+  position: relative;
+}
+
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+  position: absolute;
+  top: 22px;
+  right: 22px;
+}
+
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.article-style {}
+
+.article-one {
+  background-color: #eeeeee8d;
+}
+
+/* .top-info {
+  float: left;
+  width: 70%;
+}
+
+.contact-info {
+  float: left;
+  width: 30%;
+  text-align: right;
+}
+
+.description {
+  margin-bottom: 10px;
+} */
