@@ -2,7 +2,7 @@
 -- 性別　0男　1女 2その他（デフォルトは「その他」）
 
 CREATE TABLE current_users(
-    user_id int AUTO_INCREMENT,
+    user_id int PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(20) NOT NULL,
     grade tinyint NOT NULL,
     graduation_year smallint NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE current_users(
 );
 
 CREATE TABLE graduate_users(
-    user_id int AUTO_INCREMENT,
+    user_id int PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(20) NOT NULL,
     gender tinyint NOT NULL DEFAULT 2,
     mail VARCHAR(30) UNIQUE NOT NULL,
