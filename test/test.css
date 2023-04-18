@@ -1,0 +1,28 @@
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+.company-info {
+    float: left;
+    width: 70%;
+}
+.contact-info {
+    float: left;
+    width: 30%;
+    text-align: right;
+}
+header p span {
+    font-size: 20px;
+    font-weight: bold;
+}
+header {
+    height: 100px;
+    margin-top: 8px;
+}
+header p {
+    font-size: 12px;
+}
+.description {
+    margin-bottom: 10px;
+}
