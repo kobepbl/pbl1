@@ -1,42 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>タイトル</title>
     <link rel="stylesheet" href="test.css">
 </head>
+
 <body>
-<header class="clearfix">
-    <div class="top-info">
-        <a href="index.html">
-            <h1>神戸電子情報共有サイト</h1>
-        </a>
-    </div>
-    <div class="contact-info">
-        <a href="toukou.html">
-            <p><span>投稿</span></p>
-        </a>
-    </div>
-    <div class="contact-info">
-        <a href="login.html">
-            <p><span>ログイン</span></p>
-        </a>
-    </div>
+    <!-- <header class="clearfix">
+        <div class="top-info">
+            <a href="index.html">
+                <h1>神戸電子情報共有サイト</h1>
+            </a>
+        </div>
+        <div class="contact-info">
+            <a href="toukou.html">
+                <p><span>投稿</span></p>
+            </a>
+        </div>
+        <div class="contact-info">
+            <a href="login.html">
+                <p><span>ログイン</span></p>
+            </a>
+        </div>
+    </header> -->
+    <header>
+        <div class="top-info">
+            <a href="index.html">
+                <h1>神戸電子情報共有サイト</h1>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-list-item">
+                    <a href="toukou.html">投稿</a>
+                </li>
+                <li class="nav-list-item">
+                    <a href="login.html">ログイン</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <main>
-        <h2>最近の投稿</h2>
-        <ol>
-            <li><a href="#"><time datetime="2021-04-12">2022.04.12</time>ポートフォリオ作成例</a></li>
-            <li><a href="#"><time datetime="2021-04-05">2022.04.05</time>改行の仕方</a></li>
-            <li><a href="#"><time datetime="2021-04-01">2022.04.01</time>サイトを公開しました！</a></li>
-        </ol>
-        <h2>最近の質問</h2>
-        <ol>
-            <li><a href="#"><time datetime="2021-04-12">2022.04.12</time>サイトの作り方</a></li>
-            <li><a href="#"><time datetime="2021-04-05">2022.04.05</time>こんにちは</a></li>
-            <li><a href="#"><time datetime="2021-04-01">2022.04.01</time>pythonを用いたAI実装について</a></li>
-        </ol>
-    </section>
+        <article class="article-style">
+            <h1>最近の投稿</h1>
+            <a href="#">
+                <article class="article-one">
+                    <p>2022.04.12</p>
+                    <p><object><a href="#dsadadad">石井ンゴ</a></object></p>
+                    <h2>ポートフォリオ作成例</h2>
+                    <p>内容内容</p>
+                </article>
+            </a>
+            <article>
+                <a href="#"><time datetime="2021-04-05">2022.04.05</time>改行の仕方　内容内容</a>
+            </article>
+            <a href="#"><time datetime="2021-04-01">2022.04.01</time>サイトを公開しました！</a>
+        </article>
+        <article>
+            <h2>最近の質問</h2>
+            <ol>
+                <li><a href="#"><time datetime="2021-04-12">2022.04.12</time>サイトの作り方</a></li>
+                <li><a href="#"><time datetime="2021-04-05">2022.04.05</time>こんにちは</a></li>
+                <li><a href="#"><time datetime="2021-04-01">2022.04.01</time>pythonを用いたAI実装について</a></li>
+            </ol>
+        </article>
     </main>
-</header>
 </body>
+
 </html>
