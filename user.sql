@@ -19,7 +19,7 @@ CREATE TABLE current_users(
 
 CREATE TABLE graduate_users(
     user_id int AUTO_INCREMENT,
-    name VARCHAR(30) NOT NULL,
+    name VARCHAR(20) NOT NULL,
     gender tinyint NOT NULL DEFAULT 2,
     mail VARCHAR(30) UNIQUE NOT NULL,
     password TEXT NOT NULL,
@@ -31,13 +31,13 @@ CREATE TABLE graduate_users(
 );
 
 -- 在校性登録SQL
-INSERT INTO current_users (name, grade, gender, mail, password)
+INSERT INTO current_users (name, grade, graduation_year, gender, mail, password)
 VALUES (
     ここPHP
 );
 
 
--- 卒業生登録SQL（在校生リストからの削除処理も入れる。）
+-- 卒業生登録SQL（在校生リストからの削除処理も込み）
 INSERT INTO graduate_users(name, gender, mail, password)
 SELECT
     name,
@@ -47,13 +47,13 @@ SELECT
 FROM
     current_users
 WHERE
-    graduation_year - SUBSTR(CURDATE(),1, 4) < 0
+    graduation_year - SUBSTR(CURDATE(), 1, 4) < 0
 ;
 
 DELETE FROM
     current_users
 WHERE
-    graduation_year - SUBSTR(CURDATE(),1, 4) < 0
+    graduation_year - SUBSTR(CURDATE(), 1, 4) < 0
 ;
 
 
