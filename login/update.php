@@ -1,9 +1,9 @@
-<!-- 新規登録 -->
+<!-- 登録情報の変更 -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>新規ユーザー登録</title>
+    <title>ユーザー情報変更</title>
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
@@ -12,8 +12,6 @@
     <?php
         require_once __DIR__.'/util.php';
         
-        $id=$_POST['input_id'];   //ユーザーID
-        $password=$_POST['input_password'];  //パスワード
         $name=$_POST['input_name'];  //ユーザーネーム
         $mail=$_POST['input_mail']; //メールアドレス
         $grade=$_POST['input_grade']; //学年
@@ -23,8 +21,7 @@
 
         $error_code=0;
 
-        if(empty($id)||empty($password)||empty($name)||empty($mail)
-            ||empty($grade)||empty($gender)||empty($graduation_year)){
+        if(empty($name)||empty($mail)||empty($grade)||empty($gender)||empty($graduation_year)){
             //未入力項目あり
             $error_code=100;
         }else{
@@ -36,13 +33,10 @@
                 $result=$stmt->fetch();
 
                 if(empty($result['id'])){
-                    //データベースにユーザー情報を登録
-                    $sql="insert into password (id,password,name,mail,grade,gender,graduation_year) values(?,?,?,?,?,?,?)";
+                    //データベースにユーザー情報を上書き
+                    $sql="update into password (name,mail,grade,gender,graduation_year) values(?,?,?,?,?)";
                     $stmt=$pdo->prepare($sql);
-                    $stmt->execute([$id,$password,$name,$mail,$grade,$gender,$graduation_year]);
-                }else{
-                    //ユーザー情報登録済
-                    $error_code=200;
+                    $stmt->execute([$name,$mail,$grade,$gender,$graduation_year]);
                 }
             }catch(Exception $e){
                 //データベースエラー
@@ -53,7 +47,7 @@
 
         //エラーメッセージ
         if($error_code==0){
-            echo "<h2>ユーザー登録が完了しました</h2>";
+            echo "<h2>ユーザー情報の更新が完了しました</h2>";
             echo "<hr><br>";
             echo "<table id='regiTable'>";
             echo "<tr><th>ユーザーID</th><td>".h($id)."</td></tr>";

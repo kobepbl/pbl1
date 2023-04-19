@@ -1,3 +1,4 @@
+<!-- ログイン -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -12,23 +13,23 @@
         require_once __DIR__.'/util.php';
         
         $ident=$_POST['login_id'];
-        $pass=$_POST['login_pass'];
+        $pass=$_POST['login_password'];
         $name="";
 
         $error_code=0;
 
-        if(empty($ident)||empty($pass)){
+        if(empty($id)||empty($password)){
             //未入力項目あり
             $error_code=100;
         }else{
             try{
                 //ユーザーIDをキーにデータベースから抽出
-                $sql="select * from password where ident = ? and pass=?";
+                $sql="select * from password where id = ? and password=?";
                 $stmt=$pdo->prepare($sql);
-                $stmt->execute([$ident,$pass]);
+                $stmt->execute([$id,$password]);
                 $result=$stmt->fetch();
 
-                if(empty($result['ident'])){
+                if(empty($result['id'])){
                     //ユーザーID、パスワードの不一致
                     $error_code=200;
                 }else{

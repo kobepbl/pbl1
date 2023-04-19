@@ -1,18 +1,19 @@
+<!-- ログイン -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>ログイン</title>
-    <!-- <link rel="stylesheet" href="(cssのスタイルシート)"> -->
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <div id="main">
     <h2>ログイン</h2>
     <hr><br>
     ユーザーIDとパスワードを入力してログイン<br>
-    初めての方は「新規登録」後にログインしてください。<br>
+    初めての方は「新規登録」後にログインしてください<br>
 
-    <from method="POST" action="login.php">
+    <form method="POST" action="login.php">
     <table id="mainTable">
         <!-- ユーザーID入力 -->
         <tr>
@@ -29,7 +30,7 @@
             <td class="left-align"><input type="submit" value="ログイン"></td>
         </tr>
     </table>
-    </from>
+    </form>
     <!-- 新規ユーザー登録ボタン -->
     <p><a href="register.html">新規ユーザー登録をする</a></p>
     <hr>

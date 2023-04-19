@@ -1,3 +1,4 @@
+<!-- 共通データ、関数 -->
 <?php
     $dsn='mysql:host=localhost;dbname=login;charset=utf-8';
     $user='';
