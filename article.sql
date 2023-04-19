@@ -71,3 +71,21 @@ FROM
 WHERE
     sentence REGEXP '*文章（ここ貰った検索ワード）*'
 ;
+
+-- ユーザごとの投稿確認
+WITH 作成中 AS(
+    SELECT
+        ???
+    FROM
+        ???
+)
+SELECT
+    title,
+    sentence,
+    like_count,
+    creation_date
+FROM
+    article_list
+GROUP BY
+    user_id
+;
