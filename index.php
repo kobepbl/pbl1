@@ -66,7 +66,7 @@
           </article>
         </a>
       </article>
-      <div class="index-style">
+      
         <article class="article-style">
           <h1>最近の質問</h1>
           <a href="kiji">
