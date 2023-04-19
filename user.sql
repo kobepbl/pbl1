@@ -2,7 +2,7 @@
 -- 性別　0男　1女 2その他（デフォルトは「その他」）
 
 CREATE TABLE current_users(
-    user_id int PRIMARY KEY AUTO_INCREMENT,
+    current_user_id int PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(20) NOT NULL,
     grade tinyint NOT NULL,
     graduation_year smallint NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE current_users(
     mail VARCHAR(30) UNIQUE NOT NULL,
     password TEXT NOT NULL,
     INDEX current_users_index(
-        id,
+        current_user_id,
         name,
         grade,
         mail
@@ -18,13 +18,13 @@ CREATE TABLE current_users(
 );
 
 CREATE TABLE graduate_users(
-    user_id int PRIMARY KEY AUTO_INCREMENT,
+    graduate_user_id int NOT NULL,
     name VARCHAR(20) NOT NULL,
     gender tinyint NOT NULL DEFAULT 2,
     mail VARCHAR(30) UNIQUE NOT NULL,
     password TEXT NOT NULL,
     INDEX graduate_users_index(
-        id,
+        graduate_user_id,
         name,
         mail
     )
@@ -38,8 +38,9 @@ VALUES (
 
 
 -- 卒業生登録SQL（在校生リストからの削除処理も込み）
-INSERT INTO graduate_users(name, gender, mail, password)
+INSERT INTO graduate_users(graduate_user_id, name, gender, mail, password)
 SELECT
+    current_user_id,
     name,
     gender,
     mail,
