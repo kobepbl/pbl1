@@ -1,6 +1,7 @@
 -- CREATE DATABASE IF NOT EXISTS user_data;
 -- 性別　0男　1女 2その他（デフォルトは「その他」）
 
+
 CREATE TABLE current_users(
     user_id int PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(20) NOT NULL,
