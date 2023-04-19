@@ -72,6 +72,10 @@ header h1 {
 }
 
 main {
+  width: 100%;
+}
+
+.index-style {
   width: 80%;
   display: flex;
   justify-content: center;
@@ -113,6 +117,27 @@ article p {
 .article-title {
   margin: 0 auto;
   text-align: center;
+}
+
+.article-show {
+  width: 75%;
+  margin: 50px auto;
+  padding: 25px;
+  background-color: #eeeeee8d;
+  border-radius: 10px;
+}
+
+.article-show-title {
+  font-size: 40px;
+  margin: 10px 0;
+}
+
+.article-show-user {
+  font-size: 20px;
+}
+
+.article-text {
+  font-size: 22px;
 }
 
 footer {
