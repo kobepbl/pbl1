@@ -15,6 +15,7 @@ CREATE TABLE article_list(
     )
 );
 
+/* 挙動怪しいので保留
 -- 投稿者名で検索
 SELECT
     title,
@@ -28,28 +29,45 @@ WHERE
                     name
                 FROM
                     current_users
+                WHERE
+                    user_id = current_user_id
+                )
+                UNION ALL
+                (
+                    SELECT
+                        name
+                    FROM
+                        graduate_users
+                    WHERE
+                        user_id = graduate_user_id               
+                )
 ;
+
+*/
 
 -- 日付で検索
 SELECT
-    name,
-    写真,
-    文章,
-    日付
+    title,
+    sentence,
+    like_count,
+    creation_date
 FROM
     article_list
 WHERE
-    name = 名前（ここPHP）
+    creation_date (< or > or =) ひづけ
+    ここPHP
+ORDER BY
+    ソート指定
 ;
 
 -- 部分列で検索（文章）
 SELECT
-    name,
-    写真,
-    文章,
-    日付
+    title,
+    sentence,
+    like_count,
+    creation_date
 FROM
     article_list
 WHERE
-    文章 REGEXP '*文章（ここ貰った検索ワード）*'
+    sentence REGEXP '*文章（ここ貰った検索ワード）*'
 ;
