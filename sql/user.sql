@@ -26,3 +26,11 @@ VALUES  ();
 INSERT INTO current_users(name, grade, graduation_year, mail, password)
 VALUES  ();
 
+-- password update
+UPDATE
+    current_users
+SET
+    password = $_POST['password']
+WHERE
+    user_id = ログイン中のユーザID
+;
