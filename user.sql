@@ -17,3 +17,12 @@ CREATE TABLE current_users(
         mail
     )
 );
+
+-- sign_up(gender != 2)
+INSERT INTO current_users(name, grade, graduation_year, gender, mail, password)
+VALUES  ();
+
+-- sign_up(gender == 2)
+INSERT INTO current_users(name, grade, graduation_year, mail, password)
+VALUES  ();
+
