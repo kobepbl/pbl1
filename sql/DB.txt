@@ -1,3 +1,0 @@
-DB: pbl1
-ユーザ: kobedenshi_pb1_a
-パスワード: kobedenshi_2023
