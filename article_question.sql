@@ -24,7 +24,9 @@ CREATE TABLE question_list(
     question VARCHAR(400) NOT NULL,
     question_date DATETIME NOT NULL,
     INDEX question_list_index(
-        -- 作成中
+        question_id,
+        title,
+        question_date
     ),
     FOREIGN KEY (user_id) REFERENCES current_users(user_id)
 );
