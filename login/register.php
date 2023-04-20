@@ -1,4 +1,8 @@
 <!-- 新規登録 -->
+<?php
+    require_once __DIR__ . '/../index/header.php';
+    // require_once __DIR__ . '/util.php';
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,7 +15,7 @@
     
     <?php
         require_once __DIR__.'/util.php';
-        
+
         $id=$_POST['input_id'];   //ユーザーID
         $password=$_POST['input_password'];  //パスワード
         $name=$_POST['input_name'];  //ユーザーネーム
@@ -81,5 +85,8 @@
     <br><br>
     <hr>
     </div>
+    <?php
+        require_once __DIR__.'/../index/footer.php';
+    ?>
 </body>
 </html>

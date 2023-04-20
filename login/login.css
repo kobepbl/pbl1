@@ -47,3 +47,7 @@ td.left-align {
 #regiTable td {
   border: 1px solid;
 }
+
+.login-form{
+  margin: auto;
+}

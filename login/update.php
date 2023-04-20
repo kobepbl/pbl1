@@ -1,4 +1,9 @@
 <!-- 登録情報の変更 -->
+<?php
+    session_start();
+    require_once __DIR__ . '/../index/header.php';
+    // require_once __DIR__ . '/util.php';
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -10,10 +15,15 @@
     <div id=main>
     
     <?php
-        require_once __DIR__.'/util.php';
-        
+
+        $name="select name from user where id=?";  //ユーザーネーム
+        $mail=$_POST['input_mail'];; //メールアドレス
+        $grade=$_POST['input_grade']; //学年
+        $gender=$_POST['input_gender']; //性別
+        $graduation_year=$_POST['input_graduation_year']; //卒業年度
+
         $name=$_POST['input_name'];  //ユーザーネーム
-        $mail=$_POST['input_mail']; //メールアドレス
+        $mail=$_POST['input_mail'];; //メールアドレス
         $grade=$_POST['input_grade']; //学年
         $gender=$_POST['input_gender']; //性別
         $graduation_year=$_POST['input_graduation_year']; //卒業年度
@@ -75,5 +85,8 @@
     <br><br>
     <hr>
     </div>
+    <?php
+        require_once __DIR__.'/../index/footer.php';
+    ?>
 </body>
 </html>
