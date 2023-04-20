@@ -1,4 +1,3 @@
--- making
 -- 作成日は日付と時間
 
 CREATE TABLE article_comment_list(
