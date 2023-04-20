@@ -72,6 +72,10 @@ header h1 {
 }
 
 main {
+  width: 100%;
+}
+
+.index-style {
   width: 80%;
   display: flex;
   justify-content: center;
@@ -100,12 +104,14 @@ article a {
   text-decoration: none;
 }
 
-article p {
+.article-user {
   padding: 15px 0px 10px 15px;
   margin: 0 auto;
 }
 
 .article-date {
+  padding: 15px 0px 10px 15px;
+  margin: 0 auto;
   font-size: 12px;
   display: inline-block;
 }
@@ -113,6 +119,80 @@ article p {
 .article-title {
   margin: 0 auto;
   text-align: center;
+}
+
+a.page_number:visited {
+  color: black;
+  text-decoration: none
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+
+.page_feed {
+  width: 30px;
+  margin: 0 10px;
+  padding: 5px 10px;
+  text-align: center;
+  background: #b8b8b8;
+  color: black;
+}
+
+.page_number {
+  width: 30px;
+  margin: 0 10px;
+  padding: 5px;
+  text-align: center;
+  background: #b8b8b8;
+  color: black;
+}
+
+.now_page_number {
+  width: 30px;
+  margin: 0 10px;
+  padding: 5px;
+  text-align: center;
+  background: #f0f0f0;
+  color: black;
+  font-weight: bold;
+}
+
+.first_last_page {
+  width: 30px;
+  margin: 0 10px;
+  padding: 5px 10px;
+  text-align: center;
+  background: #f0f0f0;
+  color: black;
+}
+
+.from_to {
+  display: flex;
+  justify-content: center;
+}
+
+.article-show {
+  width: 75%;
+  margin: 50px auto;
+  padding: 25px;
+  background-color: #eeeeee8d;
+  border-radius: 10px;
+}
+
+.article-show-title {
+  font-size: 40px;
+  margin: 10px 0;
+}
+
+.article-show-user {
+  font-size: 20px;
+}
+
+.article-text {
+  font-size: 22px;
 }
 
 footer {
