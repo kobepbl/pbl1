@@ -21,6 +21,7 @@ CREATE TABLE question_list(
     user_id int NOT NULL,
     title VARCHAR(30) NOT NULL,
     question VARCHAR(400) NOT NULL,
+    like_count int NOT NULL DEFAULT 0,
     question_date DATETIME NOT NULL,
     INDEX question_list_index(
         question_id,
