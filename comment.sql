@@ -5,6 +5,7 @@ CREATE TABLE article_comment_list(
     article_id int NOT NULL,
     user_id int NOT NULL,
     comment VARCHAR(400) NOT NULL,
+    like_count int NOT NULL DEFAULT 0,
     posted_date DATETIME NOT NULL,
     INDEX article_comment_list_index(
         comment_id,
@@ -19,6 +20,7 @@ CREATE TABLE question_comment_list(
     question_id int NOT NULL,
     user_id int NOT NULL,
     comment VARCHAR(400) NOT NULL,
+    like_count int NOT NULL DEFAULT 0,
     posted_date DATETIME NOT NULL,
     INDEX article_comment_list_index(
         comment_id,
