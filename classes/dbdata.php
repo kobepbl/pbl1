@@ -8,8 +8,8 @@ class  DbData
     {   // コンストラクタ
         // PDOオブジェクトを生成する
         $dsn = 'mysql:host=localhost;dbname=pbl1;charset=utf8';
-        $user = 'test';
-        $password = 'testes';
+        $user = 'kobedenshi_pbl1_a';
+        $password = 'kobedenshi_2023';
         try {
             $this->pdo = new PDO($dsn, $user, $password);
         } catch (Exception  $e) {
