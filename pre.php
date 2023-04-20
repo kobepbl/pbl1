@@ -2,6 +2,8 @@
 session_start();
 
 $_SESSION["is_login"] = false;
+$_SESSION["userId"] = isset($_SESSION["userId"]) ? $_SESSION["userId"] : '';
+$_SESSION["userName"] = isset($_SESSION["userName"]) ? $_SESSION["userName"] : '';
 
 $http_host = '//' . $_SERVER['SERVER_NAME'];
 $id = "pbl1"; #フォルダ名に変更する
