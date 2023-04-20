@@ -2,7 +2,7 @@
 
 CREATE TABLE article_list(
     article_id int PRIMARY KEY AUTO_INCREMENT,
-    user_id int UNIQUE NOT NULL,
+    user_id int NOT NULL,
     title VARCHAR(30) NOT NULL,
     sentence VARCHAR(400) NOT NULL,
     like_count int NOT NULL DEFAULT 0,
@@ -30,3 +30,5 @@ CREATE TABLE question_list(
     ),
     FOREIGN KEY (user_id) REFERENCES current_users(user_id)
 );
+
+-- article_listに新規記事を入れる。
