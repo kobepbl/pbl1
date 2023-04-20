@@ -1,5 +1,8 @@
 <?php
 require_once __DIR__ . '/pre.php';
+// if (!$_SESSION["is_login"]) {
+//   header("Location:$login_php");
+// }
 ?>
 
 <!DOCTYPE html>
@@ -24,9 +27,16 @@ require_once __DIR__ . '/pre.php';
         <li class="nav-list-item">
           <a href="post_php">投稿</a>
         </li>
-        <li class="nav-list-item">
-          <a href="login.html">ログイン</a>
-        </li>
+        <?php
+        if (!$_SESSION["is_login"]) {
+          echo '<li class="nav-list-item"><a href="' . $signup_php . '">新規登録</a></li>';
+          echo '<li class="nav-list-item"><a href="' . $login_php . '">ログイン</a></li>';
+        } else {
+          // echo '<li class="nav-list-item"><a href="' . $user_php . '">マイページ</a></li>';
+          // echo '<li class="nav-list-item"><a href="' . $user_php . '">投稿</a></li>';
+          // echo '<li class="nav-list-item"><a href="' . $user_php . '">ログアウト</a></li>';
+        }
+        ?>
       </ul>
     </nav>
   </header>

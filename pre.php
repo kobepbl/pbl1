@@ -2,8 +2,6 @@
 session_start();
 
 $_SESSION["is_login"] = false;
-if ($_SESSION["is_login"]) {
-}
 
 $http_host = '//' . $_SERVER['SERVER_NAME'];
 $id = "pbl1"; #フォルダ名に変更する
