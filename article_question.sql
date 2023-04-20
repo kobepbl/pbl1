@@ -18,7 +18,7 @@ CREATE TABLE article_list(
 );
 
 CREATE TABLE question_list(
-    question_id PRIMARY KEY AUTO_INCREMENT,
+    question_id int PRIMARY KEY AUTO_INCREMENT,
     user_id int NOT NULL,
     title VARCHAR(30) NOT NULL,
     question VARCHAR(400) NOT NULL,
