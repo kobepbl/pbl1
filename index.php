@@ -5,6 +5,8 @@ require_once __DIR__ . '/classes/post.php';
 $post = new Post();
 // すべての記事を抽出
 $articles = $post->getArticles();
+require_once __DIR__ . '/classes/paging_controller.php';
+
 
 require_once __DIR__ . '/header.php';
 ?>
@@ -28,17 +30,18 @@ require_once __DIR__ . '/header.php';
     <article class="article-style">
       <h1>最近の投稿</h1>
       <?php
-      foreach ($articles  as  $article) {
+      foreach ($disp_data  as  $article) {
       ?>
         <a href="article/article_show.php?article_id=<?= $article['article_id'] ?>">
           <article class="article-one">
-            <p><object><a href="user/user_show?user_id=<?= $article['user_id'] ?>"><?= $article['name'] ?></a></object></p>
+            <p class="article-user"><object><a href="user/user_show?user_id=<?= $article['user_id'] ?>"><?= $article['name'] ?></a></object></p>
             <h2 class="article-title"><object><a href="article/article_show.php?article_id=<?= $article['article_id'] ?>"><?= $article['title'] ?></a></object></h2>
             <p class="article-date"><?= date('Y年m月d日', strtotime($article['creation_date'])) ?></p>
           </article>
         </a>
       <?php
       }
+      require_once __DIR__ . '/classes/paging.php';
       ?>
     </article>
 
