@@ -42,4 +42,24 @@ class  Post  extends  DbData
         $question = $stmt->fetch();
         return $question;
     }
+
+    // すべての記事コメントを逆順でを取り出す
+    public  function  getArticlecomments($article_id)
+    {
+        $sql  =  "select  *  from  article_comment_list join current_users on article_comment_list.user_id = current_users.user_id where article_id = '". $article_id ."' order by article_comment_list.comment_id desc";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $article_comments = $stmt->fetchAll();
+        return  $article_comments;
+    }
+
+    // 選択された記事コメントを取り出す
+    public function getArticlecomment($article_comment_id)
+    {
+
+        $sql = "select * from article_comment_list join current_users on article_comment_list.user_id = current_users.user_id where article_id = ?";
+        $stmt = $this->query($sql, [$article_comment_id]);
+        $article_comment = $stmt->fetch();
+        return $article_comment;
+    }
 }
