@@ -5,8 +5,12 @@ require_once __DIR__ . '/classes/post.php';
 $post = new Post();
 // すべての記事を抽出
 $articles = $post->getArticles();
-require_once __DIR__ . '/paging/paging_controller.php';
 
+// すべての質問を抽出
+$questions = $post->getQuestions();
+
+require_once __DIR__ . '/paging/paging_controller.php';
+require_once __DIR__ . '/paging/question_paging_controller.php';
 
 require_once __DIR__ . '/header.php';
 ?>
@@ -47,27 +51,20 @@ require_once __DIR__ . '/header.php';
 
     <article class="article-style">
       <h1>最近の質問</h1>
-      <a href="kiji">
-        <article class="article-one">
-          <p><object><a href="user">石井</a></object></p>
-          <h2 class="article-title"><object><a href="kiji">ポートフォリオ作成例</a></object></h2>
-          <p class="article-date">2022.04.12</p>
-        </article>
-      </a>
-      <a href="kiji">
-        <article class="article-one">
-          <p><object><a href="user">石井</a></object></p>
-          <h2 class="article-title"><object><a href="kiji">ポートフォリオ作成例</a></object></h2>
-          <p class="article-date">2022.04.12</p>
-        </article>
-      </a>
-      <a href="kiji">
-        <article class="article-one">
-          <p><object><a href="user">石井</a></object></p>
-          <h2 class="article-title"><object><a href="kiji">ポートフォリオ作成例</a></object></h2>
-          <p class="article-date">2022.04.12</p>
-        </article>
-      </a>
+      <?php
+      foreach ($disp_data2  as  $question) {
+      ?>
+        <a href="question/question_show.php?question_id=<?= $question['question_id'] ?>">
+          <article class="article-one">
+            <p class="article-user"><object><a href="user/user_show?user_id=<?= $question['user_id'] ?>"><?= $question['name'] ?></a></object></p>
+            <h2 class="article-title"><object><a href="question/question_show.php?question_id=<?= $question['question_id'] ?>"><?= $question['title'] ?></a></object></h2>
+            <p class="article-date"><?= date('Y年m月d日', strtotime($question['question_date'])) ?></p>
+          </article>
+        </a>
+      <?php
+      }
+      require_once __DIR__ . '/paging/paging.php';
+      ?>
     </article>
   </div>
 </main>
