@@ -1,3 +1,4 @@
 DB: pbl1
-ユーザ: kobedenshi_pb1_a
-パスワード: kobedenshi_2023
+ユーザ: kobedenshi_pbl1_a
+ホスト名 localhost
+パスワード kobedenshi_2023
