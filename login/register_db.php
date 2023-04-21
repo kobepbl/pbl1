@@ -1,8 +1,6 @@
 <?php
-require_once __DIR__ . '/util.php';
-require_once __DIR__ . '/../header.php';
+require_once __DIR__ . '/../classes/user_login.php';
 
-$kubun = $_POST['kubun'];
 $name = $_POST['name'];
 $mail = $_POST['mail'];
 $grade = $_POST['grade'];
@@ -10,37 +8,31 @@ $gender = $_POST['gender'];
 $graduation_year = $_POST['graduation_year'];
 $password = $_POST['password'];
 
-// session_start();
+session_start();
 
-if (!filter_var($id, FILTER_VALIDATE_EMAIL)) {
+if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
     $_SESSION['signup_error'] = '正しいメールアドレスを入力してください。';
-    header('Location: ./register.php');
+    header('Location: register.php');
     exit();
 }
-
 if (!is_numeric($grade) || $grade > 4) {
     $_SESSION['signup_error'] = '正しい学年を入力してください。';
-    header('Location: ./register.php');
+    header('Location: register.php');
     exit();
 }
 
 if (!is_numeric($graduation_year) || strlen($graduation_year) !== 4) {
     $_SESSION['signup_error'] = '卒業年度を西暦で正しく入力してください。';
-    header('Location: ./register.php');
+    header('Location: register.php');
     exit();
 }
 
-require_once __DIR__ . '/user.php';
 $user = new User();
-if ($kubun == "insert") {
-    $result = $user->register($name, $mail, $grade, $gender, $graduation_year, $password);
-} else {
-    $result = $user->register($name, $mail, $grade, $gender, $graduation_year, $password);
-}
-
+$result = $user->register($name, $mail, $grade, $gender, $graduation_year, $password);
+echo $result;
 if ($result !== '') {
     $_SESSION['signup_error'] = $result;
-    header('Location:./register.php');
+    header('Location: register.php');
     exit();
 }
 
@@ -52,8 +44,10 @@ $_SESSION['graduation_year'] = $graduation_year;
 
 // setcookie("id",$id,time()+60*60*24*14,'/');
 setcookie("name", $name, time() + 60 * 60 * 24 * 14, '/');
+require_once __DIR__ . '/../util.php';
+require_once __DIR__ . '/../header.php';
 ?>
-ユーザー情報を登録しました。<br>
+<!-- ユーザー情報を登録しました。<br>
 <table>
     <tr>
         <td>ユーザーネーム</td>
@@ -64,18 +58,19 @@ setcookie("name", $name, time() + 60 * 60 * 24 * 14, '/');
         <td><?= h($mail) ?></td>
     </tr>
     <tr>
-        <td>性別</td>
-        <td><?= h($gender) ?></td>
-    </tr>
-    <tr>
         <td>学年</td>
         <td><?= h($grade) ?></td>
+    </tr>
+    <tr>
+        <td>性別</td>
+        <td><?= h($gender) ?></td>
     </tr>
     <tr>
         <td>卒業年度</td>
         <td><?= h($graduation_year) ?></td>
     </tr>
-</table>
+</table> -->
 <?php
+header('Location:' . $index_php);
 require_once __DIR__ . '/../footer.php';
 ?>

@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../classes/user_login.php';
-require_once __DIR__ . '/util.php';
-require_once __DIR__ . '/../header.php';
+
 $mail = $_POST['mail'];
 $password = $_POST['password'];
 
@@ -16,23 +15,23 @@ if (empty($result['mail'])) {
     exit();
 }
 
-$userName = $result['name'];
+$name = $result['name'];
 
 $_SESSION['name'] = $name;
 $_SESSION['password'] = $result['password'];
-$_SESSION['mail'] = $result['mail'];
+$_SESSION['mail'] = $mail;
 $_SESSION['grade'] = $result['grade'];
 $_SESSION['gender'] = $result['gender'];
 $_SESSION['graduation_year'] = $result['graduation_year'];
 
-setcookie("mail", $mail, time() + 60 * 60 * 24 * 14, '/');
 setcookie("name", $name, time() + 60 * 60 * 24 * 14, '/');
 
-
+require_once __DIR__ . '/../util.php';
+require_once __DIR__ . '/../header.php';
 
 ?>
-<p>こんにちは、<?= h($name) ?>さん。</p>
-<p>ショッピングをお楽しみください。</p>
+
 <?php
+header('Location:' . $index_php);
 require_once __DIR__ . '/../footer.php';
 ?>

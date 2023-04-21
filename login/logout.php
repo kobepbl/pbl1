@@ -7,7 +7,6 @@ if (isset($_COOKIE[session_name()])) {
 }
 session_destroy();
 
-setcookie('id', '', time() - 1000, '/');
 setcookie('name', '', time() - 1000, '/');
 
-    // header("Location:".topページ.php);
+header("Location:" . $login_php);
