@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 DB: pbl1
 ユーザ: kobedenshi_pb1_a
+=======
+DB: pbl1
+ユーザ: kobedenshi_pb1_a
+>>>>>>> d180abab2f2e29048237d9e186736972d3864b5f
 パスワード: kobedenshi_2023

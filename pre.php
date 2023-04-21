@@ -10,9 +10,9 @@ $id = "pbl1"; #フォルダ名に変更する
 
 $index_php = $http_host . '/' . $id . '/index.php';
 $post_php = $http_host . '/' . $id . '/post/post.php';
-$login_php = $http_host . '/' . $id . '/user/login.php';
+$login_php = $http_host . '/' . $id . '/login/login.php';
 $logout_php = $http_host . '/' . $id . '/user/logout.php';
-$signup_php = $http_host . '/' . $id . '/user/signup.php';
+$register_php = $http_host . '/' . $id . '/login/resister.php';
 
 $layout_css = $http_host . '/' . $id . '/css/layout.css';
 $post_css = $http_host . '/' . $id . '/css/post.css';
