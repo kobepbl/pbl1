@@ -3,21 +3,21 @@
 
     class User extends DbData{
         public function authUser($id,$password){
-            $sql="select*from users where id=? and password=?";
+            $sql="select*from current_users where id=? and password=?";
             $stmt=$this->query($sql,[$id,$password]);
             return $stmt->fetch();
         }
 
 
         public function register($id,$name,$mail,$grade,$gender,$graduation_year,$password){
-            $sql="select * from users where id=?";
+            $sql="select * from current_users where id=?";
             $stmt=$this->query($sql,[$id]);
             $result=$stmt->fetch();
 
             if($result){
                 return 'この'.$id.'は既に登録されています。';
             }
-            $sql="insert into users(id,name,mail,grade,gender,graduation_year,password)value(?,?,?,?,?,?,?)";
+            $sql="insert into current_users(id,name,mail,grade,gender,graduation_year,password)value(?,?,?,?,?,?,?)";
             $result=$this->exec($sql,[$id,$name,$mail,$grade,$gender,$graduation_year,$password]);
 
         }

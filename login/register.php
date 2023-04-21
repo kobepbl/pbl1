@@ -3,10 +3,10 @@
     require_once __DIR__.'/../index/header.php';
     require_once __DIR__.'/util.php';
 
-    if(isset($_SESSION['signup_error'])){
-        echo '<p class="error_class">'.$_SESSION['signup_error'].'</p>';
-        unset($_SESSION['signup_error']);
-    }
+     if(isset($_SESSION['signup_error'])){
+         echo '<p class="error_class">'.$_SESSION['signup_error'].'</p>';
+         unset($_SESSION['signup_error']);
+     }
 
     $id=isset($_SESSION['id'])?$_SESSION['id']:'';
     $name=isset($_SESSION['name'])?$_SESSION['name']:'';
@@ -39,9 +39,9 @@
     <tr><td>学年</td><td><input type="text" name="number" value="<?=$grade?>" required></td></tr>
     <tr><td>性別</td><td>
     <p style="desplay:inline-block;width: 100px;">
-    <input type="radio" name="input_gender" value="<?=$gender?>"required>男性
+    <input type="radio" name="input_gender" value="<?=$gender?>" checked required>男性
     <p style="desplay:inline-block;width: 100px;">
-    <input type="radio" name="input_gender" value="<?=$gender?>"require>女性</td></tr>
+    <input type="radio" name="input_gender" value="<?=$gender?>" require>女性</td></tr>
     <tr><td>卒業年度</td><td><input type="number" name="graduation_year" value="<?=$graduation_year?>" required></td></tr>
     <tr><td>パスワード</td><td><input type="password" name="password" required></td></tr>
     <tr><td colspan="2"><input type="submit" value="送信"></td></tr>

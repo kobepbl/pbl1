@@ -1,4 +1,7 @@
 <?php
+    require_once __DIR__.'/util.php';
+    require_once __DIR__.'/../index/header.php';
+
     $kubun=$_POST['kubun'];
     $id=$_POST['id'];
     $name=$_POST['name'];
@@ -12,25 +15,25 @@
 
     if(!ctype_alnum($id)){
         $_SESSION['signup_error']='IDは半角英数字のみで入力してください。';
-        header('Location:./signup.php');
+        header('Location:/register.php');
         exit();
     }
 
     if(!filter_var($id,FILTER_VALIDATE_EMAIL)){
         $_SESSION['signup_error']='正しいメールアドレスを入力してください。';
-        header('Location:./register.php');
+        header('Location:/register.php');
         exit();
     }
 
     if(!is_numeric($grade)||$grade>4){
         $_SESSION['signup_error']='正しい学年を入力してください。';
-        header('Location:./signup.php');
+        header('Location:/register.php');
         exit();
     }
 
     if(!is_numeric($graduation_year)||strlen($graduation_year)!==4){
         $_SESSION['signup_error']='卒業年度を西暦で正しく入力してください。';
-        header('Location:./signup.php');
+        header('Location:/register.php');
         exit();
     }
 
@@ -57,9 +60,6 @@
 
     setcookie("id",$id,time()+60*60*24*14,'/');
     setcookie("name",$name,time()+60*60*24*14,'/');
-
-    require_once __DIR__.'/util.php';
-    require_once __DIR__.'/../index/header.php';
 ?>
 ユーザー情報を登録しました。<br>
 <table>
