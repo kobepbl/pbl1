@@ -5,7 +5,7 @@ require_once __DIR__ . '/classes/post.php';
 $post = new Post();
 // すべての記事を抽出
 $articles = $post->getArticles();
-require_once __DIR__ . '/classes/paging_controller.php';
+require_once __DIR__ . '/paging/paging_controller.php';
 
 
 require_once __DIR__ . '/header.php';
@@ -41,7 +41,7 @@ require_once __DIR__ . '/header.php';
         </a>
       <?php
       }
-      require_once __DIR__ . '/classes/paging.php';
+      require_once __DIR__ . '/paging/paging.php';
       ?>
     </article>
 
