@@ -2,7 +2,8 @@
 // 送られてきたデータを受けとる
 
 //$userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : ''; 
-
+require_once __DIR__ . '/../util.php';
+require_once __DIR__ . '/../header.php';
 $userid = $_POST['userid'];
 $title = $_POST['title']; //タイトル
 $sentence = $_POST['sentence']; //本文 
@@ -38,9 +39,6 @@ if ($result !== '') {
 
 $_SESSION['title'] = $title;
 $_SESSION['sentence'] = $sentence;
-
-require_once __DIR__ . '/../util.php';
-require_once __DIR__ . '/../header.php';
 ?>
 記事を投稿しました<br>
 <table>
