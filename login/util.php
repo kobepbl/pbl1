@@ -8,7 +8,8 @@
             // PDOオブジェクトを生成する                     
             $dsn = 'mysql:host=localhost;dbname=pbl1;charset=utf-8';                     
             $user = 'kobedenshi_pbl1_a';                     
-            $password = 'kobedenshi_2023';                     
+            $password = 'kobedenshi_2023';     
+            $pdo=new PDO($dsn,$user,$password);                
             try{                      
                 $this->pdo = new PDO($dsn, $user, $password);                     
             } catch(Exception  $e){                     
@@ -29,10 +30,10 @@
         }                     
     }                     
   
-    $dsn='mysql:host=localhost;dbname=pbl1;charset=utf-8';
-    $user='kobedenshi_pbl1_a';
-    $password='kobedenshi_2023';
-    $pdo=new PDO($dsn,$user,$password);
+   // $dsn='mysql:host=localhost;dbname=pbl1;charset=utf-8';
+    //$user='kobedenshi_pbl1_a';
+    //$password='kobedenshi_2023';
+    //$pdo=new PDO($dsn,$user,$password);
 
     function h($data){
         return htmlspecialchars($data,ENT_QUOTES,"UTF-8");

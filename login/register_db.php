@@ -28,7 +28,7 @@
         exit();
     }
 
-    if(!is_numeric($graduation_year)||strlen($zip)!==4){
+    if(!is_numeric($graduation_year)||strlen($graduation_year)!==4){
         $_SESSION['signup_error']='卒業年度を西暦で正しく入力してください。';
         header('Location:./signup.php');
         exit();

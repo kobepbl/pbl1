@@ -1,3 +1,4 @@
+<!-- 新規登録 -->
 <?php
     require_once __DIR__.'/../index/header.php';
     require_once __DIR__.'/util.php';
@@ -27,21 +28,25 @@
     // }
 ?>
 
-<p><?=$title?></p>
+<!-- <p><?=$title?></p> -->
 
 <form method="POST" action="./register_db.php">
+<center>
 <table>
-    <tr><td>Id</td><td><input type="text" name="id" value="<?=$id?>" required></td></tr>
+    <tr><td>ユーザーId</td><td><input type="text" name="id" value="<?=$id?>" required></td></tr>
     <tr><td>名前</td><td><input type="text" name="name" value="<?=$name?>" required></td></tr>
     <tr><td>メールアドレス</td><td><input type="email" name="mail" value="<?=$mail?>" required></td></tr>
     <tr><td>学年</td><td><input type="text" name="number" value="<?=$grade?>" required></td></tr>
     <tr><td>性別</td><td>
-    <input type="radio" name="input_gender" value="<?=$gender?>"required>男性</td>
+    <p style="desplay:inline-block;width: 100px;">
+    <input type="radio" name="input_gender" value="<?=$gender?>"required>男性
+    <p style="desplay:inline-block;width: 100px;">
     <input type="radio" name="input_gender" value="<?=$gender?>"require>女性</td></tr>
     <tr><td>卒業年度</td><td><input type="number" name="graduation_year" value="<?=$graduation_year?>" required></td></tr>
     <tr><td>パスワード</td><td><input type="password" name="password" required></td></tr>
     <tr><td colspan="2"><input type="submit" value="送信"></td></tr>
 </table>
+</center>
 <input type="hidden" name="kubun" value="<?=$kubun?>">
 </form>
 <?php
