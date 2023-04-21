@@ -11,7 +11,8 @@ require_once __DIR__ . '/pre.php';
 <head>
   <meta charset="UTF-8">
   <title>神戸電子情報共有サイト</title>
-  <link rel="stylesheet" href="<?= $style_css ?>">
+  <link rel="stylesheet" href="<?= $layout_css ?>">
+  <link rel="stylesheet" href="<?= $post_css ?>">
 </head>
 
 <body>

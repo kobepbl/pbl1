@@ -14,4 +14,5 @@ $login_php = $http_host . '/' . $id . '/user/login.php';
 $logout_php = $http_host . '/' . $id . '/user/logout.php';
 $signup_php = $http_host . '/' . $id . '/user/signup.php';
 
-$style_css = $http_host . '/' . $id . '/css/style.css';
+$layout_css = $http_host . '/' . $id . '/css/layout.css';
+$post_css = $http_host . '/' . $id . '/css/post.css';
