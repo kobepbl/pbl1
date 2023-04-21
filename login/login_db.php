@@ -1,10 +1,10 @@
 <?php
-    $userId=$_POST['userId'];
+    $id=$_POST['id'];
     $password=$_POST['password'];
 
-    require_once __DIR__.'/../classes/user.php';
+    require_once __DIR__.'/user.php';
     $user=new User();
-    $result=$user->authUser($userId,$password);
+    $result=$user->authUser($id,$password);
 
     session_start();
 
@@ -16,24 +16,22 @@
 
     $userName=$result['name'];
 
-    $user->changeCartUserId($_SESSION['id'],$userId);
-
     $_SESSION['id']=$id;
     $_SESSION['name']=$name;
-    $_SESSION['password']=$result['kana'];
+    $_SESSION['password']=$result['password'];
     $_SESSION['mail']=$result['mail'];
     $_SESSION['grade']=$result['grade'];
     $_SESSION['gender']=$result['gender'];
     $_SESSION['graduation_year']=$result['graduation_year'];
 
-    setcookie("userId",$userId,time()+60*60*24*14,'/');
-    setcookie("userName",$userName,time()+60*60*24*14,'/');
+    setcookie("id",$id,time()+60*60*24*14,'/');
+    setcookie("name",$name,time()+60*60*24*14,'/');
 
-    require_once __DIR__.'/../header.php';
-    require_once __DIR__.'/../util.php';
+    require_once __DIR__.'/../index/header.php';
+    require_once __DIR__.'/util.php';
 ?>
 <p>こんにちは、<?=h($name)?>さん。</p>
 <p>ショッピングをお楽しみください。</p>
 <?php
-    require_once __DIR__.'/../footer.php';
+    require_once __DIR__.'/../index/footer.php';
 ?>

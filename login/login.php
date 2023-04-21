@@ -23,10 +23,10 @@
     ?>
     <div class="login-form">
         <form method="POST" action="./login_db.php">
-
+        <center>
         <table>
             <tr>
-                <th class="right-align">ユーザーID:</th>
+                <th class="right-align">ユーザーID：</th>
                 <td class="left-align"><input type="text" name="login_id"></td>
             </tr>
             <tr>
@@ -38,11 +38,12 @@
                 <td class="left-align"><input type="submit" value="ログイン"></td>
             </tr>
         </table>
+        </center>
     </form>
     </div>
     </div>
     <!-- 新規ユーザー登録ボタン -->
-    <p><a href="register.html">新規ユーザー登録</a></p>
+    <p><a href="register.php">新規ユーザー登録</a></p>
 </body>
 
 <?php

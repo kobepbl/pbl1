@@ -1,92 +1,49 @@
-<!-- 新規登録 -->
 <?php
-    require_once __DIR__ . '/../index/header.php';
-    // require_once __DIR__ . '/util.php';
+    require_once __DIR__.'/../index/header.php';
+    require_once __DIR__.'/util.php';
+
+    if(isset($_SESSION['signup_error'])){
+        echo '<p class="error_class">'.$_SESSION['signup_error'].'</p>';
+        unset($_SESSION['signup_error']);
+    }
+
+    $id=isset($_SESSION['id'])?$_SESSION['id']:'';
+    $name=isset($_SESSION['name'])?$_SESSION['name']:'';
+    $mail=isset($_SESSION['mail'])?$_SESSION['mail']:'';
+    $grade=isset($_SESSION['grade'])?$_SESSION['grade']:'';
+    $gender=isset($_SESSION['gender'])?$_SESSION['gender']:'';
+    $graduation_year=isset($_SESSION['graduation_year'])?$_SESSION['graduation_year']:'';
+
+    if($name=="ゲスト"){
+        $kubun="insert";
+        $title="ユーザー情報を登録してください";
+        $id='';
+        $name='';
+    }
+    // 登録情報の変更
+    // else{
+        // $kubun="update";
+        // $title="ユーザー情報を確認・変更することができます。";
+    // }
 ?>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>新規ユーザー登録</title>
-    <link rel="stylesheet" href="login.css">
-</head>
-<body>
-    <div id=main>
-    
-    <?php
-        require_once __DIR__.'/util.php';
 
-        $id=$_POST['input_id'];   //ユーザーID
-        $password=$_POST['input_password'];  //パスワード
-        $name=$_POST['input_name'];  //ユーザーネーム
-        $mail=$_POST['input_mail']; //メールアドレス
-        $grade=$_POST['input_grade']; //学年
-        $gender=$_POST['input_gender']; //性別
-        $graduation_year=$_POST['input_graduation_year']; //卒業年度
+<p><?=$title?></p>
 
-
-        $error_code=0;
-
-        if(empty($id)||empty($password)||empty($name)||empty($mail)
-            ||empty($grade)||empty($gender)||empty($graduation_year)){
-            //未入力項目あり
-            $error_code=100;
-        }else{
-            try{
-                //ユーザーIDをキーにデータベースから抽出
-                $sql="select * from password where id = ?";
-                $stmt=$pdo->prepare($sql);
-                $stmt->execute([$id]);
-                $result=$stmt->fetch();
-
-                if(empty($result['id'])){
-                    //データベースにユーザー情報を登録
-                    $sql="insert into password (id,password,name,mail,grade,gender,graduation_year) values(?,?,?,?,?,?,?)";
-                    $stmt=$pdo->prepare($sql);
-                    $stmt->execute([$id,$password,$name,$mail,$grade,$gender,$graduation_year]);
-                }else{
-                    //ユーザー情報登録済
-                    $error_code=200;
-                }
-            }catch(Exception $e){
-                //データベースエラー
-                $error_code=900;
-            }
-            $pdo=null;
-        }
-
-        //エラーメッセージ
-        if($error_code==0){
-            echo "<h2>ユーザー登録が完了しました</h2>";
-            echo "<hr><br>";
-            echo "<table id='regiTable'>";
-            echo "<tr><th>ユーザーID</th><td>".h($id)."</td></tr>";
-            echo "<tr><th>パスワード</th><td>".h($password)."</td></tr>";
-            echo "<tr><th>ユーザーネーム</th><td>".h($name)."</td></tr>";
-            echo "<tr><th>メールアドレス</th><td>".h($mail)."</td></tr>";
-            echo "<tr><th>学年</th><td>".h($grade)."</td></tr>";
-            echo "<tr><th>性別</th><td>".h($gender)."</td></tr>";
-            echo "<tr><th>卒業年度</th><td>".h($graduationyear)."</td></tr>";
-            echo "</table><br>";
-            echo "<a href='login.html'>ログインページ</a>";
-        }else if($error_code==100){
-            echo "<h2>未入力項目があります</h2>";
-            echo "<hr><br>";
-            echo "すべての項目を入力してください<br><br>";
-            echo "<a href='register.html'>新規ユーザー登録へ戻る</a>";
-        }else if($error_code==900){
-            echo "<h2>データベースエラー</h2>";
-            echo "<hr><br>";
-            echo "データベースでエラーが発生しました<br>";
-            echo "管理者に連絡してください<br>";
-            echo "<a href='login.html'>ログインページ</a>";
-        }
-    ?>
-    <br><br>
-    <hr>
-    </div>
-    <?php
-        require_once __DIR__.'/../index/footer.php';
-    ?>
-</body>
-</html>
+<form method="POST" action="./register_db.php">
+<table>
+    <tr><td>Id</td><td><input type="text" name="id" value="<?=$id?>" required></td></tr>
+    <tr><td>名前</td><td><input type="text" name="name" value="<?=$name?>" required></td></tr>
+    <tr><td>メールアドレス</td><td><input type="email" name="mail" value="<?=$mail?>" required></td></tr>
+    <tr><td>学年</td><td><input type="text" name="number" value="<?=$grade?>" required></td></tr>
+    <tr><td>性別</td><td>
+    <input type="radio" name="input_gender" value="<?=$gender?>"required>男性</td>
+    <input type="radio" name="input_gender" value="<?=$gender?>"require>女性</td></tr>
+    <tr><td>卒業年度</td><td><input type="number" name="graduation_year" value="<?=$graduation_year?>" required></td></tr>
+    <tr><td>パスワード</td><td><input type="password" name="password" required></td></tr>
+    <tr><td colspan="2"><input type="submit" value="送信"></td></tr>
+</table>
+<input type="hidden" name="kubun" value="<?=$kubun?>">
+</form>
+<?php
+    require_once __DIR__.'/../index/footer.php';
+?>

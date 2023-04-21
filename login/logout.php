@@ -1,7 +1,7 @@
-<!-- ログアウト -->
 <?php
-    session_start();
-    $_SESSION=array();
+    require_once __DIR__.'/../index/header.php';
+
+    $_SESSION=[];
     if(isset($_COOKIE[session_name()])){
         setcookie(session_name(),'',time()-1000,'/');
     }
@@ -10,3 +10,4 @@
     setcookie('id','',time()-1000,'/');
     setcookie('name','',time()-1000,'/');
 
+    // header("Location:".topページ.php);
