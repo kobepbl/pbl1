@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6b6b;
+}
+
+.main-visual {
+  font-family: "Bradley Hand", Courier, "Segoe Print", sans-serif;
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+header {
+  width: 100%;
+  padding: 10px 0;
+  margin: 0 auto;
+  position: relative;
+
+}
+
+.top-info {
+  width: fit-content
+}
+
+header h1 {
+  margin-left: 15px;
+}
+
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+  position: absolute;
+  top: 8px;
+  right: 22px;
+}
+
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.main-visual {
+  width: 100%;
+  height: 300px;
+  background-image: url(../img/kobe.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.main-visual-content {
+  width: 40%;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding-top: 105px;
+}
+
+.main-visual-text {
+  color: #fff;
+}
+
+.main-visual-name {
+  margin-top: 30px;
+  color: #fff;
+}
+
+main {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.article-style {
+  width: 40%;
+  margin: 0 auto;
+}
+
+article h1 {
+  border-bottom: 8px solid #f7f7f7;
+  text-align: center;
+}
+
+.article-one {
+  margin: 15px 0;
+  background-color: #eeeeee8d;
+  border-radius: 10px;
+}
+
+article a {
+  color: inherit;
+  text-decoration: none;
+}
+
+article p {
+  padding: 15px 0px 10px 15px;
+  margin: 0 auto;
+}
+
+.article-date {
+  font-size: 12px;
+  display: inline-block;
+}
+
+.article-title {
+  margin: 0 auto;
+  text-align: center;
+}
+
+footer {
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  background-color: #848282;
+}
+
+.footer-text {
+  color: #fff;
+}
