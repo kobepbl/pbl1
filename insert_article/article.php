@@ -11,11 +11,9 @@ $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
 <form method="POST" action="./article_db.php">
 
 <table>
-<input type="hidden" name="userid" value="<?= $userId ?>">
+<input type="hidden" name="userid" value="1"> 
 <tr><td>タイトル</td><td><input type="text" name="title" required></td></tr>
 <tr><td>本文</td><td><input type="text" name="sentence" required></td></tr>
-
-
 
 <tr><td colspan="2"><input type="submit" value="送信"></td></tr>
 </table>

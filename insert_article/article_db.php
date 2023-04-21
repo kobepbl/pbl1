@@ -1,25 +1,24 @@
 <?php 
 // 送られてきたデータを受けとる
 
-$userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : ''; 
+//$userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : ''; 
 
-
+$userid = $_POST['userid'];
 $title = $_POST['title']; //タイトル
 $sentence = $_POST['sentence'];//本文 
 
-$like_count = 0;//いいね
-$creation_date = date('Y-m-d');//更新日時
+$creation_date = date('Y-m-d ') . date('H:i:s');//更新日時がんばる
 
 
-session_start( );
+//session_start( );
 
-if(mb_strlen($title) >= 30 ){
+if(mb_strlen($title) > 30 ){
     $_SESSION['article_error'] = '30文字以下でタイトルをつけてください'; // エラーメッセージをセット
     header('Location: article.php'); 
     exit();
 }
 
-if(mb_strlen($sentence) >= 400 ){
+if(mb_strlen($sentence) > 400 ){
     $_SESSION['article_error'] = '400文字以下でタイトルをつけてください'; // エラーメッセージをセット
     header('Location: article.php'); 
     exit();
@@ -28,7 +27,7 @@ if(mb_strlen($sentence) >= 400 ){
 require_once __DIR__ . '/user.php';
 $article = new Article();
  
-$result = $article->Insertarticle($user_id,$title,$sentence,$like_count,$creation_date);
+$result = $article->Insertarticle($userid,$title,$sentence,$creation_date);
 
 
 if($result !== '') { 
