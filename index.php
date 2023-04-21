@@ -34,7 +34,7 @@ require_once __DIR__ . '/header.php';
     <article class="article-style">
       <h1>最近の投稿</h1>
       <?php
-      foreach ($disp_data  as  $article) {
+      foreach ($article_data  as  $article) {
       ?>
         <a href="article/article_show.php?article_id=<?= $article['article_id'] ?>">
           <article class="article-one">
@@ -52,7 +52,7 @@ require_once __DIR__ . '/header.php';
     <article class="article-style">
       <h1>最近の質問</h1>
       <?php
-      foreach ($disp_data2  as  $question) {
+      foreach ($question_data  as  $question) {
       ?>
         <a href="question/question_show.php?question_id=<?= $question['question_id'] ?>">
           <article class="article-one">
@@ -63,7 +63,7 @@ require_once __DIR__ . '/header.php';
         </a>
       <?php
       }
-      require_once __DIR__ . '/paging/paging.php';
+      require_once __DIR__ . '/paging/question_paging.php';
       ?>
     </article>
   </div>

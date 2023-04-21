@@ -1,30 +1,30 @@
 <?php
-//define('MAX', '10');
-$count = count($questions);
-$max_page = ceil($count / MAX);
+define('max', '10');
+$q_count = count($questions);
+$q_max_page = ceil($q_count / max);
 
-if (!isset($_GET['page_id'])) {
-  $page = 1;
+if (!isset($_GET['q_page_id'])) {
+  $q_page = 1;
 } else {
-  $page = $_GET['page_id'];
+  $q_page = $_GET['q_page_id'];
 }
 
-$start_no = ($page - 1) * MAX;
+$q_start_no = ($q_page - 1) * max;
 
-$disp_data2 = array_slice($questions, $start_no, MAX, true);
+$question_data = array_slice($questions, $q_start_no, MAX, true);
 
-if ($page == 1 || $page == $max_page) {
-  $range = 4;
-} elseif ($page == 2 || $page == $max_page - 1) {
-  $range = 3;
+if ($q_page == 1 || $q_page == $q_max_page) {
+  $q_range = 4;
+} elseif ($q_page == 2 || $q_page == $q_max_page - 1) {
+  $q_range = 3;
 } else {
-  $range = 2;
+  $q_range = 2;
 }
 
-$from_record = ($page - 1) * 10 + 1;
+$q_from_record = ($q_page - 1) * 10 + 1;
 
-if ($page == $max_page && $count % 10 !== 0) {
-  $to_record = ($page - 1) * 10 + $count % 10;
+if ($q_page == $q_max_page && $q_count % 10 !== 0) {
+  $q_to_record = ($q_page - 1) * 10 + $q_count % 10;
 } else {
-  $to_record = $page * 10;
+  $q_to_record = $q_page * 10;
 }

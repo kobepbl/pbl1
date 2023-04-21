@@ -3,15 +3,15 @@ define('MAX', '10');
 $count = count($articles);
 $max_page = ceil($count / MAX);
 
-if (!isset($_GET['page_id'])) {
+if (!isset($_GET['a_page_id'])) {
   $page = 1;
 } else {
-  $page = $_GET['page_id'];
+  $page = $_GET['a_page_id'];
 }
 
 $start_no = ($page - 1) * MAX;
 
-$disp_data = array_slice($articles, $start_no, MAX, true);
+$article_data = array_slice($articles, $start_no, MAX, true);
 
 if ($page == 1 || $page == $max_page) {
   $range = 4;
