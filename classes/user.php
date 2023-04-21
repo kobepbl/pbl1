@@ -1,6 +1,6 @@
 <?php 
 
-require_once __DIR__ . '/../dbdata.php';
+require_once __DIR__ . '/dbdata.php';
 class Article extends DbData{
 
     public function Insertarticle($user_id,$title,$sentence,$creation_date){

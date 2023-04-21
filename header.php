@@ -11,12 +11,8 @@ require_once __DIR__ . '/pre.php';
 <head>
   <meta charset="UTF-8">
   <title>神戸電子情報共有サイト</title>
-<<<<<<< HEAD
-  <link rel="stylesheet" href="<?= $style_css ?>">
-=======
   <link rel="stylesheet" href="<?= $layout_css ?>">
   <link rel="stylesheet" href="<?= $post_css ?>">
->>>>>>> 6b023fbe301576bb6d9010692e2b64e2bc4f00d5
 </head>
 
 <body>
@@ -30,19 +26,18 @@ require_once __DIR__ . '/pre.php';
     <nav>
       <ul class="nav-list">
         <li class="nav-list-item">
-          <a href="$post_php">投稿</a>
+          <?php
+          if (!$_SESSION["is_login"]) {
+            echo '<li class="nav-list-item"><a href="' . $article_post_php . '">投稿</a></li>';
+            echo '<li class="nav-list-item"><a href="' . $signup_php . '">新規登録</a></li>';
+            echo '<li class="nav-list-item"><a href="' . $login_php . '">ログイン</a></li>';
+          } else {
+            // echo '<li class="nav-list-item"><a href="' . $user_php . '">マイページ</a></li>';
+            // echo '<li class="nav-list-item"><a href="' . $user_php . '">投稿</a></li>';
+            // echo '<li class="nav-list-item"><a href="' . $user_php . '">ログアウト</a></li>';
+          }
+          ?>
         </li>
-        <?php
-        if (!$_SESSION["is_login"]) {
-          echo '<li class="nav-list-item"><a href="' . $signup_php . '">新規登録</a></li>';
-          echo '<li class="nav-list-item"><a href="' . $login_php . '">ログイン</a></li>';
-          echo '<li class="nav-list-item"><a href="' . $post_php . '">投稿</a></li>';
-        } else {
-          // echo '<li class="nav-list-item"><a href="' . $user_php . '">マイページ</a></li>';
-          // echo '<li class="nav-list-item"><a href="' . $user_php . '">投稿</a></li>';
-          // echo '<li class="nav-list-item"><a href="' . $user_php . '">ログアウト</a></li>';
-        }
-        ?>
       </ul>
     </nav>
   </header>
