@@ -8,7 +8,6 @@
          unset($_SESSION['signup_error']);
      }
 
-    $id=isset($_SESSION['id'])?$_SESSION['id']:'';
     $name=isset($_SESSION['name'])?$_SESSION['name']:'';
     $mail=isset($_SESSION['mail'])?$_SESSION['mail']:'';
     $grade=isset($_SESSION['grade'])?$_SESSION['grade']:'';
@@ -30,10 +29,9 @@
 
 <!-- <p><?=$title?></p> -->
 
-<form method="POST" action="./register_db.php">
+<form method="POST" action="http://localhost/pbl1/login/register_db.php">
 <center>
 <table>
-    <tr><td>ユーザーId</td><td><input type="text" name="id" value="<?=$id?>" required></td></tr>
     <tr><td>名前</td><td><input type="text" name="name" value="<?=$name?>" required></td></tr>
     <tr><td>メールアドレス</td><td><input type="email" name="mail" value="<?=$mail?>" required></td></tr>
     <tr><td>学年</td><td><input type="text" name="number" value="<?=$grade?>" required></td></tr>

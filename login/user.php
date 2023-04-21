@@ -9,16 +9,16 @@
         }
 
 
-        public function register($id,$name,$mail,$grade,$gender,$graduation_year,$password){
-            $sql="select * from current_users where id=?";
-            $stmt=$this->query($sql,[$id]);
+        public function register($name,$mail,$grade,$gender,$graduation_year,$password){
+            $sql="select * from current_users where mail=?";
+            $stmt=$this->query($sql,[$mail]);
             $result=$stmt->fetch();
 
             if($result){
-                return 'この'.$id.'は既に登録されています。';
+                return 'この'.$mail.'は既に登録されています。';
             }
-            $sql="insert into current_users(id,name,mail,grade,gender,graduation_year,password)value(?,?,?,?,?,?,?)";
-            $result=$this->exec($sql,[$id,$name,$mail,$grade,$gender,$graduation_year,$password]);
+            $sql="insert into current_users(name,mail,grade,gender,graduation_year,password)value(?,?,?,?,?,?)";
+            $result=$this->exec($sql,[$name,$mail,$grade,$gender,$graduation_year,$password]);
 
         }
 
