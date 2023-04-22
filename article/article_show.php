@@ -21,7 +21,10 @@ require_once __DIR__ . '/../header.php'
     <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($article['creation_date'])) ?></p>
     <h1 class="article-show-title"><?= $article['title'] ?></h1>
     <p class="article-text"><?= $article['sentence'] ?></p>
-    <h1>コメント</h1>
+  </div>
+
+  <div class="article-show">
+  <h1>コメント</h1>
     <?php
       foreach ($article_comments  as  $article_comment) {
       ?>
