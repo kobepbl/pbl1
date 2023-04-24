@@ -9,12 +9,15 @@ $result = $user->authUser($mail, $password);
 
 session_start();
 
+
 if (empty($result['mail'])) {
     $_SESSION['login_error'] = 'ユーザID、パスワードを確認してください。';
     header('Location:./login.php');
     exit();
 }
-
+if(password_verify($_POST['password'], $result['hash'])){
+}else{
+}
 $name = $result['name'];
 
 $_SESSION['name'] = $name;
