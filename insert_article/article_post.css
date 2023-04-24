@@ -1,0 +1,21 @@
+.outer{
+    height: 6rem;
+    text-align: center;
+    display: table;
+    width: 100%;
+}
+.inner{
+    display: table-cell;
+    vertical-align: middle;
+    font-size:25px;
+}
+.form{
+    width: 95%;
+    margin:0 auto;
+    border: 1px solid #9c9c9c;
+    padding: 50px;
+    box-sizing: border-box;
+}
+.item{
+   margin-bottom: 20px;
+}
