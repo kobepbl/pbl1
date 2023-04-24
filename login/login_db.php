@@ -15,9 +15,7 @@ if (empty($result['mail'])) {
     header('Location:./login.php');
     exit();
 }
-if(password_verify($_POST['password'], $result['hash'])){
-}else{
-}
+
 $name = $result['name'];
 
 $_SESSION['name'] = $name;
