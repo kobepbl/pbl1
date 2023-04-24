@@ -16,9 +16,9 @@ if (strlen($name)>=21) {
     header('Location: register.php');
     exit();
 }
-// メールアドレス50文字以下 st認証保留
- if (//preg_match('/^[a-z0-9._+^~-]+@st.kobedenshi.ac.jp', $mail) || 
-    strlen($mail)>=51) {
+// メールアドレス50文字以下
+ if (!filter_var($mail, FILTER_VALIDATE_EMAIL) || strlen($mail)>=51 ||
+    (mb_substr($mail,mb_strrpos($mail,'@'),mb_strlen($mail))=="@st.kobedenshi.ac.jp")==false) {
     $_SESSION['signup_error'] = '正しいメールアドレスを入力してください。';
     header('Location: register.php');
     exit();
