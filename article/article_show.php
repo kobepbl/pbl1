@@ -28,9 +28,9 @@ require_once __DIR__ . '/../header.php'
     <?php
     foreach ($article_comments  as  $article_comment) {
     ?>
-      <p class="article-show-user"><a href="user/user_show?user_id=<?= $article_comment['user_id'] ?>"><?= $article_comment['name'] ?></a></p>
+      <p class="comment-user"><a href="user/user_show?user_id=<?= $article_comment['user_id'] ?>"><?= $article_comment['name'] ?></a></p>
       <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($article_comment['posted_date'])) ?></p>
-      <p class="article-text"><?= $article_comment['comment'] ?></p>
+      <p class="comment-border"><?= $article_comment['comment'] ?></p>
     <?php
     }
     ?>
