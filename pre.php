@@ -5,7 +5,7 @@ if (!isset($_SESSION)) {
 
 $name = isset($_SESSION['name']) ? $_SESSION['name'] : '';
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
-if (empty($use_id) ||empty($name)) {
+if (empty($use_id) || empty($name)) {
   if (isset($_COOKIE['user_id']) && isset($_COOKIE['name'])) {
     $name = $_COOKIE['name'];
     $user_id = $_COOKIE["user_id"];

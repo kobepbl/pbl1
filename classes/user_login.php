@@ -5,7 +5,7 @@ class User extends DbData
 {
     public function authUser($mail, $password)
     {
-        $sql = "select*from current_users where mail=? and password=?";
+        $sql = "select * from current_users where mail=? and password=?";
         $stmt = $this->query($sql, [$mail, $password]);
         return $stmt->fetch();
     }
@@ -20,7 +20,7 @@ class User extends DbData
         if ($result) {
             return 'この' . $mail . 'は既に登録されています。';
         }
-        $sql = "insert into current_users(name,mail,grade,gender,graduation_year,password)value(?,?,?,?,?,?)";
+        $sql = "insert into current_users(name,mail,grade,gender,graduation_year,password)values(?,?,?,?,?,?)";
         $result = $this->exec($sql, [$name, $mail, $grade, $gender, $graduation_year, $password]);
 
         if ($result) {
