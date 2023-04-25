@@ -149,3 +149,29 @@ a.page_number:visited {
 .article-text {
   font-size: 22px;
 }
+
+.comment-user {
+  font-size: 20px;
+  padding: 20px 0px 0px 0px;
+}
+
+.comment-border {
+  font-size: 22px;
+  border-bottom: 1px solid;
+  padding: 10px 0px 20px 0px;
+}
+
+.anser {
+  width: 75%;
+  margin: 50px auto 0px auto;
+  padding: 10px 25px 10px 25px;
+  border-radius: 10px;
+}
+
+.anser-show {
+  width: 75%;
+  margin: 20px auto;
+  padding: 25px;
+  background-color: #eeeeee8d;
+  border-radius: 10px;
+}

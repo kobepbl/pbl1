@@ -16,6 +16,17 @@ header {
   width: fit-content
 }
 
+img {
+  width: 250px;
+  height: 49px;
+}
+
+.top-info a {
+  background-image: url(../img/pbl1_logo.png);
+  background-size: cover;
+  background-position: center;
+}
+
 header h1 {
   margin-left: 15px;
 }
@@ -25,7 +36,7 @@ header h1 {
   padding: 10px 0;
   margin: 0 auto;
   position: absolute;
-  top: 8px;
+  top: 12px;
   right: 22px;
 }
 
