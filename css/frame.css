@@ -21,7 +21,8 @@ img {
   height: 44px;
 }
 
-.logo_img {
+.top-info a {
+  background-image: url(../img/pbl1_logo.png);
   background-size: cover;
   background-position: center;
 }
