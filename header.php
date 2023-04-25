@@ -1,8 +1,9 @@
 <?php
 require_once __DIR__ . '/pre.php';
-// if (!$_SESSION["is_login"]) {
-//   header("Location:$login_php");
-// }
+$url = $_SERVER['REQUEST_URI'];
+if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" && !strstr($url, 'register.php'))) {
+  header("Location:$login_php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +14,7 @@ require_once __DIR__ . '/pre.php';
   <title>神戸電子情報共有サイト</title>
   <link rel="stylesheet" href="<?= $layout_css ?>">
   <link rel="stylesheet" href="<?= $post_css ?>">
+  <link rel="stylesheet" href="<?= $login_css ?>">
 </head>
 
 <body>
@@ -27,14 +29,13 @@ require_once __DIR__ . '/pre.php';
       <ul class="nav-list">
         <li class="nav-list-item">
           <?php
-          if (!$_SESSION["is_login"]) {
-            echo '<li class="nav-list-item"><a href="' . $article_post_php . '">投稿</a></li>';
-            echo '<li class="nav-list-item"><a href="' . $signup_php . '">新規登録</a></li>';
+          if ($name == "no_login") {
+            echo '<li class="nav-list-item"><a href="' . $register_php . '">新規登録</a></li>';
             echo '<li class="nav-list-item"><a href="' . $login_php . '">ログイン</a></li>';
           } else {
             // echo '<li class="nav-list-item"><a href="' . $user_php . '">マイページ</a></li>';
-            // echo '<li class="nav-list-item"><a href="' . $user_php . '">投稿</a></li>';
-            // echo '<li class="nav-list-item"><a href="' . $user_php . '">ログアウト</a></li>';
+            echo '<li class="nav-list-item"><a href="' . $article_post_php . '">投稿</a></li>';
+            echo '<li class="nav-list-item"><a href="' . $logout_php . '">ログアウト</a></li>';
           }
           ?>
         </li>
