@@ -53,10 +53,10 @@ if ($result !== '') {
     exit();
 }
 
-$user_sesion = new User();
-$result_session = $user_session->authUser($mail, $password);
+$user = new User();
+$result = $user->authUser($mail, $password);
 
-$_SESSION['user_id'] =  $result_session['user_id'];
+$_SESSION['user_id'] =  $result['user_id'];
 $_SESSION['name'] = $name;
 $_SESSION['mail'] = $mail;
 $_SESSION['grade'] = $grade;
