@@ -4,7 +4,7 @@ require_once __DIR__ . '/../header.php';
 require_once __DIR__ . '/../util.php'; ?>
 <main>
     <?php
-    $name = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
+    $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
     $name = isset($_SESSION['name']) ? $_SESSION['name'] : '';
     $mail = isset($_SESSION['mail']) ? $_SESSION['mail'] : '';
     $grade = isset($_SESSION['grade']) ? $_SESSION['grade'] : '';
