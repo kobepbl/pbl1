@@ -62,4 +62,14 @@ class  Post  extends  DbData
         $article_comment = $stmt->fetch();
         return $article_comment;
     }
+
+    // すべての質問回答を逆順でを取り出す
+    public  function  getQuestioncomments($question_id)
+    {
+        $sql  =  "select  *  from  question_comment_list join current_users on question_comment_list.user_id = current_users.user_id where question_id = '". $question_id ."' order by question_comment_list.comment_id desc";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $question_comments = $stmt->fetchAll();
+        return  $question_comments;
+    }
 }
