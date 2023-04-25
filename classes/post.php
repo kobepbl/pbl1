@@ -46,7 +46,7 @@ class  Post  extends  DbData
     // すべての記事コメントを逆順でを取り出す
     public  function  getArticlecomments($article_id)
     {
-        $sql  =  "select  *  from  article_comment_list join current_users on article_comment_list.user_id = current_users.user_id where article_id = '". $article_id ."' order by article_comment_list.comment_id desc";
+        $sql  =  "select  *  from  article_comment_list join current_users on article_comment_list.user_id = current_users.user_id where article_id = '". $article_id ."'";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         $article_comments = $stmt->fetchAll();
