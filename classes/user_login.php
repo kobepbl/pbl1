@@ -10,7 +10,6 @@ class User extends DbData
         return $stmt->fetch();
     }
 
-
     public function register($name, $mail, $grade, $gender, $graduation_year, $password)
     {
         $sql = "select * from current_users where mail=?";
@@ -29,6 +28,8 @@ class User extends DbData
             return '新規登録できませんでした。管理者にお問い合わせください。';
         }
     }
+
+    
 
     // 登録情報の変更
     // public function updateUser($id,$name,$mail,$grade,$gender,$tel,$graduation_year,$password){
