@@ -40,18 +40,7 @@ if ($result !== '') {
 
 $_SESSION['title'] = $title;
 $_SESSION['sentence'] = $sentence;
-?>
-記事を投稿しました<br>
-<table>
-    <tr>
-        <td>タイトル</td>
-        <td><?= h($_SESSION['title']) ?></td>
-    </tr>
-    <tr>
-        <td>本文</td>
-        <td><?= h($_SESSION['sentence']) ?></td>
-    </tr>
-</table>
-<?php
+
+header("Location:../index.php");
 require_once __DIR__ . '/../footer.php';
 ?>
