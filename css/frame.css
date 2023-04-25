@@ -16,6 +16,16 @@ header {
   width: fit-content
 }
 
+img {
+  width: 120px;
+  height: 44px;
+}
+
+.logo_img {
+  background-size: cover;
+  background-position: center;
+}
+
 header h1 {
   margin-left: 15px;
 }

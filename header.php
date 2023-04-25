@@ -22,7 +22,7 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
   <header>
     <div class="top-info">
       <a href="<?= $index_php ?>">
-        <h1>神戸電子情報共有サイト</h1>
+        <div class="logo_img"><img src="img/pbl1_logo.png" alt="神戸電子情報共有サイト"></div>
       </a>
     </div>
     <nav>
