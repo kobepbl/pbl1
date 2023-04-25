@@ -42,13 +42,20 @@ require_once __DIR__ . '/../util.php'; ?>
                 </tr>
                 <tr>
                     <td>学年</td>
-                    <td><input type="text" name="grade" value="<?= $grade ?>" required></td>
+                    <td align="left">
+                    <select name="grade">
+                        <option value="1">1年</option>
+                        <option value="2">2年</option>
+                        <option value="3">3年</option>
+                        <option value="4">4年</option>
+                    </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>性別</td>
-                    <td>
+                    <td align="left">
                         <input type="radio" name="gender" value="0" checked required>男性
-                        <input type="radio" name="gender" value="1" require>女性
+                        <input type="radio" name="gender" value="1" required>女性
                     </td>
                 </tr>
                 <tr>
