@@ -44,7 +44,7 @@ if (!is_numeric($graduation_year) || $i !== 4 || $graduation_year<=0) {
 }
 // パスワード5文字以上40文字以下
 if(mb_strlen($password)>=41 || mb_strlen($password)<=4){
-    $_SESSION['signup_error']='パスワードは4文字以上40文字以下で入力してください。';
+    $_SESSION['signup_error']='パスワードは5文字以上40文字以下で入力してください。';
     header('Location: register.php');
     exit();
 }
