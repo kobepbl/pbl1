@@ -1,11 +1,10 @@
 <?php
 // 送られてきたデータを受けとる
 
-
+//$userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : ''; 
 require_once __DIR__ . '/../util.php';
 require_once __DIR__ . '/../header.php';
-//$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : ''; 
-$user_id = $_SESSION["user_id"];
+$userid = $_POST['userid'];
 $title = $_POST['title']; //タイトル
 $sentence = $_POST['sentence']; //本文 
 
@@ -29,7 +28,7 @@ if (mb_strlen($sentence) > 400) {
 require_once __DIR__ . '/../classes/user.php';
 $article = new Article();
 
-$result = $article->Insertarticle($user_id, $title, $sentence, $creation_date);
+$result = $article->Insertarticle($userid, $title, $sentence, $creation_date);
 
 
 if ($result !== '') {
@@ -53,5 +52,4 @@ $_SESSION['sentence'] = $sentence;
     </tr>
 </table>
 <?php
-require_once __DIR__ . '/../footer.php';
-?>
+requ
