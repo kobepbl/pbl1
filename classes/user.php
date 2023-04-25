@@ -20,6 +20,13 @@ class Article extends DbData{
             return '記事登録できませんでした。管理者にお問い合わせください。';
         }
     }
+
+    public function SelectArticle($title, $sentence)
+    {
+        $sql = "select * from article_list where title=? and sentence=? ORDER BY creation_date DESC ";
+        $stmt = $this->query($sql, [$title, $sentence]);
+        return $stmt->fetch();
+    }
     /*
     public function updateUser($userId, $userName, $kana, $zip, $address, $tel, $password, $tempId){
         $sql = "update users set userId=?, userName=?, kana=?, zip=?, address=? ,tel=? ,password=? where userId = ?";

@@ -41,6 +41,11 @@ if ($result !== '') {
 $_SESSION['title'] = $title;
 $_SESSION['sentence'] = $sentence;
 
-header("Location:../index.php");
+$article = new Article();
+$result = $article->SelectArticle($title, $sentence);
+echo $result;
+//<a href="article/article_show.php?article_id=<?= $result['article_id']
+header("Location:../article/article_show.php?article_id={$result['article_id']}");
+
 require_once __DIR__ . '/../footer.php';
 ?>
