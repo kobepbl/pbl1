@@ -1,0 +1,25 @@
+.user-form {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  color: #000000;
+}
+
+form table {
+  margin: 0 auto;
+}
+
+.user-form p,
+.user-form th,
+.user-form td,
+.user-form a,
+.user-form input {
+  color: #000000;
+}
+
+.error_message {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  color: red;
+}

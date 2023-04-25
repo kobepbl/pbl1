@@ -1,0 +1,7 @@
+データベースに管理者を作成してください
+データベース名 pbl1
+ユーザ名 kobedenshi_pbl1_a
+ホスト名 localhost
+パスワード kobedenshi_2023
+
+作業フォルダ名はpbl1にしてください
