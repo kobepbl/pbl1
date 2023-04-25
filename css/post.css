@@ -149,3 +149,14 @@ a.page_number:visited {
 .article-text {
   font-size: 22px;
 }
+
+.comment-user {
+  font-size: 20px;
+  padding: 20px 0px 0px 0px;
+}
+
+.comment-border {
+  font-size: 22px;
+  border-bottom: 1px solid;
+  padding: 10px 0px 20px 0px;
+}
