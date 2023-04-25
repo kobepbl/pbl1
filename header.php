@@ -36,6 +36,8 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
             // echo '<li class="nav-list-item"><a href="' . $user_php . '">マイページ</a></li>';
             // echo '<li class="nav-list-item"><a href="' . $user_php . '">投稿</a></li>';
             echo '<li class="nav-list-item"><a href="' . $logout_php . '">ログアウト</a></li>';
+            echo '<li class="nav-list-item"><a href="' . $user_details_php . '">ユーザー情報</a></li>';
+
           }
           ?>
         </li>

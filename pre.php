@@ -22,6 +22,7 @@ $post_php = $http_host . '/' . $id . '/post/post.php';
 $login_php = $http_host . '/' . $id . '/login/login.php';
 $logout_php = $http_host . '/' . $id . '/login/logout.php';
 $register_php = $http_host . '/' . $id . '/login/register.php';
+$user_details_php= $http_host . '/' . $id . '/user/user_details.php';
 
 $layout_css = $http_host . '/' . $id . '/css/layout.css';
 $post_css = $http_host . '/' . $id . '/css/post.css';
