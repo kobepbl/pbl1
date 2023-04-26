@@ -16,11 +16,13 @@
     require_once __DIR__ . '/../paging/paging_controller.php';
     require_once __DIR__.'/../header.php';
 
+    // パスワードを*で伏せて表示
     $password_details='';
     while(mb_strlen($password_details)<mb_strlen($password)){
         $password_details.='*';
     }
 
+    // 性別の文字化
     if($gender==0){
         $gender_details="男性";
     }elseif($gender==1){
@@ -44,6 +46,7 @@
 <br clear="all">
 <a href="../login/update.php">修正</a>
 
+<!-- 投稿記事 -->
 <main>
   <div class="index-style">
     <article class="article-style">
