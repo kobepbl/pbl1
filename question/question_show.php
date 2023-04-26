@@ -20,7 +20,7 @@ require_once __DIR__ . '/../header.php'
     <p class="article-show-user"><a href="user/user_show?user_id=<?= $question['user_id'] ?>"><?= $question['name'] ?></a></p>
     <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($question['question_date'])) ?></p>
     <h1 class="article-show-title"><?= $question['title'] ?></h1>
-    <p class="article-text"><?= $question['question'] ?></p>
+    <p class="article-text"><?= nl2br($question['question']) ?></p>
   </div>
 
   <div class="anser">
@@ -32,7 +32,7 @@ require_once __DIR__ . '/../header.php'
     <div class="anser-show">
       <p class="comment-user"><a href="user/user_show?user_id=<?= $question_comment['user_id'] ?>"><?= $question_comment['name'] ?></a></p>
       <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($question_comment['posted_date'])) ?></p>
-      <p class="comment-border"><?= $question_comment['comment'] ?></p>
+      <p class="comment-border"><?= nl2br($question_comment['comment']) ?></p>
     </div>
     <?php
     }

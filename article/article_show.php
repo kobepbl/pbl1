@@ -20,7 +20,7 @@ require_once __DIR__ . '/../header.php'
     <p class="article-show-user"><a href="user/user_show?user_id=<?= $article['user_id'] ?>"><?= $article['name'] ?></a></p>
     <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($article['creation_date'])) ?></p>
     <h1 class="article-show-title"><?= $article['title'] ?></h1>
-    <p class="article-text"><?= $article['sentence'] ?></p>
+    <p class="article-text"><?= nl2br($article['sentence']) ?></p>
   </div>
 
   <div class="article-show">
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../header.php'
     ?>
       <p class="comment-user"><a href="user/user_show?user_id=<?= $article_comment['user_id'] ?>"><?= $article_comment['name'] ?></a></p>
       <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($article_comment['posted_date'])) ?></p>
-      <p class="comment-border"><?= $article_comment['comment'] ?></p>
+      <p class="comment-border"><?= nl2br($article_comment['comment']) ?></p>
     <?php
     }
     ?>
