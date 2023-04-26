@@ -19,7 +19,7 @@ class User extends DbData
         if ($result) {
             return 'この' . $mail . 'は既に登録されています。';
         }
-        $sql = "insert into current_users(name,mail,grade,gender,graduation_year,password)value(?,?,?,?,?,?)";
+        $sql = "insert into current_users(name,mail,grade,gender,graduation_year,password)values(?,?,?,?,?,?)";
         $result = $this->exec($sql, [$name, $mail, $grade, $gender, $graduation_year, $password]);
 
         if ($result) {
@@ -29,21 +29,15 @@ class User extends DbData
         }
     }
 
-    
+    public function updateuser($name, $mail, $grade, $gender, $graduation_year, $password)
+    {
+        $sql = "update current_users(name,mail,grade,gender,graduation_year,password)value(?,?,?,?,?,?)";
+        $result = $this->exec($sql, [$name, $mail, $grade, $gender, $graduation_year, $password]);
 
-    // 登録情報の変更
-    // public function updateUser($id,$name,$mail,$grade,$gender,$tel,$graduation_year,$password){
-    // $sql="update users set id=?,name=?,=?,=?,address=?,tel=?,password=? where userId=?";
-    // $result=$this->exec($sql,[$userId,$userName,$kana,$zip,$address,$tel,$password,$tempId]);
-
-    // if($result){
-    // if($userId!=$tempId){
-    // $this->changeCartUserId($tempId,$userId);
-    // $this->changeOrderHistoryUserId($tempId,$userId);
-    // }
-    // return '';
-    // }else{
-    // return 'ユーザー情報の更新ができませんでした。管理者にお問い合わせください。';
-    // }
-    // }
+        if ($result) {
+            return '';
+        } else {
+            return '更新できませんでした。管理者にお問い合わせください。';
+        }
+    }
 }

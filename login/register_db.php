@@ -65,6 +65,7 @@ $_SESSION['mail'] = $mail;
 $_SESSION['grade'] = $grade;
 $_SESSION['gender'] = $gender;
 $_SESSION['graduation_year'] = $graduation_year;
+$_SESSION['password']=$password;
 
 // setcookie("id",$id,time()+60*60*24*14,'/');
 setcookie("name", $name, time() + 60 * 60 * 24 * 14, '/');

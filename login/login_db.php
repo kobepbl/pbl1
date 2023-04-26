@@ -24,6 +24,7 @@ $_SESSION['mail'] = $mail;
 $_SESSION['grade'] = $result['grade'];
 $_SESSION['gender'] = $result['gender'];
 $_SESSION['graduation_year'] = $result['graduation_year'];
+$_SESSION['password']=$result['password'];
 
 setcookie("name", $name, time() + 60 * 60 * 24 * 14, '/');
 

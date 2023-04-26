@@ -10,6 +10,7 @@ require_once __DIR__ . '/../util.php'; ?>
     $grade = isset($_SESSION['grade']) ? $_SESSION['grade'] : '';
     $gender = isset($_SESSION['gender']) ? $_SESSION['gender'] : '';
     $graduation_year = isset($_SESSION['graduation_year']) ? $_SESSION['graduation_year'] : '';
+    $password = isset($_SESSION['password']) ? $_SESSION['password'] : '';
 
     if ($name === "no_login") {
         $kubun = "insert";
