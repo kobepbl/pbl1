@@ -32,7 +32,7 @@ require_once __DIR__ . '/header.php';
 <main>
   <div class="index-style">
     <article class="article-style">
-      <h1>最近の投稿</h1>
+      <h1>最近の記事</h1>
       <?php
       foreach ($article_data  as  $article) {
       ?>
