@@ -21,7 +21,7 @@ require_once __DIR__ . '/header.php';
   <div class="main-visual-content">
     <p class="main-visual-text">
       HELLO WORLD!<br />
-      Welcom to<br />
+      Welcome to<br />
       Kobe Denshi Channel!
     </p>
     <p class="main-visual-name">なんかかっこいいこと</p>

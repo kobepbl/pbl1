@@ -37,6 +37,7 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
           } else {
             echo '<li class="nav-list-item"><a class="fa-solid fa-address-card" href="' . $user_php . '"> マイページ</a></li>';
             echo '<li class="nav-list-item"><a class="fa-solid fa-pen" href="' . $article_post_php . '"> 投稿</a></li>';
+            echo '<li class="nav-list-item"><a class="fa-solid fa-question" href="' . $question_post_php . '"> 質問</a></li>';
             echo '<li class="nav-list-item"><a class="fa-solid fa-right-from-bracket" href="' . $logout_php . '"> ログアウト</a></li>';
           }
           ?>
@@ -44,4 +45,4 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
       </ul>
     </nav>
   </header>
-<hr>  
+  <hr>

@@ -4,10 +4,10 @@ if (!isset($_SESSION)) {
 }
 
 $name = isset($_SESSION['name']) ? $_SESSION['name'] : '';
-$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : ''; 
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 
-if(empty($name)){
-  if(isset($_COOKIE['name'])){
+if (empty($name)) {
+  if (isset($_COOKIE['name'])) {
     $name = $_COOKIE['name'];
     $user_id = $_COOKIE['user_id'];
   } else {
@@ -27,6 +27,7 @@ $id = "pbl1"; #フォルダ名に変更する
 
 $index_php = $http_host . '/' . $id . '/index.php';
 $article_post_php = $http_host . '/' . $id . '/insert_article/article_post.php';
+$question_post_php = $http_host . '/' . $id . '/insert_question/question_post.php';
 $post_php = $http_host . '/' . $id . '/post/post.php';
 $login_php = $http_host . '/' . $id . '/login/login.php';
 $logout_php = $http_host . '/' . $id . '/login/logout.php';
