@@ -9,7 +9,6 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : '';
 if (empty($name)) {
   if (isset($_COOKIE['name'])) {
     $name = $_COOKIE['name'];
-
   } else {
     $name = 'no_login';
     setcookie("name", $name, time() + 60 * 60 * 24 * 14, '/');
@@ -28,6 +27,7 @@ $post_php = $http_host . '/' . $id . '/post/post.php';
 $login_php = $http_host . '/' . $id . '/login/login.php';
 $logout_php = $http_host . '/' . $id . '/login/logout.php';
 $register_php = $http_host . '/' . $id . '/login/register.php';
+$user_php = $http_host . '/' . $id . '/index.php';
 
 $layout_css = $http_host . '/' . $id . '/css/layout.css';
 $post_css = $http_host . '/' . $id . '/css/post.css';
