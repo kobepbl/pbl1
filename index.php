@@ -20,9 +20,9 @@ require_once __DIR__ . '/header.php';
 <div class="main-visual">
   <div class="main-visual-content">
     <p class="main-visual-text">
-      Welcome to<br />
-      Kobe Electronics<br />
-      Information Sharing Site
+      HELLO WORLD!<br />
+      Welcom to<br />
+      Kobe Denshi Channel!
     </p>
     <p class="main-visual-name">なんかかっこいいこと</p>
   </div>

@@ -19,10 +19,12 @@
 }
 
 .main-visual-text {
+  font-size: 130%;
   color: #fff;
 }
 
 .main-visual-name {
+  font-size: 150%;
   margin-top: 30px;
   color: #fff;
 }
