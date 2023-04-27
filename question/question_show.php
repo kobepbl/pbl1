@@ -24,7 +24,7 @@ require_once __DIR__ . '/../header.php'
   </div>
 
   <div class="anser">
-  <h1>回答</h1>
+  <h1 class="anser-border">回答</h1>
   </div>
     <?php
     foreach ($question_comments  as  $question_comment) {
