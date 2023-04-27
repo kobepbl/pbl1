@@ -9,7 +9,7 @@ header {
   padding: 10px 0;
   margin: 0 auto;
   position: relative;
-
+  background-color: #333333;
 }
 
 .top-info {
@@ -55,7 +55,7 @@ footer {
   height: 60px;
   text-align: center;
   line-height: 60px;
-  background-color: #848282;
+  background-color: #333333;
 }
 
 .footer-text {
