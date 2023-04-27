@@ -10,7 +10,6 @@ if(empty($name)){
   if(isset($_COOKIE['name'])){
     $name = $_COOKIE['name'];
     $user_id = $_COOKIE['user_id'];
-
   } else {
     $name = 'no_login';
     $user_id = 'no_login';
@@ -32,8 +31,9 @@ $post_php = $http_host . '/' . $id . '/post/post.php';
 $login_php = $http_host . '/' . $id . '/login/login.php';
 $logout_php = $http_host . '/' . $id . '/login/logout.php';
 $register_php = $http_host . '/' . $id . '/login/register.php';
+$user_php = $http_host . '/' . $id . '/index.php';
 
 $layout_css = $http_host . '/' . $id . '/css/layout.css';
 $post_css = $http_host . '/' . $id . '/css/post.css';
 $login_css = $http_host . '/' . $id . '/css/login.css';
-$logo_img = $http_host . '/' . $id . '/img/pbl1_logo.png';
+$logo_img = $http_host . '/' . $id . '/img/pbl1_logo_02.png';
