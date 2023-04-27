@@ -17,6 +17,7 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
   <link rel="stylesheet" href="<?= $layout_css ?>">
   <link rel="stylesheet" href="<?= $post_css ?>">
   <link rel="stylesheet" href="<?= $login_css ?>">
+  <link rel="stylesheet" href="<?= $article_post_css ?>">
 </head>
 
 <body>

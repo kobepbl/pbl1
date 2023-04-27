@@ -39,6 +39,5 @@
     $result = $question -> select_question($title, $sentence);
     echo $result;
 
-    header("Location: ../question/question_show.php ? question_id = {$result['question_id']}");
+    header("Location: ../question/question_show.php?question_id={$result['question_id']}");
     require_once __DIR__ . '/../footer.php';
-?>

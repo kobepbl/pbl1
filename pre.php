@@ -37,4 +37,5 @@ $user_php = $http_host . '/' . $id . '/index.php';
 $layout_css = $http_host . '/' . $id . '/css/layout.css';
 $post_css = $http_host . '/' . $id . '/css/post.css';
 $login_css = $http_host . '/' . $id . '/css/login.css';
+$article_post_css = $http_host . '/' . $id . '/css/article_post.css';
 $logo_img = $http_host . '/' . $id . '/img/pbl1_logo_02.png';

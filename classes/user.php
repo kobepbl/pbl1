@@ -42,13 +42,13 @@ class Article_comment extends DbData
 }
 class Question extends DbData
 {
-    public function insert_question($user_id, $title, $sentence, $question_date)
+    public function insert_question($user_id, $title, $question, $question_date)
     {
         $sql = "
                     INSERT INTO question_list(user_id, title, question, question_date)
                     VALUES(?, ?, ?, ?)
                     ";
-        $result = $this->exec($sql, [$user_id, $title, $sentence, $question_date]);
+        $result = $this->exec($sql, [$user_id, $title, $question, $question_date]);
         if ($result) {
             return '';
         } else {
@@ -56,7 +56,7 @@ class Question extends DbData
         }
     }
 
-    public function select_question($title, $sentence)
+    public function select_question($title, $question)
     {
         $sql = "
                     SELECT
@@ -65,11 +65,11 @@ class Question extends DbData
                         question_list
                     WHERE
                         title = ?
-                        AND sentence = ?
+                        AND question = ?
                     ORDER BY
                         question_date DESC
                     ";
-        $stmt = $this->query($sql, [$title, $sentence]);
+        $stmt = $this->query($sql, [$title, $question]);
         return $stmt->fetch();
     }
 }
