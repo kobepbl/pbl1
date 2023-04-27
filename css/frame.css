@@ -9,7 +9,7 @@ header {
   padding: 10px 0;
   margin: 0 auto;
   position: relative;
-
+  background-color: #333333;
 }
 
 .top-info {
@@ -22,7 +22,7 @@ img {
 }
 
 .top-info a {
-  background-image: url(../img/pbl1_logo.png);
+  background-image: url(../img/pbl1_logo_02.png);
   background-size: cover;
   background-position: center;
 }
@@ -51,7 +51,7 @@ footer {
   height: 60px;
   text-align: center;
   line-height: 60px;
-  background-color: #848282;
+  background-color: #333333;
 }
 
 .footer-text {

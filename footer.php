@@ -1,6 +1,6 @@
 <!-- footer部分 -->
 <footer>
-  <p class="footer-text">フッターだぜ</p>
+  <p class="footer-text">Kobe Denshi Channel</p>
 </footer>
 </body>
 
