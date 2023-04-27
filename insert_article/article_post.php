@@ -1,19 +1,19 @@
 <?php
 require_once __DIR__ . '/../header.php';
-
-if(isset($_SESSION['article_error'] )){
-    echo '<p class="error_class">' . $_SESSION['article_error'] . '</p>';
-    unset($_SESSION['article_error'] );
-}
 ?>
-
-<br><hr>
 
 <div class="outer">
   <div class="inner">
   新規記事登録
   </div>
 </div>
+
+<?php
+if(isset($_SESSION['article_error'] )){
+    echo '<p class="error_class">' . $_SESSION['article_error'] . '</p>';
+    unset($_SESSION['article_error'] );
+}
+?>
 
 <link rel="stylesheet" href="../css/article_post.css">
 
@@ -30,5 +30,5 @@ if(isset($_SESSION['article_error'] )){
       
     <div class="item">
         <input type="submit" value="送信" class="button"><input type="reset" value="リセット" class="button">
-    <div class="item">
+    </div>
 </form>
