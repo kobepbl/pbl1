@@ -18,7 +18,7 @@ header {
 
 img {
   width: 250px;
-  height: 49px;
+  height: 45px;
 }
 
 .top-info a {
@@ -35,7 +35,7 @@ header h1 {
   padding: 10px 0;
   margin: 0 auto;
   position: absolute;
-  top: 12px;
+  top: 15px;
   right: 22px;
 }
 
