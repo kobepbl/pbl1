@@ -22,7 +22,6 @@ img {
 }
 
 .top-info a {
-  background-image: url(../img/pbl1_logo.png);
   background-size: cover;
   background-position: center;
 }
@@ -44,6 +43,11 @@ header h1 {
   list-style: none;
   display: inline-block;
   margin: 0 10px;
+}
+
+.nav-list-item a {
+  color: black;
+  text-decoration: none;
 }
 
 footer {
