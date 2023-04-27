@@ -31,7 +31,7 @@
 
     $grade_details=$grade."年生";
 
-    $_SESSION[$password_details]=$password_details;
+    $_SESSION['password_details']=$password_details;
 ?>
 
 <table border="1" bordercolor="" align="left">

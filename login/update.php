@@ -24,7 +24,7 @@ require_once __DIR__ . '/../header.php';
             $gender=$_SESSION['gender'];
             $graduation_year=$_SESSION['graduation_year'];
             $password=$_SESSION['password'];
-            $password_details=$_SESSION['password_details'];
+            
 
             if(isset($_SESSION['update_error'])) {
                 echo '<p class="error_message">' . $_SESSION['update_error'] . '</p>';
@@ -41,42 +41,13 @@ require_once __DIR__ . '/../header.php';
         
             $grade_details=$grade."年生";
         ?>
-
         <table border="1" bordercolor="" align="left">
-            <tr>
-                <th>名前</th>
-                <td><input type="text" name="name" value="<?= $name ?>" required></td>
-            </tr>
-            <tr>
-                <th>メールアドレス　</th>
-                <td><input type="email" name="mail" value="<?= $mail ?>" required></td>
-            </tr>
-            <tr>
-                <th>学年</th>
-                <td align="left">
-                    <select name="grade">
-                        <option value="1">1年</option>
-                        <option value="2">2年</option>
-                        <option value="3">3年</option>
-                        <option value="4">4年</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <th>性別</th>
-                <td align="left">
-                    <input type="radio" name="gender" value="0" checked required>男性
-                    <input type="radio" name="gender" value="1" required>女性
-                </td>
-            </tr>
-            <tr>
-                <th>卒業年度</th>
-                <td><input type="number" name="graduation_year" value="<?= $graduation_year ?>" required></td>
-            </tr>
-            <tr>
-                <th>パスワード</th>
-                <td><input type="password" name="password" value="<?= $password_datails ?>" required></td>
-            </tr>
+            <tr><th>名前</th><td><?=$name?></td></tr>
+            <tr><th>メールアドレス　</th><td><?=$mail?></td></tr>
+            <tr><th>学年</th><td><?=$grade_details?></td></tr>
+            <tr><th>性別</th><td><?=$gender_details?></td></tr>
+            <tr><th>卒業年度</th><td><?=$graduation_year?></td></tr>
+            <tr><th>パスワード</th><td><input type="password" name="password" required></td> </tr>    
         </table>
         <!-- 更新ボタン -->
         <br clear="all">

@@ -29,10 +29,10 @@ class User extends DbData
         }
     }
 
-    public function updateuser($name, $mail, $grade, $gender, $graduation_year, $password)
+    public function updateUser($password,$mail)
     {
-        $sql = "update current_users(name,mail,grade,gender,graduation_year,password)value(?,?,?,?,?,?)";
-        $result = $this->exec($sql, [$name, $mail, $grade, $gender, $graduation_year, $password]);
+        $sql = "update current_users set password=? where mail=?";
+        $result = $this->exec($sql, [$password,$mail]);
 
         if ($result) {
             return '';
