@@ -55,7 +55,7 @@ require_once __DIR__ . '/header.php';
       foreach ($question_data  as  $question) {
       ?>
         <a href="question/question_show.php?question_id=<?= $question['question_id'] ?>">
-          <article class="article-one">
+          <article class="question-one">
             <p class="article-user"><object><a href="user/user_show?user_id=<?= $question['user_id'] ?>"><?= $question['name'] ?></a></object></p>
             <h2 class="article-title"><object><a href="question/question_show.php?question_id=<?= $question['question_id'] ?>"><?= $question['title'] ?></a></object></h2>
             <p class="article-date"><?= date('Y年m月d日', strtotime($question['question_date'])) ?></p>
