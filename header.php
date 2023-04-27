@@ -46,4 +46,3 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
       </ul>
     </nav>
   </header>
-  <hr>
