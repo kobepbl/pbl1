@@ -8,8 +8,6 @@ if (isset($_SESSION['question_error'])) {
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 ?>
 
-<br>
-<hr>
 <div class="outer">
     <div class="inner">
         新規質問登録
