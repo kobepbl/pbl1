@@ -14,7 +14,7 @@ if (mb_strlen($title) > 30) {
     exit();
 }
 if (preg_match('/[&"\'<>]/', $title)) {
-    $_SESSION['article_error'] = '使用できない文字が含まれています'; // エラーメッセージをセット
+    $_SESSION['article_error'] = '使用できない文字が含まれています';
     header('Location: article_post.php');
     exit();
 }

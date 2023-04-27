@@ -36,6 +36,13 @@
             }
         }
     }
+}
+
+class Article_comment extends DbData{
+    public function Insertarticle_comment($article_id,$user_id,$comment,$posted_date){
+
+        $sql = "insert into article_comment_list(article_id,user_id,comment,posted_date) values(?, ?, ?, ?)";
+        $result = $this->exec($sql,[$article_id,$user_id,$comment,$posted_date]);
 
     class Question extends DbData{
         public function insert_question($user_id, $title, $sentence, $question_date){
@@ -67,6 +74,7 @@
             return $stmt -> fetch();
         }
     }
+}
 
     class Question_comment extends DbData{
         public function insertquestion_comment($question_id, $user_id, $comment, $posted_date){
