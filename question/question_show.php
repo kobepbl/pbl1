@@ -19,10 +19,14 @@ require_once __DIR__ . '/q_markdown.php';
 
 <main>
   <div class="article-show">
+    <div class="question-show-cover">
     <p class="article-show-user"><a href="user/user_show?user_id=<?= $question['user_id'] ?>"><?= $question['name'] ?></a></p>
     <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($question['question_date'])) ?></p>
+    </div>
     <h1 class="article-show-title"><?= $question['title'] ?></h1>
+    <div class="text-pos">
     <p class="article-text"><?= nl2br($html) ?></p>
+    </div>
   </div>
 
   <div class="anser">
