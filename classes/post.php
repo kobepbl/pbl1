@@ -24,6 +24,15 @@ class  Post  extends  DbData
         return $article;
     }
 
+    // ユーザーの記事を取り出す
+    public function userArticles($user_show_id)
+    {
+        $sql = "select * from article_list where user_id = ?";
+        $stmt = $this->query($sql, [$user_show_id]);
+        $userarticles = $stmt->fetchAll();
+        return $userarticles;
+    }
+
     // すべての質問を逆順でを取り出す
     public  function  getQuestions()
     {
@@ -41,6 +50,15 @@ class  Post  extends  DbData
         $stmt = $this->query($sql, [$question_id]);
         $question = $stmt->fetch();
         return $question;
+    }
+
+    // ユーザーの質問を取り出す
+    public function userQuestions($user_show_id)
+    {
+        $sql = "select * from question_list where user_id = ?";
+        $stmt = $this->query($sql, [$user_show_id]);
+        $userquestions = $stmt->fetchAll();
+        return $userquestions;
     }
 
     // すべての記事コメントを逆順でを取り出す

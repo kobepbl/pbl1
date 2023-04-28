@@ -35,6 +35,7 @@ $register_php = $http_host . '/' . $id . '/login/register.php';
 $user_php= $http_host . '/' . $id . '/user/user_details.php';
 
 
+
 $layout_css = $http_host . '/' . $id . '/css/layout.css';
 $post_css = $http_host . '/' . $id . '/css/post.css';
 $login_css = $http_host . '/' . $id . '/css/login.css';
