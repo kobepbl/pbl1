@@ -139,6 +139,7 @@ a.page_number:visited {
 
 .article-show {
   width: 75%;
+  padding: 0px 0px 5px 0px;
   margin: 50px auto;
   background-color: #eeeeee8d;
   border-radius: 10px;
