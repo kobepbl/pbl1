@@ -24,7 +24,6 @@ require_once __DIR__ . '/header.php';
       Welcome to<br />
       Kobe Denshi Channel!
     </p>
-    <p class="main-visual-name">卍神戸電子最強卍</p>
   </div>
 </div>
 
