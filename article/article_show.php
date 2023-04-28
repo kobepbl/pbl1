@@ -20,10 +20,14 @@ require_once __DIR__ . '/a_markdown.php';
 
 <main>
   <div class="article-show">
+    <div class="article-show-cover">
     <p class="article-show-user"><a href="user/user_show?user_id=<?= $article['user_id'] ?>"><?= $article['name'] ?></a></p>
     <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($article['creation_date'])) ?></p>
+    </div>
     <h1 class="article-show-title"><?= $article['title'] ?></h1>
+    <div class="text-pos">
     <p class="article-text"><?= nl2br($html) ?></p>
+    </div>
   </div>
 
   <?php
@@ -31,14 +35,15 @@ require_once __DIR__ . '/a_markdown.php';
   ?>
 
   <div class="article-show">
-    <h1>コメント</h1>
+    <h1 class="comment">コメント</h1>
     <?php
     foreach ($article_comments  as  $article_comment) {
     ?>
+      <div class="text-pos">
       <p class="comment-user"><a href="user/user_show?user_id=<?= $article_comment['user_id'] ?>"><?= $article_comment['name'] ?></a></p>
       <p class="article-show-date">投稿日 <?= date('Y年m月d日 H時i分s秒', strtotime($article_comment['posted_date'])) ?></p>
       <p class="comment-border"><?= nl2br($article_comment['comment']) ?></p>
-
+      </div>
     <?php
     }
     ?>
