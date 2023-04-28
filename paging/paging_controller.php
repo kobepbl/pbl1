@@ -1,5 +1,5 @@
 <?php
-define('MAX', '10');
+define('MAX', '20');
 $count = count($articles);
 $max_page = ceil($count / MAX);
 
@@ -21,10 +21,10 @@ if ($page == 1 || $page == $max_page) {
   $range = 2;
 }
 
-$from_record = ($page - 1) * 10 + 1;
+$from_record = ($page - 1) * 20 + 1;
 
-if ($page == $max_page && $count % 10 !== 0) {
-  $to_record = ($page - 1) * 10 + $count % 10;
+if ($page == $max_page && $count % 20 !== 0) {
+  $to_record = ($page - 1) * 20 + $count % 20;
 } else {
-  $to_record = $page * 10;
+  $to_record = $page * 20;
 }
