@@ -5,7 +5,7 @@ class User extends DbData
 {
     public function authUser($mail, $password)
     {
-        $sql = "select*from current_users where mail=? and password=?";
+        $sql = "select * from current_users where mail=? and password=?";
         $stmt = $this->query($sql, [$mail, $password]);
         return $stmt->fetch();
     }

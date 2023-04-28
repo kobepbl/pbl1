@@ -53,13 +53,17 @@ $user = new User();
 // ハッシュ化処理　いったん保留
 // $hash=password_hash($_POST[$password],PASSWORD_DEFAULT);
 $result = $user->register($name, $mail, $grade, $gender, $graduation_year, $password);
-echo $result;
+
 if ($result !== '') {
     $_SESSION['signup_error'] = $result;
     header('Location: register.php');
     exit();
 }
 
+$user = new User();
+$result = $user->authUser($mail, $password);
+
+$_SESSION['user_id'] =  $result['user_id'];
 $_SESSION['name'] = $name;
 $_SESSION['mail'] = $mail;
 $_SESSION['grade'] = $grade;
@@ -67,7 +71,7 @@ $_SESSION['gender'] = $gender;
 $_SESSION['graduation_year'] = $graduation_year;
 $_SESSION['password']=$password;
 
-// setcookie("id",$id,time()+60*60*24*14,'/');
+setcookie("user_id", $result['user_id'],time()+60*60*24*14,'/');
 setcookie("name", $name, time() + 60 * 60 * 24 * 14, '/');
 require_once __DIR__ . '/../util.php';
 require_once __DIR__ . '/../header.php';

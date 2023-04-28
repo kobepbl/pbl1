@@ -17,7 +17,8 @@ if (empty($result['mail'])) {
 }
 
 $name = $result['name'];
-
+$user_id = $result['user_id'];
+$_SESSION['user_id'] = $user_id;
 $_SESSION['name'] = $name;
 $_SESSION['password'] = $result['password'];
 $_SESSION['mail'] = $mail;
@@ -27,6 +28,7 @@ $_SESSION['graduation_year'] = $result['graduation_year'];
 $_SESSION['password']=$result['password'];
 
 setcookie("name", $name, time() + 60 * 60 * 24 * 14, '/');
+setcookie("user_id", $user_id, time() + 60 * 60 * 24 * 14, '/');
 
 require_once __DIR__ . '/../util.php';
 require_once __DIR__ . '/../header.php';

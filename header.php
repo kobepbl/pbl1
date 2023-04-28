@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/pre.php';
 $url = $_SERVER['REQUEST_URI'];
 if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" && !strstr($url, 'register.php'))) {
@@ -12,9 +13,11 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
 <head>
   <meta charset="UTF-8">
   <title>神戸電子情報共有サイト</title>
+  <script src="https://kit.fontawesome.com/a269103010.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="<?= $layout_css ?>">
   <link rel="stylesheet" href="<?= $post_css ?>">
   <link rel="stylesheet" href="<?= $login_css ?>">
+  <link rel="stylesheet" href="<?= $article_post_css ?>">
 </head>
 
 <body>
@@ -22,7 +25,7 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
   <header>
     <div class="top-info">
       <a href="<?= $index_php ?>">
-        <h1>神戸電子情報共有サイト</h1>
+        <div class="logo_img"><img src=<?php echo $logo_img ?> alt="神戸電子情報共有サイト"></div>
       </a>
     </div>
     <nav>
@@ -30,14 +33,13 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
         <li class="nav-list-item">
           <?php
           if ($name == "no_login") {
-            echo '<li class="nav-list-item"><a href="' . $register_php . '">新規登録</a></li>';
-            echo '<li class="nav-list-item"><a href="' . $login_php . '">ログイン</a></li>';
+            echo '<li class="nav-list-item"><a class="fa-solid fa-user-plus" href="' . $register_php . '"> 新規登録</a></li>';
+            echo '<li class="nav-list-item"><a class="fa-solid fa-right-to-bracket" href="' . $login_php . '"> ログイン</a></li>';
           } else {
-            // echo '<li class="nav-list-item"><a href="' . $user_php . '">マイページ</a></li>';
-            // echo '<li class="nav-list-item"><a href="' . $user_php . '">投稿</a></li>';
-            echo '<li class="nav-list-item"><a href="' . $logout_php . '">ログアウト</a></li>';
-            echo '<li class="nav-list-item"><a href="' . $user_details_php . '">ユーザー情報</a></li>';
-
+            echo '<li class="nav-list-item"><a class="fa-solid fa-address-card" href="' . $user_php . '"> マイページ</a></li>';
+            echo '<li class="nav-list-item"><a class="fa-solid fa-pen" href="' . $article_post_php . '"> 投稿</a></li>';
+            echo '<li class="nav-list-item"><a class="fa-solid fa-question" href="' . $question_post_php . '"> 質問</a></li>';
+            echo '<li class="nav-list-item"><a class="fa-solid fa-right-from-bracket" href="' . $logout_php . '"> ログアウト</a></li>';
           }
           ?>
         </li>

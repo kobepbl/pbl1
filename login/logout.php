@@ -7,6 +7,7 @@ if (isset($_COOKIE[session_name()])) {
 }
 session_destroy();
 
-setcookie('name', '', time() - 1000, '/');
+setcookie('name', '', time() -  60 * 60 * 24 * 14, '/');
+setcookie('user_id', '', time() -  60 * 60 * 24 * 14, '/');
 
 header("Location:" . $login_php);
