@@ -29,7 +29,7 @@ require_once __DIR__ . '/header.php';
 </div>
 
 <!-- main部分 -->
-<main>
+<main class="bg">
   <div class="index-style">
     <article class="article-style">
       <h1>最近の記事</h1>
