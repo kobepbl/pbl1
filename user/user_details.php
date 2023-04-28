@@ -18,7 +18,7 @@
 
     // パスワードを*で伏せて表示
     $password_details='';
-    while(mb_strlen($password_details)<mb_strlen($password)){
+    while(mb_strlen($password_details) <= mb_strlen($password)){
         $password_details.='*';
     }
 

@@ -2,8 +2,6 @@
 <?php
 session_start();
 require_once __DIR__ . '/../header.php';
-// require_once __DIR__ . '/util.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -28,8 +26,6 @@ require_once __DIR__ . '/../header.php';
             if (isset($_SESSION['update_error'])) {
                 echo '<p class="error_message">' . $_SESSION['update_error'] . '</p>';
                 unset($_SESSION['update_error']);
-            } else {
-                echo 'パスワードを変更しました';
             }
 
             if($gender==0){
@@ -48,9 +44,9 @@ require_once __DIR__ . '/../header.php';
             <tr><th>卒業年度</th><td><?=$graduation_year?></td></tr>
             <tr><th>パスワード</th><td><input type="password" name="password" required></td> </tr>    
         </table>
-        <!-- 更新ボタン -->
+        <!-- 変更ボタン -->
         <br clear="all">
-        <td colspan="2"><input type="submit" value="送信"></td>
+        <td colspan="2"><input type="submit" value="変更"></td>
         <!-- ユーザー詳細 -->
         <center>
             <br clear="all">

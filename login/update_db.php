@@ -31,7 +31,6 @@ if($result==''){
 
 $_SESSION['password']=$password;
 
-// setcookie("id",$id,time()+60*60*24*14,'/');
 setcookie("name", $name, time() + 60 * 60 * 24 * 14, '/');
 require_once __DIR__ . '/../util.php';
 require_once __DIR__ . '/../header.php';
