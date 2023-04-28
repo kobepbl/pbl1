@@ -35,7 +35,7 @@ class User extends DbData
         $result = $this->exec($sql, [$password,$mail]);
 
         if ($result) {
-            return '';
+            return 'パスワードを更新しました。';
         } else {
             return '更新できませんでした。管理者にお問い合わせください。';
         }

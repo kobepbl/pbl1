@@ -21,8 +21,9 @@ $user = new User();
 // ハッシュ化処理　いったん保留
 // $hash=password_hash($_POST[$password],PASSWORD_DEFAULT);
 $result = $user->updateUser($password,$mail);
-echo $result;
-if ($result !== '') {
+if($result==''){
+    echo $result;
+}elseif ($result !== '') {
     $_SESSION['update_error'] = $result;
     header('Location: update.php');
     exit();

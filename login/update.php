@@ -25,12 +25,11 @@ require_once __DIR__ . '/../header.php';
             $graduation_year=$_SESSION['graduation_year'];
             $password=$_SESSION['password'];
             
-
-            if(isset($_SESSION['update_error'])) {
+            if (isset($_SESSION['update_error'])) {
                 echo '<p class="error_message">' . $_SESSION['update_error'] . '</p>';
                 unset($_SESSION['update_error']);
             } else {
-                echo 'ユーザー情報を更新しました</p>';
+                echo 'パスワードを変更しました';
             }
 
             if($gender==0){
