@@ -5,7 +5,7 @@ if (isset($_SESSION['search_error'])) {
 }
 ?>
 
-<form class="search" method="POST" action="./search/search_result.php">
-    <input type="text" name="search">
+<form class="search" method="GET" action=<?= $search_php ?>?q=>
+    <input type="text" name="q" placeholder="記事を検索">
     <input type="submit" value="検索">
 </form>

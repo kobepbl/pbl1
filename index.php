@@ -35,10 +35,10 @@ require_once __DIR__ . '/header.php';
       <?php
       foreach ($article_data  as  $article) {
       ?>
-        <a href="article/article_show.php?article_id=<?= $article['article_id'] ?>">
+        <a href=<?= $article_show_php ?>?article_id=<?= $article['article_id'] ?>>
           <article class="article-one">
-            <p class="article-user"><object><a href="user/user_show?user_id=<?= $article['user_id'] ?>"><?= $article['name'] ?></a></object></p>
-            <h2 class="article-title"><object><a href="article/article_show.php?article_id=<?= $article['article_id'] ?>"><?= $article['title'] ?></a></object></h2>
+            <p class="article-user"><object><a href=<?= $user_php ?>?user_id=<?= $article['user_id'] ?>><?= $article['name'] ?></a></object></p>
+            <h2 class="article-title"><object><a href=<?= $article_show_php ?>?article_id=<?= $article['article_id'] ?>><?= $article['title'] ?></a></object></h2>
             <p class="article-date"><?= date('Y年m月d日', strtotime($article['creation_date'])) ?></p>
           </article>
         </a>
@@ -55,8 +55,8 @@ require_once __DIR__ . '/header.php';
       ?>
         <a href="question/question_show.php?question_id=<?= $question['question_id'] ?>">
           <article class="question-one">
-            <p class="article-user"><object><a href="user/user_show?user_id=<?= $question['user_id'] ?>"><?= $question['name'] ?></a></object></p>
-            <h2 class="article-title"><object><a href="question/question_show.php?question_id=<?= $question['question_id'] ?>"><?= $question['title'] ?></a></object></h2>
+            <p class="article-user"><object><a href=<?= $user_php ?>?user_id=<?= $question['user_id'] ?>><?= $question['name'] ?></a></object></p>
+            <h2 class="article-title"><object><a href=<?= $article_show_php ?>?question_id=<?= $question['question_id'] ?>><?= $question['title'] ?></a></object></h2>
             <p class="article-date"><?= date('Y年m月d日', strtotime($question['question_date'])) ?></p>
           </article>
         </a>
