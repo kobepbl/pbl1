@@ -42,7 +42,7 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
             echo '<li class="nav-list-item"><a class="fa-solid fa-question" href="' . $question_post_php . '"> 質問</a></li>';
             echo '<li class="nav-list-item"><a class="fa-solid fa-right-from-bracket" href="' . $logout_php . '"> ログアウト</a></li>';
           }
-          require_once __DIR__ . './search/search.php'
+          require_once __DIR__ . './search/search_form.php'
           ?>
         </li>
       </ul>
