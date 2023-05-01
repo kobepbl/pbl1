@@ -10,7 +10,6 @@ class User extends DbData
         return $stmt->fetch();
     }
 
-
     public function register($name, $mail, $grade, $gender, $graduation_year, $password)
     {
         $sql = "select * from current_users where mail=?";
@@ -30,19 +29,15 @@ class User extends DbData
         }
     }
 
-    // 登録情報の変更
-    // public function updateUser($id,$name,$mail,$grade,$gender,$tel,$graduation_year,$password){
-    // $sql="update users set id=?,name=?,=?,=?,address=?,tel=?,password=? where userId=?";
-    // $result=$this->exec($sql,[$userId,$userName,$kana,$zip,$address,$tel,$password,$tempId]);
+    public function updateUser($password,$mail)
+    {
+        $sql = "update current_users set password=? where mail=?";
+        $result = $this->exec($sql, [$password,$mail]);
 
-    // if($result){
-    // if($userId!=$tempId){
-    // $this->changeCartUserId($tempId,$userId);
-    // $this->changeOrderHistoryUserId($tempId,$userId);
-    // }
-    // return '';
-    // }else{
-    // return 'ユーザー情報の更新ができませんでした。管理者にお問い合わせください。';
-    // }
-    // }
+        if ($result) {
+            return 'パスワードを更新しました。';
+        } else {
+            return '更新できませんでした。管理者にお問い合わせください。';
+        }
+    }
 }
