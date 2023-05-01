@@ -32,7 +32,10 @@ $post_php = $http_host . '/' . $id . '/post/post.php';
 $login_php = $http_host . '/' . $id . '/login/login.php';
 $logout_php = $http_host . '/' . $id . '/login/logout.php';
 $register_php = $http_host . '/' . $id . '/login/register.php';
-$user_php= $http_host . '/' . $id . '/user/user_details.php';
+$user_php = $http_host . '/' . $id . '/user/user_show.php';
+$article_show_php = $http_host . '/' . $id . '/article/article_show.php';
+$search_php = $http_host . '/' . $id . '/search/search_result.php';
+
 
 
 $layout_css = $http_host . '/' . $id . '/css/layout.css';
@@ -40,3 +43,4 @@ $post_css = $http_host . '/' . $id . '/css/post.css';
 $login_css = $http_host . '/' . $id . '/css/login.css';
 $article_post_css = $http_host . '/' . $id . '/css/article_post.css';
 $logo_img = $http_host . '/' . $id . '/img/pbl1_logo_02.png';
+$oasobi_img = $http_host . '/' . $id . '/img/oasobi.png';
