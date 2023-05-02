@@ -29,8 +29,8 @@ require_once __DIR__ . '/q_markdown.php';
     </div>
   </div>
 
-  
-  
+
+
   <div class="anser">
     <h1 class="anser-border">回答一覧</h1>
   </div>
