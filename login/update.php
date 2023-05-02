@@ -9,7 +9,8 @@ require_once __DIR__ . '/../header.php';
 <head>
     <meta charset="UTF-8">
     <title>ユーザー情報変更</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="<?= $userpage_css ?>">
+
 </head>
 
 <body>
