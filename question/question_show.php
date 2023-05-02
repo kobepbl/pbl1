@@ -38,9 +38,14 @@ require_once __DIR__ . '/q_markdown.php';
   </div>
   <?php
   foreach ($question_comments  as  $question_comment) {
+    if ($question_comment['user_id']==$question['user_id']) {
+      $author="コメント投稿者";
+    } else {
+      $author="";    
+    }
   ?>
     <div class="anser-show">
-      <p class="comment-user"><a href=<?= $user_php ?>?user_id=<?= $question_comment['user_id'] ?>><?= $question_comment['name'] ?></a></p>
+      <p class="comment-user"><a href=<?= $user_php ?>?user_id=<?= $question_comment['user_id'] ?>><?= $author," " ,$question_comment['name'] ?></a></p>
       <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($question_comment['posted_date'])) ?></p>
       <p class="comment-border"><?= nl2br($question_comment['comment']) ?></p>
     </div>
