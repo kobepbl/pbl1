@@ -1,7 +1,7 @@
 <?php
 // 送られてきたidを受け取る
 $question_id = $_GET['question_id'];
-
+$_SESSION['question_comment_id'] = $question_id; #セッションに入れる
 // Postオブジェクトを生成する
 require_once __DIR__ . '/../classes/post.php';
 $post = new Post();
@@ -29,8 +29,12 @@ require_once __DIR__ . '/q_markdown.php';
     </div>
   </div>
 
+  <?php
+  require_once __DIR__ . '/../question_comment/question_comment.php'
+  ?>
+  
   <div class="anser">
-    <h1 class="anser-border">回答</h1>
+    <h1 class="anser-border">回答一覧</h1>
   </div>
   <?php
   foreach ($question_comments  as  $question_comment) {

@@ -87,7 +87,7 @@ class Question_comment extends DbData
         if ($result) {
             return '';
         } else {
-            return 'コメント投稿できませんでした。管理者にお問い合わせください。';
+            return '答えを投稿できませんでした。管理者にお問い合わせください。';
         }
     }
 }
