@@ -39,9 +39,14 @@ require_once __DIR__ . '/a_markdown.php';
     <h1 class="comment">コメント</h1>
     <?php
     foreach ($article_comments  as  $article_comment) {
+      if ($article_comment['user_id']==$article['user_id']) {
+        $author="記事投稿者";
+      } else {
+        $author="";    
+      }
     ?>
       <div class="text-pos">
-        <p class="comment-user"><a href=<?= $user_php ?>?user_id=<?= $article_comment['user_id'] ?>><?= $article_comment['name'] ?></a></p>
+        <p class="comment-user"><a href=<?= $user_php ?>?user_id=<?= $article_comment['user_id'] ?>><?= $author," " ,$article_comment['name'] ?></a></p>
         <p class="article-show-date">投稿日 <?= date('Y年m月d日 H時i分s秒', strtotime($article_comment['posted_date'])) ?></p>
         <p class="comment-border"><?= nl2br($article_comment['comment']) ?></p>
       </div>
