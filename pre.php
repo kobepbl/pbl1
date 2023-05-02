@@ -33,7 +33,9 @@ $login_php = $http_host . '/' . $id . '/login/login.php';
 $logout_php = $http_host . '/' . $id . '/login/logout.php';
 $register_php = $http_host . '/' . $id . '/login/register.php';
 $user_php = $http_host . '/' . $id . '/user/user_show.php';
+$mypage_php = $http_host . '/' . $id . '/user/user_details.php';
 $article_show_php = $http_host . '/' . $id . '/article/article_show.php';
+$question_show_php = $http_host . '/' . $id . '/question/question_show.php';
 $search_php = $http_host . '/' . $id . '/search/search_result.php';
 
 
@@ -45,4 +47,3 @@ $login_css = $http_host . '/' . $id . '/css/login.css';
 $article_post_css = $http_host . '/' . $id . '/css/article_post.css';
 $logo_img = $http_host . '/' . $id . '/img/pbl1_logo_02.png';
 $userpage_css = $http_host . '/' . $id . '/css/userpage.css';
-

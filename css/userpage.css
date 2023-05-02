@@ -1,13 +1,13 @@
 .profile {
-	border-width:500px;
+  border-width: 500px;
   border: 1px solid #e4d4dc;
-	width: 800px;
-	height: 400px;
+  width: 800px;
+  height: 350px;
   margin: 10px auto;
   font-size: 15px;
 }
 
-.article{
+.article {
   margin: auto;
 }
 
@@ -30,16 +30,19 @@ h3 {
 dl {
   margin: 10px 0;
 }
+
 dl dd {
   margin: 10 0 15px;
   padding: 0 0 15px 40px;
   border-bottom: 1px dotted #e4d4dc;
 }
+
 dl dd:last-of-type {
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: 0;
 }
+
 dl.inline {
   display: flex;
   flex-wrap: wrap;
@@ -49,27 +52,35 @@ dl.inline {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-dl.inline dt, dl.inline dd {
+
+dl.inline dt,
+dl.inline dd {
   vertical-align: top;
   margin: 0 0 15px 0;
   padding: 0 0 15px;
 }
-dl.inline dt:last-of-type, dl.inline dd:last-of-type {
+
+dl.inline dt:last-of-type,
+dl.inline dd:last-of-type {
   margin-bottom: 0;
   padding-bottom: 0;
 }
+
 dl.inline dt {
   width: 150px;
   padding: 0 30px 10px 0;
   padding-right: 30px;
   border-bottom: 1px dotted #e4d4dc;
 }
+
 dl.inline dt:last-of-type {
   border-bottom: 0;
 }
+
 dl.inline dd {
   width: calc(100% - 130px - 30px);
 }
+
 dl.border {
   padding: 15px 20px;
   border: 1px solid #e4d4dc;
@@ -78,7 +89,9 @@ dl.border {
 
 
 /* 装飾 */
-b, em, strong {
+b,
+em,
+strong {
   font-weight: bold;
 }
 
@@ -92,4 +105,3 @@ hr {
   border: 0;
   border-bottom: 2px dotted #ece4e4;
 }
-
