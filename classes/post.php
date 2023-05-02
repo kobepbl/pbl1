@@ -24,6 +24,15 @@ class  Post  extends  DbData
         return $article;
     }
 
+    // ユーザーの記事を取り出す
+    public function userArticles($user_show_id)
+    {
+        $sql = "select * from article_list join current_users on article_list.user_id = current_users.user_id where article_list.user_id = ? order by article_list.article_id desc";
+        $stmt = $this->query($sql, [$user_show_id]);
+        $userarticles = $stmt->fetchAll();
+        return $userarticles;
+    }
+
     // すべての質問を逆順でを取り出す
     public  function  getQuestions()
     {
@@ -43,10 +52,19 @@ class  Post  extends  DbData
         return $question;
     }
 
+    // ユーザーの質問を取り出す
+    public function userQuestions($user_show_id)
+    {
+        $sql = "select * from question_list join current_users on question_list.user_id = current_users.user_id where question_list.user_id = ? order by question_list.question_id desc";
+        $stmt = $this->query($sql, [$user_show_id]);
+        $userquestions = $stmt->fetchAll();
+        return $userquestions;
+    }
+
     // すべての記事コメントを逆順でを取り出す
     public  function  getArticlecomments($article_id)
     {
-        $sql  =  "select  *  from  article_comment_list join current_users on article_comment_list.user_id = current_users.user_id where article_id = '". $article_id ."'";
+        $sql  =  "select  *  from  article_comment_list join current_users on article_comment_list.user_id = current_users.user_id where article_id = '" . $article_id . "'";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         $article_comments = $stmt->fetchAll();
@@ -66,7 +84,7 @@ class  Post  extends  DbData
     // すべての質問回答を逆順でを取り出す
     public  function  getQuestioncomments($question_id)
     {
-        $sql  =  "select  *  from  question_comment_list join current_users on question_comment_list.user_id = current_users.user_id where question_id = '". $question_id ."' order by question_comment_list.comment_id desc";
+        $sql  =  "select  *  from  question_comment_list join current_users on question_comment_list.user_id = current_users.user_id where question_id = '" . $question_id . "' order by question_comment_list.comment_id desc";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         $question_comments = $stmt->fetchAll();

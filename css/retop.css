@@ -1,0 +1,25 @@
+/*ボタンの領域*/
+#retop {
+	position:fixed; /*画面に固定*/
+	bottom:10%; /*画面下へ*/
+	right:5%; /*画面右へ*/
+	z-index:10; /*レイヤー順序を上に*/
+	background-color:transparent; /*領域の背景色（透明）*/
+}
+/*丸ボタン*/
+.retop1 {
+	position:relative;
+	display:block; 
+	background-color:rgba(30, 139, 158, 0.7); /*丸ボタンの色*/
+	color:rgb(255,255,255); /*三角と文字色*/
+	text-decoration:none;
+	font-weight:bold;
+	font-size:20px;
+	width:60px;
+	height:60px;
+	text-align:center;
+	line-height:24px;
+	border-radius:30px;
+	padding-top:20px;
+	box-sizing:border-box;
+}

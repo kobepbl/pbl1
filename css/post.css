@@ -1,11 +1,11 @@
 .main-visual {
-  font-family: "Bradley Hand", Courier, "Segoe Print", sans-serif;
+  font-family: "Segoe Print", "Bradley Hand", Courier, sans-serif;
 }
 
 .main-visual {
   width: 100%;
   height: 300px;
-  background-image: url(../img/kobe.png);
+  background-image: url(../img/kobe_03.png);
   background-size: cover;
   background-position: center;
 }
@@ -13,21 +13,21 @@
 .main-visual-content {
   width: 40%;
   height: 300px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   text-align: center;
   padding-top: 105px;
 }
 
 .main-visual-text {
+  font-size: 130%;
   color: #fff;
 }
 
 .main-visual-name {
+  font-size: 150%;
   margin-top: 30px;
   color: #fff;
 }
-
-
 
 .index-style {
   width: 80%;
@@ -43,14 +43,22 @@
 }
 
 article h1 {
-  border-bottom: 8px solid #f7f7f7;
+  border-bottom: 8px solid #6c6b6b;
   text-align: center;
 }
 
 .article-one {
-  margin: 15px 0;
-  background-color: #eeeeee8d;
+  margin: 30px 0;
+  background: -webkit-linear-gradient(380deg, #cce5ff 0%, #cce5ff 30%, #eeeeee8d 30%, #eeeeee8d 100%);
   border-radius: 10px;
+  box-shadow: 1px 2px 3px #6c6b6b;
+}
+
+.question-one {
+  margin: 30px 0;
+  background: -webkit-linear-gradient(380deg, #bee3bc 0%, #bee3bc 30%, #eeeeee8d 30%, #eeeeee8d 100%);
+  border-radius: 10px;
+  box-shadow: 1px 2px 3px #6c6b6b;
 }
 
 article a {
@@ -131,33 +139,57 @@ a.page_number:visited {
 
 .article-show {
   width: 75%;
+  padding: 0px 0px 5px 0px;
   margin: 50px auto;
-  padding: 25px;
   background-color: #eeeeee8d;
   border-radius: 10px;
+  box-shadow: 1px 2px 3px #6c6b6b;
+}
+
+.article-show-cover {
+  width: 100%;
+  height: 20%;
+  padding: 10px 25px ;
+  background-color: #cce5ff;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.question-show-cover {
+  width: 100%;
+  height: 20%;
+  padding: 10px 25px ;
+  background-color: #bee3bc;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .article-show-title {
   font-size: 40px;
-  margin: 10px 0;
+  margin: 25px 25px;
 }
 
 .article-show-user {
   font-size: 20px;
 }
 
+.text-pos {
+  margin: 10px 25px 25px 25px;
+}
+
 .article-text {
   font-size: 22px;
 }
 
+.comment {
+  padding: 25px;
+}
+
 .comment-user {
   font-size: 20px;
-  padding: 20px 0px 0px 0px;
 }
 
 .comment-border {
   font-size: 22px;
-  border-bottom: 1px solid;
+  border-bottom: 1.5px solid;
   padding: 10px 0px 20px 0px;
 }
 
@@ -166,6 +198,10 @@ a.page_number:visited {
   margin: 50px auto 0px auto;
   padding: 10px 25px 10px 25px;
   border-radius: 10px;
+}
+
+.anser-border {
+  border-bottom: 2px solid #6c6b6b;
 }
 
 .anser-show {

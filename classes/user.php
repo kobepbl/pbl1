@@ -1,19 +1,15 @@
-<?php 
-
+<?php
 require_once __DIR__ . '/dbdata.php';
-class Article extends DbData{
+class Article extends DbData
+{
 
-    public function Insertarticle($user_id,$title,$sentence,$creation_date){
-        
-        /*$sql = "select max(article_id) from article_list";
-        $stmt = $this->query($sql);
-        $article_id = $stmt->fetch();// 抽出したデータを取り出す 
-        $article_id =$article_id+1;
-        */
+    public function Insertarticle($user_id, $title, $sentence, $creation_date)
+    {
+
         $sql = "insert into article_list(user_id,title,sentence,creation_date) values(?, ?, ?, ?)";
-        $result = $this->exec($sql,[$user_id,$title,$sentence,$creation_date]);
-        
-        if($result){
+        $result = $this->exec($sql, [$user_id, $title, $sentence, $creation_date]);
+
+        if ($result) {
             return ''; // ここも空文字を返すので「''」はシングルクォーテーションが２つ
         } else {
             // 何らかの原因で失敗した場合 
@@ -27,27 +23,71 @@ class Article extends DbData{
         $stmt = $this->query($sql, [$title, $sentence]);
         return $stmt->fetch();
     }
-    /*
-    public function updateUser($userId, $userName, $kana, $zip, $address, $tel, $password, $tempId){
-        $sql = "update users set userId=?, userName=?, kana=?, zip=?, address=? ,tel=? ,password=? where userId = ?";
-        $result = $this->exec($sql, [$userId, $userName, $kana, $zip, $address, $tel, $password, $tempId]);
-        if( $result ){
-            // 更新に成功したが、Cart内に仮のユーザーIDの商品が入っていた場合、新しいユーザーIDに置き換える
-            // また、過去の注文履歴のユーザーIDも新しいユーザーIDに置き換える 
-            if($userId !== $tempId){
-                $this->changeCartUserId($tempId, $userId); 
-                $this->changeOrderHistoryUserId($tempId, $userId);
-            } 
+}
+
+class Article_comment extends DbData
+{
+    public function Insertarticle_comment($article_id, $user_id, $comment, $posted_date)
+    {
+
+        $sql = "insert into article_comment_list(article_id,user_id,comment,posted_date) values(?, ?, ?, ?)";
+        $result = $this->exec($sql, [$article_id, $user_id, $comment, $posted_date]);
+
+        if ($result) {
             return '';
-        } else { 
-            return 'ユーザー情報の更新ができませんでした。管理者にお問い合わせください。'; 
+        } else {
+            return 'コメント投稿できませんでした。管理者にお問い合わせください。';
         }
-    }*/
-    /*
-     public function changeOrderHistoryUserId($tempId, $userId){
-        require_once __DIR__ . '/../classes/order.php';
-        $order = new Order( );
-        $order->changeUserId($tempId, $userId);
     }
-    */
+}
+class Question extends DbData
+{
+    public function insert_question($user_id, $title, $question, $question_date)
+    {
+        $sql = "
+                    INSERT INTO question_list(user_id, title, question, question_date)
+                    VALUES(?, ?, ?, ?)
+                    ";
+        $result = $this->exec($sql, [$user_id, $title, $question, $question_date]);
+        if ($result) {
+            return '';
+        } else {
+            return '質問の登録が出来ませんでした。管理者にお問い合わせください。';
+        }
+    }
+
+    public function select_question($title, $question)
+    {
+        $sql = "
+                    SELECT
+                        *
+                    FROM
+                        question_list
+                    WHERE
+                        title = ?
+                        AND question = ?
+                    ORDER BY
+                        question_date DESC
+                    ";
+        $stmt = $this->query($sql, [$title, $question]);
+        return $stmt->fetch();
+    }
+}
+
+class Question_comment extends DbData
+{
+    public function insertquestion_comment($question_id, $user_id, $comment, $posted_date)
+    {
+
+        $sql = "
+                    INSERT INTO question_comment_list(question_id, user_id, comment, posted_date)
+                    VALUES(?, ?, ?, ?)";
+        $result = $this->exec($sql, [$question_id, $user_id, $comment, $posted_date]);
+
+        if ($result) {
+            return '';
+        } else {
+            return '答えを投稿できませんでした。管理者にお問い合わせください。';
+        }
+    }
 }
