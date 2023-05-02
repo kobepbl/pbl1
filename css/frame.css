@@ -61,3 +61,11 @@ footer {
 .footer-text {
   color: #fff;
 }
+.search{
+  width: 100%;
+  display: flex;
+}
+.search_text{
+  width: 400px;
+  height: 40px;
+}
