@@ -21,7 +21,9 @@ if (isset($_SESSION['article_error'])) {
         <label class="label_left" for="num">タイトル</label>
         <input class="form-text" type="text" name="title" id="num" placeholder="タイトルを入力" maxlength="30" required><br>
     </div>
-
+    <div>
+    <input type="file" name="upimg" accept="image/*">
+    </div>
     <div class="item">
         <label class="label_left" for="num1">本文</label>
         <textarea class="form-text1" id="num" name="sentence" placeholder="本文を入力" maxlength="400" required></textarea>

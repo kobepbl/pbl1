@@ -18,6 +18,8 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
   <link rel="stylesheet" href="<?= $post_css ?>">
   <link rel="stylesheet" href="<?= $login_css ?>">
   <link rel="stylesheet" href="<?= $article_post_css ?>">
+  <link rel="stylesheet" href="<?= $retop_css ?>">
+
 </head>
 
 <body>
@@ -36,6 +38,7 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
             echo '<li class="nav-list-item"><a class="fa-solid fa-user-plus" href="' . $register_php . '"> 新規登録</a></li>';
             echo '<li class="nav-list-item"><a class="fa-solid fa-right-to-bracket" href="' . $login_php . '"> ログイン</a></li>';
           } else {
+            require_once __DIR__ . '/search/search_form.php';
             echo '<li class="nav-list-item"><a class="fa-solid fa-address-card" href="' . $user_php . '"> マイページ</a></li>';
             echo '<li class="nav-list-item"><a class="fa-solid fa-pen" href="' . $article_post_php . '"> 投稿</a></li>';
             echo '<li class="nav-list-item"><a class="fa-solid fa-question" href="' . $question_post_php . '"> 質問</a></li>';

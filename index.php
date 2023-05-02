@@ -24,12 +24,11 @@ require_once __DIR__ . '/header.php';
       Welcome to<br />
       Kobe Denshi Channel!
     </p>
-    <p class="main-visual-name">卍神戸電子最強卍</p>
   </div>
 </div>
 
 <!-- main部分 -->
-<main>
+<main class="bg">
   <div class="index-style">
     <article class="article-style">
       <h1>最近の記事</h1>
@@ -38,7 +37,7 @@ require_once __DIR__ . '/header.php';
       ?>
         <a href="article/article_show.php?article_id=<?= $article['article_id'] ?>">
           <article class="article-one">
-            <p class="article-user"><object><a href="user/user_show.php?user_id=<?=$article['user_id'] ?>"><?= $article['name'] ?></a></object></p>
+            <p class="article-user"><object><a href="<?= $user_php? >?user_id=<?=$article['user_id'] ?>"><?= $article['name'] ?></a></object></p>
             <h2 class="article-title"><object><a href="article/article_show.php?article_id=<?= $article['article_id'] ?>"><?= $article['title'] ?></a></object></h2>
             <p class="article-date"><?= date('Y年m月d日', strtotime($article['creation_date'])) ?></p>
           </article>
@@ -56,7 +55,7 @@ require_once __DIR__ . '/header.php';
       ?>
         <a href="question/question_show.php?question_id=<?= $question['question_id'] ?>">
           <article class="article-one">
-            <p class="article-user"><object><a href="user/user_show.php?user_id=<?= $question['user_id'] ?>"><?= $question['name'] ?></a></object></p>
+            <p class="article-user"><object><a href="<?= $user_php? >?user_id=<?= $question['user_id'] ?>"><?= $question['name'] ?></a></object></p>
             <h2 class="article-title"><object><a href="question/question_show.php?question_id=<?= $question['question_id'] ?>"><?= $question['title'] ?></a></object></h2>
             <p class="article-date"><?= date('Y年m月d日', strtotime($question['question_date'])) ?></p>
           </article>
