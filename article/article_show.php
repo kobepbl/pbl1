@@ -30,11 +30,9 @@ require_once __DIR__ . '/a_markdown.php';
     </div>
   </div>
 
-  <?php
-  require_once __DIR__ . '/../article_comment/article_comment.php'
-  ?>
+  
 
-  <div class="article-show">
+  <div class="anser-show">
     <h1 class="comment">コメント</h1>
     <?php
     foreach ($article_comments  as  $article_comment) {
@@ -48,6 +46,11 @@ require_once __DIR__ . '/a_markdown.php';
     }
     ?>
   </div>
+
+  <?php
+  require_once __DIR__ . '/../article_comment/article_comment.php'
+  ?>
+
 </main>
 <?php
 require_once __DIR__ . '/../footer.php'

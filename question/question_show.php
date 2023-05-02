@@ -29,9 +29,7 @@ require_once __DIR__ . '/q_markdown.php';
     </div>
   </div>
 
-  <?php
-  require_once __DIR__ . '/../question_comment/question_comment.php'
-  ?>
+  
   
   <div class="anser">
     <h1 class="anser-border">回答一覧</h1>
@@ -47,6 +45,11 @@ require_once __DIR__ . '/q_markdown.php';
   <?php
   }
   ?>
+
+  <?php
+  require_once __DIR__ . '/../question_comment/question_comment.php'
+  ?>
+
 </main>
 <?php
 require_once __DIR__ . '/../footer.php'

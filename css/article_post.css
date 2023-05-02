@@ -63,7 +63,7 @@
     color: #458eaf;
     line-height: 1em;
     transition: .3s;
-    border: 2px solid #000066;
+    border: 2px solid #6c6b6b;
   }
   .button:hover {
     color: #ffffff;
@@ -107,7 +107,7 @@
     color: #458eaf;
     line-height: 1em;
     transition: .3s;
-    border: 2px solid #000066;
+    border: 2px solid #6c6b6b;
   }
   .comment_button:hover {
     color: #ffffff;
