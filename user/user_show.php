@@ -25,15 +25,28 @@
      $userdetail['grade'].="年生";
 
 ?>
+<head>
+<link rel="stylesheet" href="<?= $userpage_css ?>">
+</head>
 
 <!-- ユーザー情報 -->
-<table border="1" bordercolor="" align="left">
-    <tr><th>名前</th><td><?=$userdetail['name']?></td></tr>
-    <tr><th>メールアドレス　</th><td><?=$userdetail['mail']?></td></tr>
-    <tr><th>学年</th><td><?=$userdetail['grade']?></td></tr>
-    <tr><th>性別</th><td><?=$user_show_gender?></td></tr>
-    <tr><th>卒業年度</th><td><?=$userdetail['graduation_year']?></td></tr>
-</table>
+<article align="center" >
+ <h2><span>プロフィール</span></h2>
+ <div>
+   <dl class="inline">
+      <dt>名前</dt>
+          <dd><?=$userdetail['name']?></dd>
+      <dt>メールアドレス</dt>
+          <dd><?=$userdetail['mail']?></dd>
+      <dt>学年</dt>
+          <dd><?=$userdetail['grade']?></dd>
+      <dt>性別</dt>
+       <dd><?=$userdetail['gender']?></dd>
+      <dt>卒業年度</dt>
+       <dd><?=$userdetail['graduation_year']?></dd>
+    </dl>
+  </div>
+</article>
 
 <!-- 投稿記事 -->
 <main>

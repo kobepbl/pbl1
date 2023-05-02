@@ -19,7 +19,7 @@ require_once __DIR__ . '/q_markdown.php';
 
 <main>
   <div class="article-show">
-    <p class="article-show-user"><a href="user/user_show?user_id=<?= $question['user_id'] ?>"><?= $question['name'] ?></a></p>
+    <p class="article-show-user"><a href="user/user_show.php?user_id=<?= $question['user_id'] ?>"><?= $question['name'] ?></a></p>
     <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($question['question_date'])) ?></p>
     <h1 class="article-show-title"><?= $question['title'] ?></h1>
     <p class="article-text"><?= nl2br($html) ?></p>
@@ -32,7 +32,7 @@ require_once __DIR__ . '/q_markdown.php';
   foreach ($question_comments  as  $question_comment) {
   ?>
     <div class="anser-show">
-      <p class="comment-user"><a href="user/user_show?user_id=<?= $question_comment['user_id'] ?>"><?= $question_comment['name'] ?></a></p>
+      <p class="comment-user"><a href="user/user_show.php?user_id=<?= $question_comment['user_id'] ?>"><?= $question_comment['name'] ?></a></p>
       <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($question_comment['posted_date'])) ?></p>
       <p class="comment-border"><?= nl2br($question_comment['comment']) ?></p>
     </div>
