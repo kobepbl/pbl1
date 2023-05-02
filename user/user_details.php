@@ -32,14 +32,14 @@
 <head>
 <link rel="stylesheet" href="<?= $userpage_css ?>">
 </head>
-<article align="center" >
- <h2><span>プロフィール</span></h2>
+<div class = "profile" align="center">
+ <h3>プロフィール</h3>
  <div>
    <dl class="inline">
       <dt>名前</dt>
           <dd><?=$name?></dd>
       <dt>メールアドレス</dt>
-          <dd><?=$mail?></dd>
+          <dd><td><?=$mail?></dd>
       <dt>学年</dt>
           <dd><?=$grade_details?></dd>
       <dt>性別</dt>
@@ -47,11 +47,9 @@
       <dt>卒業年度</dt>
        <dd><?=$graduation_year?></dd>
     </dl>
-    <p class="text-right">
-      <a href="../login/update.php">変更</a>
-    </p>
+    <p><a href="../login/update.php">変更</a></p>
   </div>
-</article>
+</div>
 
 <!-- 投稿記事 -->
 <main>

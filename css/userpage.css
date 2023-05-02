@@ -1,126 +1,19 @@
-@charset "UTF-8";
-html {
-  font-size: 100%;
+.profile {
+	border-width:500px;
+  border: 1px solid #e4d4dc;
+	width: 800px;
+	height: 400px;
+  margin: 10px auto;
+  font-size: 15px;
 }
 
-:focus {
-  outline: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-a, a::after, a::before, button, button::after, button::before, input, textarea, select {
-  transition: all 0.7s;
-}
-
-a img, button img {
-  transition-duration: 0.35s;
-}
-
-button {
-  outline: none;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  cursor: hand;
-}
-
-@media only screen and (max-width: 900px) {
-  p, form {
-    margin: 0 0 1.7rem;
-  }
-  p:last-child, form:last-child {
-    margin-bottom: 0;
-  }
-}
-/* 基本 */
-main {
+.article{
   margin: auto;
 }
-main > article:first-child {
-  margin-top: 40px;
-}
-main > article:last-child {
-  margin-bottom: 80px;
-}
 
 
-article {
-  margin: 100px 0;
-  padding: 30px;
-  border: 1px solid #e4d4dc;
-}
-article > h2:first-child {
-  margin-top: -90px;
-}
-
-footer {
-  margin: 0 0 35px;
-  text-align: right;
-}
-
-#INDEX header {
-  min-height: auto;
-  margin: 40px auto;
-}
-#INDEX main > *:last-child {
-  margin-bottom: 40px;
-}
-
-a {
-  color: #888c6c;
-  border-bottom: 1px solid #888c6c;
-}
-a:hover {
-  border-color: transparent;
-}
-a.image {
-  border: 0;
-}
-
-/* 見出し */
-
-
-h2,h3 {
+h3 {
   text-align: center;
-}
-
-h2 {
-  position: relative;
-  margin: 70px 0;
-  height: 70px;
-  font-family: "Dancing Script", "Yu Mincho", "YuMincho", "Hiragino Mincho Pro", serif;
-  font-size: 2rem;
-  color: #d5acb0;
-  line-height: 120px;
-  z-index: 1;
-}
-h2::before, h2::after {
-  content: "";
-  position: absolute;
-  display: block;
-  z-index: -1;
-}
-h2::before {
-  left: calc(50% - 70px);
-  width: 140px;
-  height: 140px;
-  top: -10px;
-  background: #fff;
-  border-radius: 140px;
-}
-h2::after {
-  left: calc(50% - 60px);
-  width: 120px;
-  height: 120px;
-  top: 0;
-  background: url(/../img/h2.svg) no-repeat center/auto 100;
-}
-h2 span {
-  padding: 0 5px;
-  background: #fff;
 }
 
 h3 {
@@ -134,13 +27,11 @@ h3 {
   color: #d5acb0;
 }
 
-
-
 dl {
   margin: 10px 0;
 }
 dl dd {
-  margin: 0 0 15px;
+  margin: 10 0 15px;
   padding: 0 0 15px 40px;
   border-bottom: 1px dotted #e4d4dc;
 }
@@ -168,7 +59,7 @@ dl.inline dt:last-of-type, dl.inline dd:last-of-type {
   padding-bottom: 0;
 }
 dl.inline dt {
-  width: 130px;
+  width: 150px;
   padding: 0 30px 10px 0;
   padding-right: 30px;
   border-bottom: 1px dotted #e4d4dc;
@@ -196,108 +87,9 @@ em {
   background: linear-gradient(transparent 50%, #f4eae4 50%);
 }
 
-strong {
-  background: #f4eae4;
-}
-
 hr {
   margin: 50px;
   border: 0;
   border-bottom: 2px dotted #ece4e4;
 }
 
-.text-left {
-  text-align: left;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-bold {
-  font-weight: bold;
-}
-
-.text-small {
-  font-size: smaller;
-}
-
-/* 表示・非表示 */
-.collapse .toggler {
-  margin-bottom: 5px;
-}
-.collapse .toggler::before {
-  content: "▼";
-  margin-right: 2px;
-}
-.collapse .toggler-block {
-  display: block;
-  width: 100%;
-  text-align: left;
-}
-.collapse .collapse-body {
-  display: none;
-  padding-bottom: 15px;
-}
-
-/* スマホ設定 */
-@media only screen and (max-width: 900px) {
-  body, button, input, textarea {
-    font-size: 1.4rem;
-    line-height: calc(1.4rem + 1.05rem);
-  }
-  header {
-    margin: 15px auto 100px;
-  }
-  article {
-    margin: 200px 15px;
-  }
-  #INDEX header {
-    margin: 15px auto;
-  }
-  /* リスト */
-  ul .description, ol .description {
-    display: block;
-    margin-left: 10px;
-  }
-  ul .description::before, ol .description::before {
-    content: "└";
-    margin-right: 10px;
-  }
-  dl.border dt, dl.border dd, dl.inline dt, dl.inline dd {
-    display: block;
-  }
-  dl.border dt, dl.inline dt {
-    width: 100%;
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: 0;
-  }
-  dl.border dd, dl.inline dd {
-    width: calc(100% - 40px);
-    padding-left: 40px;
-  }
-  /* フォーム */
-  .form-inline input {
-    width: 45%;
-  }
-  .form-block dl.inline dt {
-    width: 100%;
-  }
-  .form-block dl.inline dd {
-    width: calc(100% - 40px);
-    padding-left: 40px;
-  }
-  .form-block > *, .form-block dl dd > * {
-    width: 100%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin-bottom: 5px;
-  }
-}
-/* ----- ▲ レイアウト　ここまで ▲ ----- */

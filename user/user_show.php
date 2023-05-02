@@ -30,23 +30,23 @@
 </head>
 
 <!-- ユーザー情報 -->
-<article align="center" >
- <h2><span>プロフィール</span></h2>
+<div class = "profile" align="center">
+ <h3>プロフィール</h3>
  <div>
    <dl class="inline">
       <dt>名前</dt>
           <dd><?=$userdetail['name']?></dd>
       <dt>メールアドレス</dt>
-          <dd><?=$userdetail['mail']?></dd>
+          <dd><td><?=$userdetail['mail']?></dd>
       <dt>学年</dt>
           <dd><?=$userdetail['grade']?></dd>
       <dt>性別</dt>
-       <dd><?=$userdetail['gender']?></dd>
+       <dd><?=$user_show_gender?></dd>
       <dt>卒業年度</dt>
        <dd><?=$userdetail['graduation_year']?></dd>
     </dl>
   </div>
-</article>
+</div>
 
 <!-- 投稿記事 -->
 <main>
