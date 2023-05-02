@@ -16,7 +16,7 @@ require_once __DIR__ . '/../header.php';
 <main class="bg">
   <div class="index-style">
     <article class="article-style">
-      <h1>最近の記事</h1>
+      <h1>「<?=$search_word?>」で検索された記事</h1>
       <?php
       foreach ($search_articles  as  $article) {
       ?>
