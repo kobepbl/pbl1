@@ -50,10 +50,14 @@ require_once __DIR__ . '/../header.php';
       <dt>卒業年度</dt>
       <dd><?= $graduation_year ?></dd>
       <dt>パスワード</dt>
-      <dd><input type="password" name="password" required></dd>
+      <dd>現在のパスワード：<input type="password" name="password" required><br>
+      新しいパスワード：<input type="password" name="newpassword" required></dd>
+
     </dl>
     <br>
-    <td colspan="2"><input type="submit" value="変更"></td>
+    <div class="update">
+        <input type="submit" value="変更" class="button">
+    </div>
     <br>
     <a href="../user/user_details.php">ユーザー詳細へ戻る</a>
   </div>
