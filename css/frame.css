@@ -58,6 +58,7 @@ header h1 {
 .search_text {
   width: 400px;
   height: 40px;
+  padding: 10px;
   border-radius: 5px;
 }
 
