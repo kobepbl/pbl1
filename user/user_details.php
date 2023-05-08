@@ -52,7 +52,9 @@ $_SESSION['password_details'] = $password_details;
     </dl>
     <br>
     <a href="../login/update.php">
-      <input type="button" value="変更">
+      <div class="update">
+        <input type="submit" value="変更" class="button">
+      </div>
     </a>
   </div>
 </div>

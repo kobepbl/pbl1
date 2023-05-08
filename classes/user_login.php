@@ -29,16 +29,29 @@ class User extends DbData
         }
     }
 
-    public function updateUser($password,$mail)
+    public function updateUser($newpassword,$mail)
     {
         $sql = "update current_users set password=? where mail=?";
-        $result = $this->exec($sql, [ $password,$mail]);
+        $result = $this->exec($sql, [ $newpassword,$mail]);
         if($result){
             return'';
         }else{
             return'更新できませんでした。管理者にお問い合わせください。';
         }
     }
+
+    public function authPassword($password)
+    {
+        $sql = "select password from current_users where password=?";
+        $stmt = $this->query($sql, [$password]);
+        $result=$stmt->fetch();
+        if($result){
+            return '';
+        }else{
+            return 'パスワードが違います。';
+        }
+    }
+
 
     public function detailsUser($user_show_id)
     {
