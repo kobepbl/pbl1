@@ -50,7 +50,10 @@ $_SESSION['password_details'] = $password_details;
       <dt>卒業年度</dt>
       <dd><?= $graduation_year ?></dd>
     </dl>
-    <p><a href="../login/update.php">変更</a></p>
+    <br>
+    <a href="../login/update.php">
+      <input type="button" value="変更">
+    </a>
   </div>
 </div>
 
