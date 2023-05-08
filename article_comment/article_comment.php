@@ -9,7 +9,7 @@ if(isset($_SESSION['article_comment_error'] )){
 
 <link rel="stylesheet" href="../css/article_post.css">
 
-<div class="anser-show">
+<div class="anser-show-2">
 <form method="POST" action="../article_comment/article_comment_db.php">
   <input type="hidden" name="article_comment_id" value=<?= $_SESSION['article_comment_id']?>>
   <h1 class="comment_left">コメント入力</h1>

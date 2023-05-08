@@ -224,3 +224,11 @@ a.page_number:visited {
   background-color: #eeeeee8d;
   border-radius: 10px;
 }
+
+.anser-show-2 {
+  width: 75%;
+  margin: 5px auto 50px auto;
+  padding: 25px;
+  background-color: #eeeeee8d;
+  border-radius: 10px;
+}
