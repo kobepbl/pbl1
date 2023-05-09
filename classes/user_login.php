@@ -40,11 +40,12 @@ class User extends DbData
         }
     }
 
-    public function authPassword($password)
+    public function authPassword($password,$userid)
     {
-        $sql = "select password from current_users where password=?";
-        $stmt = $this->query($sql, [$password]);
+        $sql = "select password from current_users where password=? and user_id=?";
+        $stmt = $this->query($sql, [$password,$userid]);
         $result=$stmt->fetch();
+
         if($result){
             return '';
         }else{

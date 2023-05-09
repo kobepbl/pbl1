@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../classes/user_login.php';
 
 session_start();
+$userid=$_SESSION['user_id'];
 $name = $_SESSION['name'];
 $mail = $_SESSION['mail'];
 $grade = $_SESSION['grade'];
@@ -19,7 +20,7 @@ if(mb_strlen($newpassword)>=41 || mb_strlen($newpassword)<=4){
 }
 
 $user=new User();
-$result=$user->authPassword($password);
+$result=$user->authPassword($password,$userid);
 if($result==''){
     $user = new User();
     $result = $user->updateUser($newpassword,$mail);
