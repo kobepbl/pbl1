@@ -249,3 +249,25 @@ a.page_number:visited {
   background-color: #eeeeee8d;
   border-radius: 10px;
 }
+
+.iine_button {
+  border-radius: 50%;
+  border-color: rgba(240, 18, 25, 0.575);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background: rgba(240, 18, 25, 0.575);
+  color: #FFF;
+  text-decoration: none;
+  text-align: center;
+}
+
+.text {
+  font-size: 30;
+}
+
+.left {
+  float: left;
+}

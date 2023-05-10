@@ -66,6 +66,8 @@ $userdetail['grade'] .= "年生";
             <p class="article-user"><object><a href=<?= $user_php ?>?user_id=<?= $userarticle['user_id'] ?>><?= $userarticle['name'] ?></a></object></p>
             <h2 class="article-title"><object><a href=<?= $article_show_php ?>?article_id=<?= $userarticle['article_id'] ?>><?= $userarticle['title'] ?></a></object></h2>
             <p class="article-date"><?= date('Y年m月d日', strtotime($userarticle['creation_date'])) ?></p>
+            <span class="heart">♥</span>
+            <span class="article-like"><?= $userarticle['like_count'] ?></span>
           </article>
         </a>
       <?php
@@ -83,6 +85,8 @@ $userdetail['grade'] .= "年生";
             <p class="article-user"><object><a href=<?= $user_php ?>?user_id=<?= $userquestion['user_id'] ?>><?= $userquestion['name'] ?></a></object></p>
             <h2 class="article-title"><object><a href=<?= $question_show_php ?>?question_id=<?= $userquestion['question_id'] ?>><?= $userquestion['title'] ?></a></object></h2>
             <p class="article-date"><?= date('Y年m月d日', strtotime($userquestion['question_date'])) ?></p>
+            <span class="heart">♥</span>
+            <span class="article-like"><?= $userquestion['like_count'] ?></span>
           </article>
         </a>
       <?php

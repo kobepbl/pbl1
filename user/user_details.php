@@ -63,7 +63,7 @@ $_SESSION['password_details'] = $password_details;
 <main>
   <div class="index-style">
     <article class="article-style">
-      <h1>投稿</h1>
+      <h1>記事・作品</h1>
       <?php
       foreach ($userarticles  as  $userarticle) {
       ?>
@@ -72,6 +72,8 @@ $_SESSION['password_details'] = $password_details;
             <p class="article-user"><object><a href=<?= $user_php ?>?user_id=<?= $userarticle['user_id'] ?>><?= $userarticle['name'] ?></a></object></p>
             <h2 class="article-title"><object><a href=<?= $article_show_php ?>?article_id=<?= $userarticle['article_id'] ?>><?= $userarticle['title'] ?></a></object></h2>
             <p class="article-date"><?= date('Y年m月d日', strtotime($userarticle['creation_date'])) ?></p>
+            <span class="heart">♥</span>
+            <span class="article-like"><?= $userarticle['like_count'] ?></span>
           </article>
         </a>
       <?php
@@ -89,6 +91,8 @@ $_SESSION['password_details'] = $password_details;
             <p class="article-user"><object><a href=<?= $user_php ?>?user_id=<?= $userquestion['user_id'] ?>><?= $userquestion['name'] ?></a></object></p>
             <h2 class="article-title"><object><a href=<?= $question_show_php ?>?question_id=<?= $userquestion['question_id'] ?>><?= $userquestion['title'] ?></a></object></h2>
             <p class="article-date"><?= date('Y年m月d日', strtotime($userquestion['question_date'])) ?></p>
+            <span class="heart">♥</span>
+            <span class="article-like"><?= $userquestion['like_count'] ?></span>
           </article>
         </a>
       <?php

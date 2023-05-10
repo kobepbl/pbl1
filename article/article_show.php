@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../header.php';
 // 送られてきたidを受け取る
 $article_id = $_GET['article_id'];
 $_SESSION['article_comment_id'] = $article_id; #セッションに入れる
@@ -15,8 +16,7 @@ $article_comments = $post->getArticlecomments($article_id);
 
 $_SESSION['article_id'] = $article_id;
 $_SESSION['details_user_id'] = $article['user_id'];
-
-require_once __DIR__ . '/../header.php';
+$_SESSION['like_count'] = $article['like_count'];
 
 require_once __DIR__ . '/a_markdown.php';
 ?>
@@ -26,6 +26,13 @@ require_once __DIR__ . '/a_markdown.php';
     <div class="article-show-cover">
       <p class="article-show-user"><a href=<?= $user_php ?>?user_id=<?= $article['user_id'] ?>><?= $article['name'] ?></a></p>
       <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($article['creation_date'])) ?></p>
+      <p class="like_button">
+      <form method="POST" action="./likeupdate_db.php">
+        <span><input type="submit" value="♡" class="iine_button left"></span>
+        <span class="text"><?= $article['like_count'] ?></span>
+      </form>
+      </p>
+
     </div>
     <h1 class="article-show-title"><?= $article['title'] ?></h1>
     <div class="text-pos">
@@ -34,7 +41,7 @@ require_once __DIR__ . '/a_markdown.php';
   </div>
 
 
-
+  ""
   <div class="anser-show">
     <h1 class="comment">コメント</h1>
     <?php
