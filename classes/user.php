@@ -98,14 +98,29 @@ class Iine extends DbData
     {
         $sql = "select like_count from article_list where article_id=?";
         $stmt = $this->query($sql, [$article_id]);
-        $likecount= $stmt->fetch();
+        $likecount = $stmt->fetch();
 
         $sql = "update article_list set like_count=? where article_id=?";
-        $result = $this->exec($sql, [ $likecount[0]+1,$article_id]);
-        if($result){
-            return'';
-        }else{
-            return'更新できませんでした。管理者にお問い合わせください。';
+        $result = $this->exec($sql, [$likecount[0] + 1, $article_id]);
+        if ($result) {
+            return '';
+        } else {
+            return '更新できませんでした。管理者にお問い合わせください。';
+        }
+    }
+
+    public function q_Iineupdate($question_id)
+    {
+        $sql = "select like_count from question_list where question_id=?";
+        $stmt = $this->query($sql, [$question_id]);
+        $likecount = $stmt->fetch();
+
+        $sql = "update question_list set like_count=? where question_id=?";
+        $result = $this->exec($sql, [$likecount[0] + 1, $question_id]);
+        if ($result) {
+            return '';
+        } else {
+            return '更新できませんでした。管理者にお問い合わせください。';
         }
     }
 }
