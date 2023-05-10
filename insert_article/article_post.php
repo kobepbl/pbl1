@@ -33,3 +33,7 @@ if (isset($_SESSION['article_error'])) {
         <input type="submit" value="送信" class="button"><input type="reset" value="リセット" class="button">
     </div>
 </form>
+
+<?php
+require_once __DIR__ . '/../footer.php';
+?>

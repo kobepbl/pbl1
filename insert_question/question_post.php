@@ -30,5 +30,9 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
     <div class="item">
         <input type="submit" value="送信" class="button">
         <input type="reset" value="リセット" class="button">
-        <div class="item">
+    </div>
 </form>
+
+<?php
+require_once __DIR__ . '/../footer.php';
+?>
