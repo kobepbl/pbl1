@@ -1,6 +1,6 @@
 .profile {
   border-width: 500px;
-  border: 1px solid #e4d4dc;
+  border: 1px solid #458eaf;
   width: 800px;
   height: 350px;
   margin: 10px auto;
@@ -19,12 +19,12 @@ h3 {
 h3 {
   margin: 0px 0 30px;
   padding: 10px 0;
-  border: 2px solid #e4d4dc;
+  border: 2px solid #458eaf;
   border-left: 0;
   border-right: 0;
   font-weight: 400;
   font-size: 1.6rem;
-  color: #d5acb0;
+  color: #458eaf;
 }
 
 dl {
@@ -34,7 +34,7 @@ dl {
 dl dd {
   margin: 10 0 15px;
   padding: 0 0 15px 40px;
-  border-bottom: 1px dotted #e4d4dc;
+  border-bottom: 1px dotted #458eaf;
 }
 
 dl dd:last-of-type {
@@ -70,7 +70,7 @@ dl.inline dt {
   width: 150px;
   padding: 0 30px 10px 0;
   padding-right: 30px;
-  border-bottom: 1px dotted #e4d4dc;
+  border-bottom: 1px dotted #458eaf;
 }
 
 dl.inline dt:last-of-type {
@@ -83,7 +83,7 @@ dl.inline dd {
 
 dl.border {
   padding: 15px 20px;
-  border: 1px solid #e4d4dc;
+  border: 1px solid #458eaf;
   border-radius: 0.25rem;
 }
 
@@ -97,11 +97,15 @@ strong {
 
 em {
   font-style: normal;
-  background: linear-gradient(transparent 50%, #f4eae4 50%);
+  background: linear-gradient(transparent 50%, #458eaf 50%);
 }
 
 hr {
   margin: 50px;
   border: 0;
-  border-bottom: 2px dotted #ece4e4;
+  border-bottom: 2px dotted #458eaf;
+}
+
+.update{
+  margin-bottom: 20px;
 }

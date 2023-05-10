@@ -34,7 +34,7 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  padding: 20px 0;
+  padding-top: 20px;
 }
 
 .article-style {
@@ -71,6 +71,10 @@ article a {
   margin: 0 auto;
 }
 
+.article-user a:hover {
+  text-decoration: underline;
+}
+
 .article-date {
   padding: 15px 0px 10px 15px;
   margin: 0 auto;
@@ -82,6 +86,14 @@ article a {
   padding: 0 15px;
   margin: 0 auto;
   text-align: center;
+}
+
+.article-title a:hover {
+  text-decoration: underline;
+}
+
+.heart {
+  color: red;
 }
 
 a.page_number:visited {
@@ -149,7 +161,7 @@ a.page_number:visited {
 .article-show-cover {
   width: 100%;
   height: 20%;
-  padding: 10px 25px ;
+  padding: 10px 25px;
   background-color: #cce5ff;
   border-radius: 10px 10px 0px 0px;
 }
@@ -157,7 +169,7 @@ a.page_number:visited {
 .question-show-cover {
   width: 100%;
   height: 20%;
-  padding: 10px 25px ;
+  padding: 10px 25px;
   background-color: #bee3bc;
   border-radius: 10px 10px 0px 0px;
 }
@@ -171,8 +183,26 @@ a.page_number:visited {
   font-size: 20px;
 }
 
+.article-show a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.article-show a:hover {
+  text-decoration: underline;
+}
+
 .text-pos {
   margin: 10px 25px 25px 25px;
+}
+
+.text-pos a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.text-pos a:hover {
+  text-decoration: underline;
 }
 
 .article-text {
@@ -210,4 +240,34 @@ a.page_number:visited {
   padding: 25px;
   background-color: #eeeeee8d;
   border-radius: 10px;
+}
+
+.anser-show-2 {
+  width: 75%;
+  margin: 5px auto 50px auto;
+  padding: 25px;
+  background-color: #eeeeee8d;
+  border-radius: 10px;
+}
+
+.iine_button {
+  border-radius: 50%;
+  border-color: rgba(240, 18, 25, 0.575);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background: rgba(240, 18, 25, 0.575);
+  color: #FFF;
+  text-decoration: none;
+  text-align: center;
+}
+
+.text {
+  font-size: 30;
+}
+
+.left {
+  float: left;
 }
