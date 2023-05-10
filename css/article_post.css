@@ -11,6 +11,16 @@
   font-size: 25px;
 }
 
+.a-post {
+  display: inline-block;
+  border-bottom: solid #458eaf 5px;
+}
+
+.q-post {
+  display: inline-block;
+  border-bottom: solid #5eaf45 5px;
+}
+
 .form {
   width: 90%;
   margin: 0 auto;
@@ -53,6 +63,38 @@
   line-height: 1;
   border: none;
   box-shadow: 0 0 0 1px #458eaf inset;
+}
+
+.label_left-q {
+  display: inline-block;
+  width: 10%;
+  border-left: solid 5px #5eaf45;
+  padding-left: 15px;
+  vertical-align: top;
+  font-size: 20px;
+}
+
+.form-text-q {
+  margin-top: 15px;
+  height: 3em;
+  width: 100%;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 0 0 1px #5eaf45 inset;
+}
+
+.form-text1-q {
+  margin-top: 15px;
+  height: 500px;
+  width: 100%;
+  padding: 5px;
+  font-size: 15px;
+  resize: none;
+  border-radius: 4px;
+  line-height: 1;
+  border: none;
+  box-shadow: 0 0 0 1px #5eaf45 inset;
 }
 
 .button {
