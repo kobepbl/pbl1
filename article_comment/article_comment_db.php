@@ -10,14 +10,12 @@ $posted_date = date('Y-m-d ') . date('H:i:s');
 
 
 if (preg_match('/[&"\'<>]/', $comment)) {
-    $_SESSION['article_comment_error'] = '使用できない文字が含まれています'; // エラーメッセージをセット
-    header('Location: article_comment.php');
+    header("Location:../article/article_show.php?article_id={$article_id}");
     exit();
 }
 
 if (mb_strlen($comment) > 400) {
-    $_SESSION['article_comment_error'] = '400文字以下でコメントをつけてください'; // エラーメッセージをセット
-    header('Location: article_comment.php');
+    header("Location:../article/article_show.php?article_id={$article_id}");
     exit();
 }
 
