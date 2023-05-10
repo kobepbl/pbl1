@@ -98,23 +98,14 @@ class Iine extends DbData
     {
         $sql = "select like_count from article_list where article_id=?";
         $stmt = $this->query($sql, [$article_id]);
-        $iine=$stmt->fetch();
+        $likecount= $stmt->fetch();
 
         $sql = "update article_list set like_count=? where article_id=?";
-        $result = $this->exec($sql, [$iine[0]+1,$article_id]);
-
-        if ($result) {
-            return ''; // ここも空文字を返すので「''」はシングルクォーテーションが２つ
-        } else {
-            // 何らかの原因で失敗した場合 
-            return '記事登録できませんでした。管理者にお問い合わせください。';
+        $result = $this->exec($sql, [ $likecount[0]+1,$article_id]);
+        if($result){
+            return'';
+        }else{
+            return'更新できませんでした。管理者にお問い合わせください。';
         }
-    }
-
-    public function IineSelect($article_id)
-    {
-        $sql = "select like_count from article_list where article_id=? ";
-        $stmt = $this->query($sql, [$article_id]);
-        return $stmt->fetch();
     }
 }
