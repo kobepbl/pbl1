@@ -93,6 +93,10 @@ class Question_comment extends DbData
 }
 
 
+
+
+
+
 class Iine extends DbData
 {
     public function Iineupdate($article_id)

@@ -13,7 +13,7 @@ $article = $post->getArticle($article_id);
 // 選択された記事のコメントを抽出
 $article_comments = $post->getArticlecomments($article_id);
 
-
+$_SESSION['article_id'] = $article_id;
 $_SESSION['details_user_id'] = $article['user_id'];
 
 require_once __DIR__ . '/../header.php';

@@ -10,14 +10,12 @@ $posted_date = date('Y-m-d ') . date('H:i:s');
 
 
 if (preg_match('/[&"\'<>]/', $comment)) {
-    $_SESSION['question_comment_error'] = '使用できない文字が含まれています'; // エラーメッセージをセット
-    header('Location: question_comment_post.php');
+    header("Location:../question/question_show.php?question_id={$question_id}");
     exit();
 }
 
 if (mb_strlen($comment) > 400) {
-    $_SESSION['question_comment_error'] = '400文字以下でコメントをつけてください'; // エラーメッセージをセット
-    header('Location: question_comment.php');
+    header("Location:../question/question_show.php?question_id={$question_id}");
     exit();
 }
 
@@ -30,7 +28,7 @@ $result = $question_comment->Insertquestion_comment($question_id,$user_id,$comme
 
 if ($result !== '') {
     $_SESSION['question_comment_error'] = $result;
-    header('Location: question_comment.php');
+    header("Location:../question/question_show.php?question_id={$question_id}");
     exit();
 }
 

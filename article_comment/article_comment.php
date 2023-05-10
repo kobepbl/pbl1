@@ -1,9 +1,4 @@
-<?php
-if(isset($_SESSION['article_comment_error'] )){
-    echo '<p class="error_class">' . $_SESSION['article_comment_error'] . '</p>';
-    unset($_SESSION['article_comment_error'] );
-}
-?>
+
 
 <br>
 
