@@ -91,3 +91,21 @@ class Question_comment extends DbData
         }
     }
 }
+
+class Iine extends DbData
+{
+    public function Iineupdate($article_id)
+    {
+        $sql = "select like_count from article_list where article_id=?";
+        $stmt = $this->query($sql, [$article_id]);
+        $likecount= $stmt->fetch();
+
+        $sql = "update article_list set like_count=? where article_id=?";
+        $result = $this->exec($sql, [ $likecount[0]+1,$article_id]);
+        if($result){
+            return'';
+        }else{
+            return'更新できませんでした。管理者にお問い合わせください。';
+        }
+    }
+}
