@@ -4,7 +4,9 @@ require_once __DIR__ . '/../header.php';
 
 <div class="outer">
     <div class="inner">
+        <div class="a-post">
         新規記事登録
+        </div>
     </div>
 </div>
 
