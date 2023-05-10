@@ -92,6 +92,10 @@ article a {
   text-decoration: underline;
 }
 
+.heart {
+  color: red;
+}
+
 a.page_number:visited {
   color: black;
   text-decoration: none
