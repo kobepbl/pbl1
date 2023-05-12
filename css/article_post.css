@@ -161,3 +161,27 @@
   color: #ffffff;
   background: #458eaf;
 }
+
+.input_item ul {
+  display: inline-block;
+}
+
+.input_item ul li {
+  list-style-type: none;
+}
+
+.input_item ul li input[type="checkbox"] {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.input_item ul li label {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 20px;
+}
+
+.input_item ul li.locked {
+  opacity: 0.75;
+  color: #aaa;
+}
