@@ -4,8 +4,12 @@ require_once __DIR__ . '/../util.php';
 // Postクラス、Userクラス
 require_once __DIR__ . '/../classes/post.php';
 require_once __DIR__ . '/../classes/user_login.php';
+if(isset($_GET['user_id'])){
+  $user_show_id = $_GET['user_id'];
+}else{
+  $user_show_id = $_SESSION['user_id'];  
+}
 
-$user_show_id = $_GET['user_id'];
 $post = new Post();
 $userdetails = new User();
 
