@@ -7,7 +7,7 @@ require_once __DIR__ . '/../classes/search.php';
 $search = new Search();
 
 // 検索された記事を全て取り出す
-$search_articles = $search->getSearchtagarticles($search_tag);
+$search_articles = $search->getSearch_tag_articles($search_tag);
 
 
 require_once __DIR__ . '/../paging/search_paging_controller.php';

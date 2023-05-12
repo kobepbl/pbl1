@@ -35,7 +35,7 @@ ORDER BY
     }
 
     // 検索されたタグのすべての記事を逆順でを取り出す
-    public  function  getSearchtagarticles($search_tag)
+    public  function  getSearch_tag_articles($search_tag)
     {
         $sql  = "SELECT
     title,
@@ -51,7 +51,7 @@ ON
 INNER JOIN
     tags
 ON
-    article_list.article.id = tags.tags_i
+    article_list_tags.tags.id = tags.tags_id
 WHERE
     tags.tags = $search_tag
 ORDER BY
