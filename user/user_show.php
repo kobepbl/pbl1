@@ -34,10 +34,17 @@ $userdetail['grade'] .= "年生";
 
 <head>
   <link rel="stylesheet" href="<?= $userpage_css ?>">
+
 </head>
 
+
+
+<div >
+<img class="icon"src="../img/<?=$userdetail['icon']?>" alt="" align="left">
+</div>
 <!-- ユーザー情報 -->
 <div class="profile" align="center">
+  
   <h3>プロフィール</h3>
   <div>
     <dl class="inline">
