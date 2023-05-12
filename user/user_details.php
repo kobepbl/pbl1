@@ -1,82 +1,71 @@
 <?php
-require_once __DIR__ . '/../header.php';
-require_once __DIR__ . '/../util.php';
-// Postクラス、Userクラス
+session_start();
+// Postクラスを利用する
 require_once __DIR__ . '/../classes/post.php';
-require_once __DIR__ . '/../classes/user_login.php';
-if(isset($_GET['user_id'])){
-  $user_show_id = $_GET['user_id'];
-}else{
-  $user_show_id = $_SESSION['user_id'];  
-}
-
 $post = new Post();
-$userdetails = new User();
-
-
-// ユーザー情報、投稿、質問の抽出
-$userdetail = $userdetails->detailsUser($user_show_id);
+$user_show_id = $_SESSION['user_id'];
+// すべての記事を抽出
 $userarticles = $post->userArticles($user_show_id);
 $userquestions = $post->userQuestions($user_show_id);
 
-// 性別の文字化
-if ($userdetail['gender'] == 0) {
-  $user_show_gender = "男性";
-} elseif ($userdetail['gender'] == 1) {
-  $user_show_gender = "女性";
-} else {
-  $user_show_gender = "未設定";
+$name = $_SESSION['name'];
+$mail = $_SESSION['mail'];
+$grade = $_SESSION['grade'];
+$gender = $_SESSION['gender'];
+$graduation_year = $_SESSION['graduation_year'];
+$password = $_SESSION['password'];
+require_once __DIR__ . '/../header.php';
+// パスワードを*で伏せて表示
+$password_details = '';
+while (mb_strlen($password_details) <= mb_strlen($password)) {
+  $password_details .= '*';
 }
-
-$userdetail['grade'] .= "年生";
-
+// 性別の文字化
+if ($gender == 0) {
+  $gender_details = "男性";
+} elseif ($gender == 1) {
+  $gender_details = "女性";
+}
+$grade_details = $grade . "年生";
+$_SESSION['password_details'] = $password_details;
 ?>
 
 <head>
   <link rel="stylesheet" href="<?= $userpage_css ?>">
 </head>
-
-<!-- ユーザー情報 -->
 <div class="profile" align="center">
   <h3>プロフィール</h3>
   <div>
     <dl class="inline">
       <dt>名前</dt>
-      <dd><?= $userdetail['name'] ?></dd>
+      <dd><?= $name ?></dd>
       <dt>メールアドレス</dt>
       <dd>
-        <td><?= $userdetail['mail'] ?>
+        <td><?= $mail ?>
       </dd>
       <dt>学年</dt>
-      <dd><?= $userdetail['grade'] ?></dd>
+      <dd><?= $grade_details ?></dd>
       <dt>性別</dt>
-      <dd><?= $user_show_gender ?></dd>
+      <dd><?= $gender_details ?></dd>
       <dt>卒業年度</dt>
-      <dd><?= $userdetail['graduation_year'] ?></dd>
-
+      <dd><?= $graduation_year ?></dd>
     </dl>
-    </div>
-    <?php
-    if(!isset($_GET['user_id'])){
-    ?>  
-      <a href="../login/update.php">
+    <br>
+    <a href="../login/update.php">
       <div class="update">
         <input type="submit" value="変更" class="button">
       </div>
     </a>
-  <?php
-  }
-  ?>
-
+  </div>
 </div>
 
 <!-- 投稿記事 -->
 <main>
   <div class="index-style">
     <article class="article-style">
-      <h1>投稿</h1>
+      <h1>記事・作品</h1>
       <?php
-      foreach ($userarticles as $userarticle) {
+      foreach ($userarticles  as  $userarticle) {
       ?>
         <a href=<?= $article_show_php ?>?article_id=<?= $userarticle['article_id'] ?>>
           <article class="article-one">
@@ -112,7 +101,6 @@ $userdetail['grade'] .= "年生";
     </article>
   </div>
 </main>
-
 <?php
 require_once __DIR__ . '/../footer.php';
 ?>
