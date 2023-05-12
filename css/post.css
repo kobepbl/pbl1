@@ -176,7 +176,7 @@ a.page_number:visited {
 
 .article-show-title {
   font-size: 40px;
-  margin: 25px 25px;
+  margin: 25px 25px 0px 25px;
 }
 
 .article-show-user {
@@ -193,7 +193,7 @@ a.page_number:visited {
 }
 
 .text-pos {
-  margin: 10px 25px 25px 25px;
+  margin: 35px 25px 25px 25px;
 }
 
 .text-pos a {
@@ -270,4 +270,18 @@ a.page_number:visited {
 
 .left {
   float: left;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-button {
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 0px -15px 10px 25px;
+  background-color: #eaeaea;
+  color: #333;
+  border-radius: 5px;
 }
