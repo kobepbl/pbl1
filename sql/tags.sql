@@ -37,7 +37,7 @@ CREATE TABLE tags(
 );
 
 INSERT INTO tags(tags_id, tags)
-        VALUES(1, 'C'),
+VALUES  (1, 'C'),
         (2, 'Python'),
         (3, 'Java'),
         (4, 'Javascript'),
