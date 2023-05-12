@@ -108,7 +108,7 @@ ON
 INNER JOIN
     tags
 ON
-    article_list_tags.article.id = tags.tags_id
+    article_list_tags.tags.id = tags.tags_id
 WHERE
     tags.tags = ?（ここに保持してるタグ）
 ORDER BY
