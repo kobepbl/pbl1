@@ -1,6 +1,6 @@
 <?php
 define('MAX', '20');
-$count = count($articles);
+$count = count($search_articles);
 $max_page = ceil($count / MAX);
 
 if (!isset($_GET['a_page_id'])) {
@@ -8,10 +8,11 @@ if (!isset($_GET['a_page_id'])) {
 } else {
   $page = $_GET['a_page_id'];
 }
+$word = $_GET['q'];
 
 $start_no = ($page - 1) * MAX;
 
-$article_data = array_slice($articles, $start_no, MAX, true);
+$article_data = array_slice($search_articles, $start_no, MAX, true);
 
 if ($page == 1 || $page == $max_page) {
   $range = 4;

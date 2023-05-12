@@ -93,35 +93,33 @@ class Question_comment extends DbData
 }
 
 
+
+
+
+
 class Iine extends DbData
 {
     public function Iineupdate($article_id)
     {
         $sql = "select like_count from article_list where article_id=?";
         $stmt = $this->query($sql, [$article_id]);
-        $likecount = $stmt->fetch();
+        $iine=$stmt->fetch();
 
         $sql = "update article_list set like_count=? where article_id=?";
-        $result = $this->exec($sql, [$likecount[0] + 1, $article_id]);
+        $result = $this->exec($sql, [$iine[0]+1,$article_id]);
+
         if ($result) {
-            return '';
+            return ''; // ここも空文字を返すので「''」はシングルクォーテーションが２つ
         } else {
-            return '更新できませんでした。管理者にお問い合わせください。';
+            // 何らかの原因で失敗した場合 
+            return '記事登録できませんでした。管理者にお問い合わせください。';
         }
     }
 
-    public function q_Iineupdate($question_id)
+    public function IineSelect($article_id)
     {
-        $sql = "select like_count from question_list where question_id=?";
-        $stmt = $this->query($sql, [$question_id]);
-        $likecount = $stmt->fetch();
-
-        $sql = "update question_list set like_count=? where question_id=?";
-        $result = $this->exec($sql, [$likecount[0] + 1, $question_id]);
-        if ($result) {
-            return '';
-        } else {
-            return '更新できませんでした。管理者にお問い合わせください。';
-        }
+        $sql = "select like_count from article_list where article_id=? ";
+        $stmt = $this->query($sql, [$article_id]);
+        return $stmt->fetch();
     }
 }

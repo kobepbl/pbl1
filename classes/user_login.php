@@ -10,7 +10,6 @@ class User extends DbData
         return $stmt->fetch();
     }
 
-
     public function register($name, $mail, $grade, $gender, $graduation_year, $password)
     {
         $sql = "select * from current_users where mail=?";
@@ -30,19 +29,35 @@ class User extends DbData
         }
     }
 
-    // 登録情報の変更
-    // public function updateUser($id,$name,$mail,$grade,$gender,$tel,$graduation_year,$password){
-    // $sql="update users set id=?,name=?,=?,=?,address=?,tel=?,password=? where userId=?";
-    // $result=$this->exec($sql,[$userId,$userName,$kana,$zip,$address,$tel,$password,$tempId]);
+    public function updateUser($newpassword,$mail)
+    {
+        $sql = "update current_users set password=? where mail=?";
+        $result = $this->exec($sql, [ $newpassword,$mail]);
+        if($result){
+            return'';
+        }else{
+            return'更新できませんでした。管理者にお問い合わせください。';
+        }
+    }
 
-    // if($result){
-    // if($userId!=$tempId){
-    // $this->changeCartUserId($tempId,$userId);
-    // $this->changeOrderHistoryUserId($tempId,$userId);
-    // }
-    // return '';
-    // }else{
-    // return 'ユーザー情報の更新ができませんでした。管理者にお問い合わせください。';
-    // }
-    // }
+    public function authPassword($password,$userid)
+    {
+        $sql = "select password from current_users where password=? and user_id=?";
+        $stmt = $this->query($sql, [$password,$userid]);
+        $result=$stmt->fetch();
+
+        if($result){
+            return '';
+        }else{
+            return 'パスワードが違います。';
+        }
+    }
+
+
+    public function detailsUser($user_show_id)
+    {
+        $sql = "select * from current_users where user_id=?";
+        $userdetail = $this->query($sql, [$user_show_id]);
+        return $userdetail->fetch();
+    }
 }
