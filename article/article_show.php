@@ -20,7 +20,7 @@ $_SESSION['like_count'] = $article['like_count'];
 
 require_once __DIR__ . '/a_markdown.php';
 ?>
-
+<!-- 市川ここから -->
 <main>
   <div class="article-show">
     <div class="article-show-cover">
@@ -32,7 +32,7 @@ require_once __DIR__ . '/a_markdown.php';
         <span class="text"><?= $article['like_count'] ?></span>
       </form>
       </p>
-
+<!-- 市川ここまで -->
     </div>
     <h1 class="article-show-title"><?= $article['title'] ?></h1>
     <div class="text-pos">
