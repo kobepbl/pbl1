@@ -37,30 +37,36 @@ ORDER BY
     // 検索されたタグのすべての記事を逆順でを取り出す
     public  function  getSearch_tag_articles($search_tag)
     {
-        $sql  = "SELECT
-    title,
-    sentence,
-    like_count,
-    creation_date
-FROM
-    article_list
-INNER JOIN
-    article_list_tags
-ON
-    article_list.article.id = article_list_tags.article_id
-INNER JOIN
-    tags
-ON
-    article_list_tags.tags.id = tags.tags_id
-WHERE
-    tags.tags = $search_tag
-ORDER BY
-    creation_date DESC
-;";
+        $sql  = "
+        SELECT
+            title,
+            sentence,
+            like_count,
+            creation_date
+        FROM
+            article_list
+        WHERE
+            article_id IN (
+                SELECT
+                    article_id
+                FROM
+                    tags
+                INNER JOIN
+                    article_list_tags
+                ON
+                    tags.tags_id = article_list_tags.tags_id
+                WHERE
+                    tags = $search_tag
+            )
+        ORDER BY
+            creation_date DESC
+        ;";
+
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         $search_tag_articles = $stmt->fetchAll();
         return  $search_tag_articles;
     }
 }
+
 // "select  *  from  article_list join current_users on article_list.user_id = current_users.user_id where sentence like '" . "%" . $search_word . "%" . "' order by article_list.article_id desc";
