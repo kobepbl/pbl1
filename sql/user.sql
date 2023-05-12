@@ -8,13 +8,15 @@ CREATE TABLE current_users(
     graduation_year smallint NOT NULL,
     gender tinyint DEFAULT 2,
     mail VARCHAR(50) UNIQUE NOT NULL,
+    icon VARCHAR(25), 
     password VARCHAR(40) NOT NULL,
     INDEX current_users_index(
         user_id,
         name,
         grade,
         graduation_year,
-        mail
+        mail,
+        icon
     )
 );
 
