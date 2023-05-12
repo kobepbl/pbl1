@@ -40,7 +40,7 @@ $userdetail['grade'] .= "年生";
 
 
 <div >
-<img class="icon"src="../img/<?=$userdetail['icon']?>" alt="" align="left">
+<img class="icon"src="../icon_image/<?=$userdetail['icon']?>" alt="" align="left">
 </div>
 <!-- ユーザー情報 -->
 <div class="profile" align="center">
@@ -69,6 +69,11 @@ $userdetail['grade'] .= "年生";
       <a href="../login/update.php">
       <div class="update">
         <input type="submit" value="変更" class="button">
+      </div>
+    </a>
+    <a href="../login/icon_update.php">
+      <div class="update">
+        <input type="submit" value="アイコン変更" class="button">
       </div>
     </a>
   <?php
