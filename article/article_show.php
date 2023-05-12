@@ -11,6 +11,9 @@ $post = new Post();
 // 選択された記事を取り出す
 $article = $post->getArticle($article_id);
 
+// 選択されたタグを取り出す
+$tags = $post->getTags($article_id);
+
 // 選択された記事のコメントを抽出
 $article_comments = $post->getArticlecomments($article_id);
 
@@ -35,6 +38,17 @@ require_once __DIR__ . '/a_markdown.php';
 <!-- 市川ここまで -->
     </div>
     <h1 class="article-show-title"><?= $article['title'] ?></h1>
+    <div class="tag">
+      <?php
+      foreach ($tags as $tag) {
+      ?>
+        <div class="tag-button">
+          <p><?= ($tag['tags']) ?></p>
+        </div>
+      <?php
+      }
+      ?>
+    </div>
     <div class="text-pos">
       <p class="article-text"><?= nl2br($html) ?></p>
     </div>
