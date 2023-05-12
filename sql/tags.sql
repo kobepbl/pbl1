@@ -97,13 +97,13 @@ DELETE FROM tags WHERE tags = タグ名
 /* 以下テストケース（タグは上記のものを使用） */
 -- 記事
 INSERT INTO article_list(user_id, title, sentence, creation_date)
-VALUES  (7, 'title23', 'sentence183', '2021-02-04 15:25:07'),
+VALUES  (7, 'title23', 'sentence183', '2021-02-04 10:25:07'),
         (10, 'title43', 'sentence13', '2023-10-03 15:25:07'),
-        (2, 'title12', 'sentence93', '2022-11-04 15:25:07'),
+        (2, 'title12', 'sentence93', '2022-11-04 23:25:07'),
         (4, 'title9', 'sentence21', '2027-08-04 15:25:07'),
         (23, 'title16', 'sentence76', '2028-07-04 15:25:07'),
-        (19, 'title89', 'sentence1934', '2022-10-04 15:25:07'),
-        (15, 'title17', 'sentence3', '2023-02-04 15:25:07');
+        (19, 'title89', 'sentence1934', '2022-10-04 06:24:39'),
+        (15, 'title17', 'sentence3', '2023-02-04 13:25:07');
 
 -- 記事とタグの紐づけ（中間）
 INSERT INTO article_list_tags(article_id, tags_id)
