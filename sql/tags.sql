@@ -23,7 +23,7 @@ CREATE TABLE article_list_tags(
     INDEX article_list_tags_index(
         article_list_tags_id
     ),
-    FOREIGN KEY (article_id) REFERENCES current_users(user_id),
+    FOREIGN KEY (article_id) REFERENCES article_list(article_id),
 );
 
 
