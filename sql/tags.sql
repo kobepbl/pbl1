@@ -12,7 +12,7 @@ CREATE TABLE article_list(
         like_count,
         creation_date
     ),
-    FOREIGN KEY (user_id) REFERENCES current_users(user_id)
+    FOREIGN KEY (article_id) REFERENCES article_list(article_id)
 );
 
 -- 記事とタグの中間テーブル
@@ -23,8 +23,7 @@ CREATE TABLE article_list_tags(
     INDEX article_list_tags_index(
         article_list_tags_id
     ),
-    FOREIGN KEY (user_id) REFERENCES current_users(user_id),
-    FOREIGN KEY (user_id) REFERENCES current_users(user_id)
+    FOREIGN KEY (article_id) REFERENCES article_list(article_id),
 );
 
 
@@ -38,36 +37,36 @@ CREATE TABLE tags(
 );
 
 INSERT INTO tags(tags_id, tags)
-        VALUES(1, 'C'),
-        VALUES(2, 'Python'),
-        VALUES(3, 'Java'),
-        VALUES(4, 'Javascript'),
-        VALUES(5, '制作実習'),
-        VALUES(6, 'HTML'),
-        VALUES(7, 'CSS'),
-        VALUES(8, 'C#'),
-        VALUES(9, 'データベース'),
-        VALUES(10, 'SQL'),
-        VALUES(11, 'Linux'),
-        VALUES(12, 'ネットワーク'),
-        VALUES(13, 'ITパスポート'),
-        VALUES(14, '基本情報技術者試験'),
-        VALUES(15, '応用情報技術者試験'),
-        VALUES(16, 'AI'),
-        VALUES(17, 'numpy'),
-        VALUES(18, 'pandas'),
-        VALUES(19, 'ICT概論'),
-        VALUES(20, 'アルゴリズム'),
-        VALUES(21, 'matplotlib'),
-        VALUES(22, 'PHP'),
-        VALUES(23, 'xampp'),
-        VALUES(24, 'terapad'),
-        VALUES(25, 'MYSQL'),
-        VALUES(26, 'vscode'),
-        VALUES(27, 'G検定'),
-        VALUES(28, 'AI検定'),
-        VALUES(29, 'ポインタ'),
-        VALUES(30, '構造体'),
-        VALUES(31, '変数'),
-        VALUES(32, '配列'),
-        VALUES(33, 'リスト');
+VALUES  (1, 'C'),
+        (2, 'Python'),
+        (3, 'Java'),
+        (4, 'Javascript'),
+        (5, '制作実習'),
+        (6, 'HTML'),
+        (7, 'CSS'),
+        (8, 'C#'),
+        (9, 'データベース'),
+        (10, 'SQL'),
+        (11, 'Linux'),
+        (12, 'ネットワーク'),
+        (13, 'ITパスポート'),
+        (14, '基本情報技術者試験'),
+        (15, '応用情報技術者試験'),
+        (16, 'AI'),
+        (17, 'numpy'),
+        (18, 'pandas'),
+        (19, 'ICT概論'),
+        (20, 'アルゴリズム'),
+        (21, 'matplotlib'),
+        (22, 'PHP'),
+        (23, 'xampp'),
+        (24, 'terapad'),
+        (25, 'MYSQL'),
+        (26, 'vscode'),
+        (27, 'G検定'),
+        (28, 'AI検定'),
+        (29, 'ポインタ'),
+        (30, '構造体'),
+        (31, '変数'),
+        (32, '配列'),
+        (33, 'リスト');
