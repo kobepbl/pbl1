@@ -95,15 +95,36 @@ DELETE FROM tags WHERE tags = タグ名
 
 
 /* 以下テストケース（タグは上記のものを使用） */
+
+-- ユーザ情報（grade, yearまだ）
+INSERT INTO current_users(name, grade, graduation_year, gender, mail, password)
+VALUES  ('name1', 2, 2024, 1, 'kd0000001@st.kobedenshi.ac.jp', 'password_1'),
+        ('name2', 2, 2024, 1, 'kd0000002@st.kobedenshi.ac.jp', 'password_2'),
+        ('name3', 2, 2024, 0, 'kd0000003@st.kobedenshi.ac.jp', 'password_3'),
+        ('name4', 2, 2024, 1, 'kd0000004@st.kobedenshi.ac.jp', 'password_4'),
+        ('name5', 2, 2024, 1, 'kd0000005@st.kobedenshi.ac.jp', 'password_5'),
+        ('name6', 2, 2024, 0, 'kd0000006@st.kobedenshi.ac.jp', 'password_6'),
+        ('name7', 2, 2024, 0, 'kd0000007@st.kobedenshi.ac.jp', 'password_7'),
+        ('name8', 2, 2024, 0, 'kd0000008@st.kobedenshi.ac.jp', 'password_8'),
+        ('name9', 2, 2024, 1, 'kd0000009@st.kobedenshi.ac.jp', 'password_9'),
+        ('name10', 2, 2024, 1, 'kd0000010@st.kobedenshi.ac.jp', 'password_10'),
+        ('name11', 2, 2024, 0, 'kd0000011@st.kobedenshi.ac.jp', 'password_11'),
+        ('name12', 2, 2024, 1, 'kd0000012@st.kobedenshi.ac.jp', 'password_12'),
+        ('name13', 2, 2024, 0, 'kd0000013@st.kobedenshi.ac.jp', 'password_13'),
+        ('name14', 2, 2024, 0, 'kd0000014@st.kobedenshi.ac.jp', 'password_14'),
+        ('name15', 2, 2024, 1, 'kd0000015@st.kobedenshi.ac.jp', 'password_15');
+
+
+
 -- 記事
 INSERT INTO article_list(user_id, title, sentence, creation_date)
 VALUES  (7, 'title23', 'sentence183', '2021-02-04 10:25:07'),
         (10, 'title43', 'sentence13', '2023-10-03 15:25:07'),
         (2, 'title12', 'sentence93', '2022-11-04 23:25:07'),
         (4, 'title9', 'sentence21', '2027-08-04 15:25:07'),
-        (23, 'title16', 'sentence76', '2028-07-04 15:25:07'),
-        (19, 'title89', 'sentence1934', '2022-10-04 06:24:39'),
-        (15, 'title17', 'sentence3', '2023-02-04 13:25:07');
+        (8, 'title16', 'sentence76', '2028-07-04 15:25:07'),
+        (2, 'title89', 'sentence1934', '2022-10-04 06:24:39'),
+        (1, 'title17', 'sentence3', '2023-02-04 13:25:07');
 
 -- 記事とタグの紐づけ（中間）
 INSERT INTO article_list_tags(article_id, tags_id)
