@@ -161,3 +161,26 @@ WHERE
             tags = ?（ここにタグ入れる。）
     )
 ;
+
+-- Verified_SQL（ユーザー名も取得可）未実装
+SELECT
+    title,
+    sentence,
+    like_count,
+    creation_date
+FROM
+    article_list
+WHERE
+    article_id IN (
+        SELECT
+            article_id
+        FROM
+            tags
+        INNER JOIN
+            article_list_tags
+        ON
+            tags.tags_id = article_list_tags.tags_id
+        WHERE
+            tags = ?（ここにタグ入れる。）
+    )
+;
