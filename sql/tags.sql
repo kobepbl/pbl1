@@ -96,25 +96,23 @@ DELETE FROM tags WHERE tags = タグ名
 
 /* 以下テストケース（タグは上記のものを使用） */
 
--- ユーザ情報（grade, yearまだ）
+-- ユーザ情報（yearまだ）
 INSERT INTO current_users(name, grade, graduation_year, gender, mail, password)
 VALUES  ('name1', 2, 2024, 1, 'kd0000001@st.kobedenshi.ac.jp', 'password_1'),
-        ('name2', 2, 2024, 1, 'kd0000002@st.kobedenshi.ac.jp', 'password_2'),
-        ('name3', 2, 2024, 0, 'kd0000003@st.kobedenshi.ac.jp', 'password_3'),
-        ('name4', 2, 2024, 1, 'kd0000004@st.kobedenshi.ac.jp', 'password_4'),
-        ('name5', 2, 2024, 1, 'kd0000005@st.kobedenshi.ac.jp', 'password_5'),
-        ('name6', 2, 2024, 0, 'kd0000006@st.kobedenshi.ac.jp', 'password_6'),
-        ('name7', 2, 2024, 0, 'kd0000007@st.kobedenshi.ac.jp', 'password_7'),
-        ('name8', 2, 2024, 0, 'kd0000008@st.kobedenshi.ac.jp', 'password_8'),
-        ('name9', 2, 2024, 1, 'kd0000009@st.kobedenshi.ac.jp', 'password_9'),
-        ('name10', 2, 2024, 1, 'kd0000010@st.kobedenshi.ac.jp', 'password_10'),
-        ('name11', 2, 2024, 0, 'kd0000011@st.kobedenshi.ac.jp', 'password_11'),
+        ('name2', 3, 2023, 1, 'kd0000002@st.kobedenshi.ac.jp', 'password_2'),
+        ('name3', 4, 2028, 0, 'kd0000003@st.kobedenshi.ac.jp', 'password_3'),
+        ('name4', 1, 2027, 1, 'kd0000004@st.kobedenshi.ac.jp', 'password_4'),
+        ('name5', 4, 2025, 1, 'kd0000005@st.kobedenshi.ac.jp', 'password_5'),
+        ('name6', 3, 2026, 0, 'kd0000006@st.kobedenshi.ac.jp', 'password_6'),
+        ('name7', 2, 2025, 0, 'kd0000007@st.kobedenshi.ac.jp', 'password_7'),
+        ('name8', 3, 2026, 0, 'kd0000008@st.kobedenshi.ac.jp', 'password_8'),
+        ('name9', 1, 2027, 1, 'kd0000009@st.kobedenshi.ac.jp', 'password_9'),
+        ('name10', 4, 2024, 1, 'kd0000010@st.kobedenshi.ac.jp', 'password_10'),
+        ('name11', 4, 2024, 0, 'kd0000011@st.kobedenshi.ac.jp', 'password_11'),
         ('name12', 2, 2024, 1, 'kd0000012@st.kobedenshi.ac.jp', 'password_12'),
-        ('name13', 2, 2024, 0, 'kd0000013@st.kobedenshi.ac.jp', 'password_13'),
-        ('name14', 2, 2024, 0, 'kd0000014@st.kobedenshi.ac.jp', 'password_14'),
-        ('name15', 2, 2024, 1, 'kd0000015@st.kobedenshi.ac.jp', 'password_15');
-
-
+        ('name13', 3, 2025, 0, 'kd0000013@st.kobedenshi.ac.jp', 'password_13'),
+        ('name14', 2, 2025, 0, 'kd0000014@st.kobedenshi.ac.jp', 'password_14'),
+        ('name15', 1, 2026, 1, 'kd0000015@st.kobedenshi.ac.jp', 'password_15');
 
 -- 記事
 INSERT INTO article_list(user_id, title, sentence, creation_date)
