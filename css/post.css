@@ -285,3 +285,8 @@ a.page_number:visited {
   color: #333;
   border-radius: 5px;
 }
+
+.article-img {
+  width: 30%;
+  height: 30%;
+}

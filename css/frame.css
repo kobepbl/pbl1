@@ -24,9 +24,11 @@ img {
 .icon {
   width: 60px;
   height: 60px;
+  margin: 0px 25px 0px 0px;
   object-fit: cover;
   background-color: white;
   border-radius: 100%;
+  vertical-align: middle;
 }
 
 .top-info a {
