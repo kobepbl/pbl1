@@ -44,6 +44,17 @@ CREATE TABLE article_list_tags(
     FOREIGN KEY (article_id) REFERENCES article_list(article_id)
 );
 
+-- 質問とタグの中間テーブル
+CREATE TABLE question_list_tags(
+    question_list_tags_id INT PRIMARY KEY AUTO_INCREMENT,
+    question_id INT NOT NULL,
+    tags_id INT NOT NULL,
+    INDEX question_list_tags_index(
+        question_list_tags_id
+    ),
+    FOREIGN KEY (question_id) REFERENCES question_list(question_id)
+);
+
 
 -- タグテーブル
 CREATE TABLE tags(
@@ -183,6 +194,34 @@ WHERE
             article_list_tags
         ON
             tags.tags_id = article_list_tags.tags_id
+        WHERE
+            tags = ?（ここにタグ入れる。）
+    )
+;
+
+-- Verified_SQL（ユーザー名も取得可）質問版
+SELECT
+    name,
+    title,
+    sentence,
+    like_count,
+    creation_date
+FROM
+    question_list
+INNER JOIN
+    current_users
+ON
+    question_list.user_id = current_users.user_id
+WHERE
+    question_id IN (
+        SELECT
+            question_id
+        FROM
+            tags
+        INNER JOIN
+            question_list_tags
+        ON
+            tags.tags_id = question_list_tags.tags_id
         WHERE
             tags = ?（ここにタグ入れる。）
     )
