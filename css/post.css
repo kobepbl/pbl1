@@ -76,7 +76,7 @@ article a {
 }
 
 .article-date {
-  padding: 15px 0px 10px 15px;
+  padding: 0px 0px 10px 15px;
   margin: 0 auto;
   font-size: 12px;
   display: inline-block;
@@ -289,4 +289,11 @@ a.page_number:visited {
 .article-img {
   width: 30%;
   height: 30%;
+}
+
+.index-tag-button {
+  padding: 0px 0px 0px 15px;
+  margin: 0 auto;
+  font-size: 15px;
+  display: inline-block;
 }
