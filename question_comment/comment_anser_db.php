@@ -7,8 +7,9 @@ $question_id = $_POST['question_comment_id'];
 $user_id = $_SESSION["user_id"];
 $comment = $_POST['comment']; 
 $posted_date = date('Y-m-d ') . date('H:i:s');
-$column_id=$_SESSION['commentanser_id'];
-
+$column_id=$_POST['commentanser_id'];
+// echo $_SESSION['commentanser_id'];
+echo $column_id;
 
 if (preg_match('/[&"\'<>]/', $comment)) {
     header("Location:../question/question_show.php?question_id={$comment_id}");
@@ -33,7 +34,11 @@ if ($result !== '') {
     exit();
 }
 
-header("Location:../question/question_show.php?question_id={$question_id}");
+if(isset($_SESSION['commentanser_id'])){
+    unset($_SESSION['commentanser_id']);
+  }
+
+// header("Location:../question/question_show.php?question_id={$question_id}");
 
 require_once __DIR__ . '/../footer.php';
 ?>
