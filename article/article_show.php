@@ -51,7 +51,6 @@ require_once __DIR__ . '/a_markdown.php';
       <p class="article-text"><?= nl2br($html) ?></p>
     </div>
   </div>
-
   <div class="anser-show">
     <h1 class="comment">コメント</h1>
     <?php

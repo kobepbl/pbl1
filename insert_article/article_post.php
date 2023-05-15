@@ -21,6 +21,7 @@ if (isset($_SESSION['article_error'])) {
 }
 ?>
 <script src="../js/insert_tags.js"></script>
+<script src="<?= $no_post_js ?>"></script>
 
 <form class="form" method="POST" action="./article_db.php">
     <div class="item">
