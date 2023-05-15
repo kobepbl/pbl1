@@ -4,10 +4,10 @@ require_once __DIR__ . '/../util.php';
 // Postクラス、Userクラス
 require_once __DIR__ . '/../classes/post.php';
 require_once __DIR__ . '/../classes/user_login.php';
-if(isset($_GET['user_id'])){
+if (isset($_GET['user_id'])) {
   $user_show_id = $_GET['user_id'];
-}else{
-  $user_show_id = $_SESSION['user_id'];  
+} else {
+  $user_show_id = $_SESSION['user_id'];
 }
 
 $post = new Post();
@@ -36,63 +36,64 @@ $userdetail['grade'] .= "年生";
   <link rel="stylesheet" href="<?= $userpage_css ?>">
 
 </head>
-
-<?php
-  if ($userdetail['icon'] != "") {
-    ?>
-      <img class="user-icon"src="../icon_image/<?=$userdetail['icon']?>" alt="">
-    <?php  
-  } else {
-    ?>
-      <img class="user-icon"src="../icon_image/default.png" alt="">
+<main>
+  <div class="icon">
     <?php
-      }
+    if ($userdetail['icon'] != "") {
     ?>
-
-
-
-<a href="../login/icon_update.php">
-  <div class="icon-update">
-    <input type="submit" value="アイコン変更" class="button">
-  </div>
-</a>
-<!-- ユーザー情報 -->
-<div class="profile" align="center">
-  
-  <h3>プロフィール</h3>
-  <div>
-    <dl class="inline">
-      <dt>名前</dt>
-      <dd><?= $userdetail['name'] ?></dd>
-      <dt>メールアドレス</dt>
-      <dd>
-        <td><?= $userdetail['mail'] ?>
-      </dd>
-      <dt>学年</dt>
-      <dd><?= $userdetail['grade'] ?></dd>
-      <dt>性別</dt>
-      <dd><?= $user_show_gender ?></dd>
-      <dt>卒業年度</dt>
-      <dd><?= $userdetail['graduation_year'] ?></dd>
-
-    </dl>
+      <img class="user-icon" src="../icon_image/<?= $userdetail['icon'] ?>" alt="">
+    <?php
+    } else {
+    ?>
+      <img class="user-icon" src="../icon_image/default.png" alt="">
+    <?php
+    }
+    ?>
+    <div class="icon-update">
+      <a href="../login/icon_update.php">
+        <input type="submit" value="アイコン変更" class="icon_button">
+      </a>
     </div>
-    <?php
-    if(!isset($_GET['user_id'])){
-    ?>  
+  </div>
+  <!-- ユーザー情報 -->
+  <div class="profile" align="center">
+
+    <h3>プロフィール</h3>
+    <div>
+      <dl class="inline">
+        <dt>名前</dt>
+        <dd><?= $userdetail['name'] ?></dd>
+        <dt>メールアドレス</dt>
+        <dd>
+          <td><?= $userdetail['mail'] ?>
+        </dd>
+        <dt>学年</dt>
+        <dd><?= $userdetail['grade'] ?></dd>
+        <dt>性別</dt>
+        <dd><?= $user_show_gender ?></dd>
+        <dt>卒業年度</dt>
+        <dd><?= $userdetail['graduation_year'] ?></dd>
+
+      </dl>
+    </div>
+  </div>
+  <?php
+  if (!isset($_GET['user_id'])) {
+  ?>
+    <div class="update">
       <a href="../login/update.php">
-      <div class="update">
-        <input type="submit" value="パスワード変更" class="button">
-      </div>
-    </a>
+        <input type="submit" value="パスワード変更" class="user_button">
+      </a>
+    </div>
+
   <?php
   }
   ?>
 
-</div>
 
-<!-- 投稿記事 -->
-<main>
+
+  <!-- 投稿記事 -->
+
   <div class="index-style">
     <article class="article-style">
       <h1>投稿</h1>
