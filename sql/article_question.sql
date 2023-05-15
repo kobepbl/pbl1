@@ -7,11 +7,13 @@ CREATE TABLE article_list(
     sentence VARCHAR(400) NOT NULL,
     like_count int NOT NULL DEFAULT 0,
     creation_date DATETIME NOT NULL,
+    article_image VARCHAR(25),
     INDEX article_list_index(
         article_id,
         title,
         like_count,
-        creation_date
+        creation_date,
+        article_image
     ),
     FOREIGN KEY (user_id) REFERENCES current_users(user_id)
 );
@@ -23,12 +25,15 @@ CREATE TABLE question_list(
     question VARCHAR(400) NOT NULL,
     like_count int NOT NULL DEFAULT 0,
     question_date DATETIME NOT NULL,
+    question_image VARCHAR(25),
     INDEX question_list_index(
         question_id,
         title,
-        question_date
+        question_date,
+        question_image
     ),
     FOREIGN KEY (user_id) REFERENCES current_users(user_id)
 );
+
 
 -- article_listに新規記事を入れる。
