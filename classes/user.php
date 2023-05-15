@@ -6,7 +6,7 @@ class Article extends DbData
     public function Insertarticle($user_id, $title, $sentence, $creation_date,$article_image)
     {
 
-        $sql = "insert into article_list(user_id,title,sentence,creation_date) values(?, ?, ?, ?,?)";
+        $sql = "insert into article_list(user_id,title,sentence,creation_date,article_image) values(?, ?, ?, ?,?)";
         $result = $this->exec($sql, [$user_id, $title, $sentence, $creation_date,$article_image]);
 
         if ($result) {

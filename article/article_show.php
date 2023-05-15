@@ -41,7 +41,7 @@ require_once __DIR__ . '/a_markdown.php';
   </div>
 
 
-  ""
+  
   <div class="anser-show">
     <h1 class="comment">コメント</h1>
     <?php
