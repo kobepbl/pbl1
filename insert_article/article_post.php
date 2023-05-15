@@ -1,11 +1,15 @@
 <?php
 require_once __DIR__ . '/../header.php';
+require_once __DIR__ . '/../classes/tag.php';
+
+$tag = new Tag();
+$tags = $tag->getTags();
 ?>
 
 <div class="outer">
     <div class="inner">
         <div class="a-post">
-        新規記事登録
+            新規記事登録
         </div>
     </div>
 </div>
@@ -16,12 +20,24 @@ if (isset($_SESSION['article_error'])) {
     unset($_SESSION['article_error']);
 }
 ?>
-
-
+<script src="insert_tags.js"></script>
 <form class="form" method="POST" action="./article_db.php">
     <div class="item">
         <label class="label_left" for="num">タイトル</label>
         <input class="form-text" type="text" name="title" id="num" placeholder="タイトルを入力" maxlength="30" required><br>
+    </div>
+    <div class="input_item">
+        タグは5つまで登録できます<br>
+        <?php
+        foreach ($tags  as  $tag) {
+        ?>
+            <ul>
+                <li class="checkbox">
+                    <input type="checkbox" name="tags_id[]" value=<?= $tag['tags_id'] ?> onclick="click_cb();">
+                    <label><?= $tag['tags'] ?></label>
+                </li>
+            </ul>
+        <?php } ?>
     </div>
     <!-- <div>
     <input type="file" name="upimg" accept="image/*">

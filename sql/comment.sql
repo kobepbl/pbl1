@@ -1,11 +1,11 @@
 -- 作成日は日付と時間
 
 CREATE TABLE article_comment_list(
-    comment_id int PRIMARY KEY AUTO_INCREMENT,
-    article_id int NOT NULL,
-    user_id int NOT NULL,
+    comment_id INT PRIMARY KEY AUTO_INCREMENT,
+    article_id INT NOT NULL,
+    user_id INT NOT NULL,
     comment VARCHAR(400) NOT NULL,
-    like_count int NOT NULL DEFAULT 0,
+    like_count INT NOT NULL DEFAULT 0,
     posted_date DATETIME NOT NULL,
     INDEX article_comment_list_index(
         comment_id,
@@ -16,11 +16,11 @@ CREATE TABLE article_comment_list(
 );
 
 CREATE TABLE question_comment_list(
-    comment_id int PRIMARY KEY AUTO_INCREMENT,
-    question_id int NOT NULL,
-    user_id int NOT NULL,
+    comment_id INT PRIMARY KEY AUTO_INCREMENT,
+    question_id INT NOT NULL,
+    user_id INT NOT NULL,
     comment VARCHAR(400) NOT NULL,
-    like_count int NOT NULL DEFAULT 0,
+    like_count INT NOT NULL DEFAULT 0,
     posted_date DATETIME NOT NULL,
     INDEX article_comment_list_index(
         comment_id,

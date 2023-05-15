@@ -11,6 +11,9 @@ $post = new Post();
 // 選択された記事を取り出す
 $article = $post->getArticle($article_id);
 
+// 選択されたタグを取り出す
+$tags = $post->getTags($article_id);
+
 // 選択された記事のコメントを抽出
 $article_comments = $post->getArticlecomments($article_id);
 
@@ -20,7 +23,6 @@ $_SESSION['like_count'] = $article['like_count'];
 
 require_once __DIR__ . '/a_markdown.php';
 ?>
-
 <main>
   <div class="article-show">
     <div class="article-show-cover">
@@ -32,9 +34,19 @@ require_once __DIR__ . '/a_markdown.php';
         <span class="text"><?= $article['like_count'] ?></span>
       </form>
       </p>
-
     </div>
     <h1 class="article-show-title"><?= $article['title'] ?></h1>
+    <div class="tag">
+      <?php
+      foreach ($tags as $tag) {
+      ?>
+        <label>
+          <p class="tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>><?= $tag['tags'] ?></a></p>
+        </label>
+      <?php
+      }
+      ?>
+    </div>
     <div class="text-pos">
       <p class="article-text"><?= nl2br($html) ?></p>
     </div>
