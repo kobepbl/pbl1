@@ -8,6 +8,13 @@
     $sentence = $_POST['sentence'];
     $question_date = date('Y-m-d ') . date('H:i:s');
 
+        
+    $question_image = $_FILES['question_image']['name'];
+    $question_image=$user_id.$question_image;
+
+    //画像を保存
+    move_uploaded_file($_FILES['question_image']['tmp_name'], '../question_image/' . $question_image);
+
     // タイトル
     if(mb_strlen($title) > 30){
         $_SESSION['question_error'] = '30文字以下でタイトルをつけてください';
@@ -24,7 +31,7 @@
 
     require_once __DIR__ . '/../classes/user.php';
     $question = new Question();
-    $result = $question -> insert_question($user_id, $title, $sentence, $question_date);
+    $result = $question -> insert_question($user_id, $title, $sentence, $question_date, $question_image);
 
     // 質問の格納
     if($result !== ''){

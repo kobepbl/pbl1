@@ -18,6 +18,7 @@ $_SESSION['question_id'] = $question_id;
 $_SESSION['details_user_id'] = $question['user_id'];
 $_SESSION['like_count'] = $question['like_count'];
 
+
 require_once __DIR__ . '/q_markdown.php';
 ?>
 
@@ -38,6 +39,8 @@ require_once __DIR__ . '/q_markdown.php';
     <div class="text-pos">
       <p class="article-text"><?= nl2br($html) ?></p>
     </div>
+    
+    <img src="../question_image/<?=$question['question_image']?>" alt="">
   </div>
 
 

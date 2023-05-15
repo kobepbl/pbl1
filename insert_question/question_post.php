@@ -21,7 +21,9 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
         <label class="label_left-q" for="num">タイトル</label>
         <input class="form-text-q" type="text" name="title" id="num" placeholder="タイトルを入力" maxlength="30" required><br>
     </div>
-
+    <div>
+        画像選択：<input type="file" name="question_image" accept="image/*">
+    <div>
     <div class="item">
         <label class="label_left-q" for="num1">
             本文

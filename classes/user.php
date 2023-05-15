@@ -42,13 +42,13 @@ class Article_comment extends DbData
 }
 class Question extends DbData
 {
-    public function insert_question($user_id, $title, $question, $question_date)
+    public function insert_question($user_id, $title, $question, $question_date, $question_image)
     {
         $sql = "
-                    INSERT INTO question_list(user_id, title, question, question_date)
-                    VALUES(?, ?, ?, ?)
+                    INSERT INTO question_list(user_id, title, question, question_date, question_image)
+                    VALUES(?, ?, ?, ?, ?)
                     ";
-        $result = $this->exec($sql, [$user_id, $title, $question, $question_date]);
+        $result = $this->exec($sql, [$user_id, $title, $question, $question_date, $question_image]);
         if ($result) {
             return '';
         } else {
