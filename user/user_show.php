@@ -37,10 +37,20 @@ $userdetail['grade'] .= "年生";
 
 </head>
 
+<?php
+  if ($userdetail['icon'] != "") {
+    ?>
+      <img class="user-icon"src="../icon_image/<?=$userdetail['icon']?>" alt="">
+    <?php  
+  } else {
+    ?>
+      <img class="user-icon"src="../icon_image/default.png" alt="">
+    <?php
+      }
+    ?>
 
 
 
-<img class="user-icon"src="../icon_image/<?=$userdetail['icon']?>" alt="">
 <a href="../login/icon_update.php">
   <div class="icon-update">
     <input type="submit" value="アイコン変更" class="button">
@@ -72,7 +82,7 @@ $userdetail['grade'] .= "年生";
     ?>  
       <a href="../login/update.php">
       <div class="update">
-        <input type="submit" value="変更" class="button">
+        <input type="submit" value="パスワード変更" class="button">
       </div>
     </a>
   <?php
