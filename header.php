@@ -23,7 +23,6 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
 </head>
 
 <body>
-  <script src="<?= $no_post_js ?>"></script>
   <!-- header部分 -->
   <header>
     <div class="top-info">
