@@ -11,14 +11,14 @@ $password = $_POST['password'];
 session_start();
 
 // 名前20文字以下
-if (mb_strlen($name)>=21) {
+if (mb_strlen($name) >= 21) {
     $_SESSION['signup_error'] = '名前は20文字以下で入力してください。';
     header('Location: register.php');
     exit();
 }
 // メールアドレス50文字以下 stメール以外不可
- if (!filter_var($mail, FILTER_VALIDATE_EMAIL) || mb_strlen($mail)>=51 ||
-    (mb_substr($mail,mb_strrpos($mail,'@'),mb_strlen($mail))=="@st.kobedenshi.ac.jp")==false) {
+ if (!filter_var($mail, FILTER_VALIDATE_EMAIL) || mb_strlen($mail) >= 51 ||
+    (mb_substr($mail,mb_strrpos($mail,'@'), mb_strlen($mail)) == "@st.kobedenshi.ac.jp") == false) {
     $_SESSION['signup_error'] = '正しいメールアドレスを入力してください。';
     header('Location: register.php');
     exit();
