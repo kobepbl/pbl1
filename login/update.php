@@ -57,6 +57,7 @@ require_once __DIR__ . '/../header.php';
     <br>
     <div class="update">
         <input type="submit" value="変更" class="button">
+        <a href="../user/user_.php"></a>
     </div>
     <br>
     <a href="../user/user_show.php">ユーザー詳細へ戻る</a>
