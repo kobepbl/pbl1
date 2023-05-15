@@ -25,7 +25,7 @@ if (isset($_SESSION['article_error'])) {
     </div>
     <div>
     <dl class="inline">
-    <dd>画像選択：<input type="file" name="up_icon" accept="image/*"></dd>
+    <dd>画像選択：<input type="file" name="up_image" accept="image/*"></dd>
     </dl>
     <div>
     <!-- <div>
@@ -34,12 +34,12 @@ if (isset($_SESSION['article_error'])) {
     <div class="item">
         <label class="label_left" for="num1">本文</label>
         <textarea class="form-text1" id="num" name="sentence" placeholder="本文を入力（リンクを貼る場合は「[タイトル](URL)」と記入）" maxlength="400" required>
-            <img class="user-icon"src="../icon_image/<?=$userdetail['icon']?>" alt="">        
+        
         </textarea>
     </div>
 
     <div class="item">
-        <input type="submit" value="送信" class="button"><input type="reset" value="リセット" class="button"><input type="submit" value="画像追加" class="button">
+        <input type="submit" value="送信" class="button"><input type="reset" value="リセット" class="button">
     </div>
 </form>
 

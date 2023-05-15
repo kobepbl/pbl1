@@ -3,11 +3,11 @@ require_once __DIR__ . '/dbdata.php';
 class Article extends DbData
 {
 
-    public function Insertarticle($user_id, $title, $sentence, $creation_date)
+    public function Insertarticle($user_id, $title, $sentence, $creation_date,$article_image)
     {
 
-        $sql = "insert into article_list(user_id,title,sentence,creation_date) values(?, ?, ?, ?)";
-        $result = $this->exec($sql, [$user_id, $title, $sentence, $creation_date]);
+        $sql = "insert into article_list(user_id,title,sentence,creation_date) values(?, ?, ?, ?,?)";
+        $result = $this->exec($sql, [$user_id, $title, $sentence, $creation_date,$article_image]);
 
         if ($result) {
             return ''; // ここも空文字を返すので「''」はシングルクォーテーションが２つ
