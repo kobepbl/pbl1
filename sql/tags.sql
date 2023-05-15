@@ -137,7 +137,7 @@ VALUES  (1, 29),
         (7, 33),
         (5, 3);
 
--- Verified_SQL(ユーザー名まだ)
+-- Verified_SQL(ユーザー名非対応)
 SELECT
     title,
     sentence,
