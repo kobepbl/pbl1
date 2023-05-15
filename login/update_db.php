@@ -45,6 +45,6 @@ require_once __DIR__ . '/../header.php';
 ?>
 
 <?php
-header('Location:../user/user_details.php');
+header('Location:../user/user_show.php');
 require_once __DIR__ . '/../footer.php';
 ?>
