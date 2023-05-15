@@ -35,6 +35,7 @@ $register_php = $http_host . '/' . $id . '/login/register.php';
 $user_php = $http_host . '/' . $id . '/user/user_show.php';
 $mypage_php = $http_host . '/' . $id . '/user/user_details.php';
 $article_show_php = $http_host . '/' . $id . '/article/article_show.php';
+$article_pic_php = $http_host . '/' . $id . '/article/article_pic.php';
 $question_show_php = $http_host . '/' . $id . '/question/question_show.php';
 $search_php = $http_host . '/' . $id . '/search/search_result.php';
 
