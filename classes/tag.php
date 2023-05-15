@@ -21,6 +21,18 @@ class  Tag  extends  DbData
     return $article_tags;
   }
 
+  public function getTags_id($article_id){
+    $sql="select tags_id from article_list_tags where article_id=?";
+    $stmt = $this->query($sql, [$article_id]);
+    $tags_id = $stmt->fetchAll();
+    return $tags_id;
+  }
+
+  public function tagShow($article_id){
+    $sql="select tags from tags join article_list_tags on tags.tags_id = article_list_tags.tags_id where article_id = ?";
+    $tag_names=$this->exec($sql,[$article_id]);
+    return $tag_names;
+  }
   // public  function  getArticleid()
   // {
   //   $sql  =  "select  article_id  from  article_list order by article_list.article_id desc LIMIT 0,1";

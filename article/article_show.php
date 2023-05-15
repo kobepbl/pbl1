@@ -18,6 +18,18 @@ $_SESSION['article_id'] = $article_id;
 $_SESSION['details_user_id'] = $article['user_id'];
 $_SESSION['like_count'] = $article['like_count'];
 
+
+
+require_once __DIR__ . '/../classes/tag.php';
+$tags=new Tag();
+$tags_id=$tags->getTags_id($article_id);
+foreach ($tags_id as $tag_id) {
+  $tag_names=$tags->tagShow($tags_id);
+}
+foreach($tag_names as $tag_name){
+  echo $tag_name;
+}
+
 require_once __DIR__ . '/a_markdown.php';
 ?>
 <!-- 市川ここから -->
@@ -42,10 +54,13 @@ require_once __DIR__ . '/a_markdown.php';
 
 
   ""
+  <?php
+  foreach($article_comments as $article_comment){
+  ?>
   <div class="anser-show">
+  <a href="../article_comment/comment_show.php?comment_id=<?= $article_comment['comment_id'] ?>">
     <h1 class="comment">コメント</h1>
     <?php
-    foreach ($article_comments  as  $article_comment) {
       if ($article_comment['user_id'] == $article['user_id']) {
         $author = "投稿者:";
       } else {
