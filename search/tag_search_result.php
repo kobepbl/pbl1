@@ -7,10 +7,12 @@ require_once __DIR__ . '/../classes/search.php';
 $search = new Search();
 
 // 検索された記事を全て取り出す
-$search_articles = $search->getSearch_tag_articles($search_tag);
+$search_tag_articles = $search->getSearch_tag_articles($search_tag);
+foreach ($search_tag_articles as $article) {
+  echo $article;
+}
 
-
-require_once __DIR__ . '/../paging/search_paging_controller.php';
+require_once __DIR__ . '/../paging/tag_search_paging_controller.php';
 require_once __DIR__ . '/../header.php';
 ?>
 
@@ -24,14 +26,14 @@ require_once __DIR__ . '/../header.php';
       ?>
         <a href=<?= $article_show_php ?>?article_id=<?= $article['article_id'] ?>>
           <article class="article-one">
-            <p class="article-user"><object><a href=<?= $user_php ?>?user_id=<?= $article['user_id'] ?>><?= $article['name'] ?></a></object></p>
+            <p class="article-user"><object><a href=<?= $user_php ?>?user_id=<?= $article['user_id'] ?>><?= $article['user_id'] ?></a></object></p>
             <h2 class="article-title"><object><a href=<?= $article_show_php ?>?article_id=<?= $article['article_id'] ?>><?= $article['title'] ?></a></object></h2>
             <p class="article-date"><?= date('Y年m月d日', strtotime($article['creation_date'])) ?></p>
           </article>
         </a>
       <?php
       }
-      require_once __DIR__ . '/../paging/search_paging.php';
+      require_once __DIR__ . '/../paging/tag_search_paging.php';
       ?>
     </article>
   </div>

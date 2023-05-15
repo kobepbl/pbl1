@@ -168,6 +168,14 @@ SELECT
     creation_date
 FROM
     article_list
+INNER JOIN
+    article_list_tags
+ON
+    article_list.article.id = article_list_tags.article_id
+INNER JOIN
+    tags
+ON
+    article_list_tags.tags.id = tags.tags_id
 WHERE
     article_id IN (
         SELECT
