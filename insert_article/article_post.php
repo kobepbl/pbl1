@@ -32,9 +32,9 @@ if (isset($_SESSION['article_error'])) {
         foreach ($tags  as  $tag) {
         ?>
             <ul>
-                <li>
+                <li class="checkbox">
                     <input type="checkbox" name="tags_id[]" value=<?= $tag['tags_id'] ?> onclick="click_cb();">
-                    <label class="checkbox"><?= $tag['tags'] ?></label>
+                    <label><?= $tag['tags'] ?></label>
                 </li>
             </ul>
         <?php } ?>

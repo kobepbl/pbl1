@@ -175,6 +175,13 @@
   vertical-align: middle;
 }
 
+.checkbox {
+  padding: 2px 8px;
+  margin: 0px 5px 5px 5px;
+  background-color: #eef5f8;
+  border-radius: 5px;
+}
+
 .input_item ul li label {
   display: inline-block;
   vertical-align: middle;
