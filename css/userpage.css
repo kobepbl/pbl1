@@ -3,7 +3,7 @@
   border: 1px solid #458eaf;
   width: 800px;
   height: 350px;
-  margin: 10px auto;
+  margin: 0 auto;
   font-size: 15px;
 }
 
@@ -11,20 +11,44 @@
   margin: auto;
 }
 
+.user-icon {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  object-fit: cover;
+  border: 0.2rem solid rgba(30, 139, 158, 0.7);
+  position: relative;
+  top: 60px;
+  left: 140px;
+}
+
+.icon-update{
+  position: relative;
+  top: 80px;
+  left: 120px;
+  margin: 10px;
+}
+.update{
+  margin:20px;
+}
+
+
+
 
 h3 {
   text-align: center;
 }
 
 h3 {
-  margin: 0px 0 30px;
+  margin: 0px 0 10px;
   padding: 10px 0;
   border: 2px solid #458eaf;
   border-left: 0;
   border-right: 0;
   font-weight: 400;
   font-size: 1.6rem;
-  color: #458eaf;
+  color: #458
 }
 
 dl {
@@ -88,6 +112,9 @@ dl.border {
 }
 
 
+
+
+
 /* 装飾 */
 b,
 em,
@@ -106,6 +133,3 @@ hr {
   border-bottom: 2px dotted #458eaf;
 }
 
-.update{
-  margin-bottom: 20px;
-}

@@ -52,3 +52,5 @@ $logo_img = $http_host . '/' . $id . '/img/pbl1_logo_02.png';
 $userpage_css = $http_host . '/' . $id . '/css/userpage.css';
 $update_css = $http_host . '/' . $id . '/css/update.css';
 $button_css = $http_host . '/' . $id . '/css/button.css';
+$icon_css = $http_host . '/' . $id . '/css/.css';
+

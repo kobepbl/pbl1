@@ -4,8 +4,12 @@ require_once __DIR__ . '/../util.php';
 // Postクラス、Userクラス
 require_once __DIR__ . '/../classes/post.php';
 require_once __DIR__ . '/../classes/user_login.php';
+if(isset($_GET['user_id'])){
+  $user_show_id = $_GET['user_id'];
+}else{
+  $user_show_id = $_SESSION['user_id'];  
+}
 
-$user_show_id = $_GET['user_id'];
 $post = new Post();
 $userdetails = new User();
 
@@ -30,10 +34,31 @@ $userdetail['grade'] .= "年生";
 
 <head>
   <link rel="stylesheet" href="<?= $userpage_css ?>">
+
 </head>
 
+<?php
+  if ($userdetail['icon'] != "") {
+    ?>
+      <img class="user-icon"src="../icon_image/<?=$userdetail['icon']?>" alt="">
+    <?php  
+  } else {
+    ?>
+      <img class="user-icon"src="../icon_image/default.png" alt="">
+    <?php
+      }
+    ?>
+
+
+
+<a href="../login/icon_update.php">
+  <div class="icon-update">
+    <input type="submit" value="アイコン変更" class="button">
+  </div>
+</a>
 <!-- ユーザー情報 -->
 <div class="profile" align="center">
+  
   <h3>プロフィール</h3>
   <div>
     <dl class="inline">
@@ -49,8 +74,21 @@ $userdetail['grade'] .= "年生";
       <dd><?= $user_show_gender ?></dd>
       <dt>卒業年度</dt>
       <dd><?= $userdetail['graduation_year'] ?></dd>
+
     </dl>
-  </div>
+    </div>
+    <?php
+    if(!isset($_GET['user_id'])){
+    ?>  
+      <a href="../login/update.php">
+      <div class="update">
+        <input type="submit" value="パスワード変更" class="button">
+      </div>
+    </a>
+  <?php
+  }
+  ?>
+
 </div>
 
 <!-- 投稿記事 -->

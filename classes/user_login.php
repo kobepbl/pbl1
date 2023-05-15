@@ -39,6 +39,17 @@ class User extends DbData
             return'更新できませんでした。管理者にお問い合わせください。';
         }
     }
+    public function Icon_update($icon,$mail)
+    {
+        $sql = "update current_users set icon=? where mail=?";
+        $result = $this->exec($sql, [ $icon,$mail]);
+        if($result){
+            return'';
+        }else{
+            return'更新できませんでした。管理者にお問い合わせください。';
+        }
+    }
+
 
     public function authPassword($password,$userid)
     {
