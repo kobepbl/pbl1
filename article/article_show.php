@@ -41,7 +41,7 @@ require_once __DIR__ . '/a_markdown.php';
       foreach ($tags as $tag) {
       ?>
         <label>
-          <p class="tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>><?= $tag['tags'] ?></p>
+          <p class="tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>><?= $tag['tags'] ?></a></p>
         </label>
       <?php
       }

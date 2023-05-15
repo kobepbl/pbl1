@@ -96,7 +96,7 @@ DELETE FROM tags WHERE tags = タグ名
 
 /* 以下テストケース（タグは上記のものを使用） */
 
--- ユーザ情報（yearまだ）
+-- ユーザ情報
 INSERT INTO current_users(name, grade, graduation_year, gender, mail, password)
 VALUES  ('name1', 2, 2024, 1, 'kd0000001@st.kobedenshi.ac.jp', 'password_1'),
         ('name2', 3, 2023, 1, 'kd0000002@st.kobedenshi.ac.jp', 'password_2'),
@@ -137,7 +137,7 @@ VALUES  (1, 29),
         (7, 33),
         (5, 3);
 
--- Verified_SQL(ユーザー名まだ)
+-- Verified_SQL(ユーザー名非対応)
 SELECT
     title,
     sentence,
@@ -160,8 +160,9 @@ WHERE
     )
 ;
 
--- Verified_SQL（ユーザー名も取得可）未実装
+-- Verified_SQL（ユーザー名も取得可）
 SELECT
+    name,
     title,
     sentence,
     like_count,
@@ -169,13 +170,9 @@ SELECT
 FROM
     article_list
 INNER JOIN
-    article_list_tags
+    current_users
 ON
-    article_list.article.id = article_list_tags.article_id
-INNER JOIN
-    tags
-ON
-    article_list_tags.tags.id = tags.tags_id
+    article_list.user_id = current_users.user_id
 WHERE
     article_id IN (
         SELECT

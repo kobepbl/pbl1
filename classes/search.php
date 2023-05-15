@@ -39,31 +39,35 @@ ORDER BY
     {
         $sql  = "
         SELECT
-            title,
-            sentence,
-            like_count,
-            creation_date
+    article_id,
+    current_users.user_id,
+    name,
+    title,
+    sentence,
+    like_count,
+    creation_date
+FROM
+    article_list
+INNER JOIN
+    current_users
+ON
+    article_list.user_id = current_users.user_id
+WHERE
+    article_id IN (
+        SELECT
+            article_id
         FROM
-            article_list
+            tags
+        INNER JOIN
+            article_list_tags
+        ON
+            tags.tags_id = article_list_tags.tags_id
         WHERE
-            article_id IN (
-                SELECT
-                    article_id
-                FROM
-                    tags
-                INNER JOIN
-                    article_list_tags
-                ON
-                    tags.tags_id = article_list_tags.tags_id
-                WHERE
-                    tags = $search_tag
-            )
-        ORDER BY
-            creation_date DESC
-        ;";
+            tags = ?
+    )
+;";
 
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute();
+        $stmt = $this->query($sql, [$search_tag]);
         $search_tag_articles = $stmt->fetchAll();
         return  $search_tag_articles;
     }
