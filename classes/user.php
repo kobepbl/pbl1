@@ -45,9 +45,9 @@ class Question extends DbData
     public function insert_question($user_id, $title, $question, $question_date)
     {
         $sql = "
-                    INSERT INTO question_list(user_id, title, question, question_date)
-                    VALUES(?, ?, ?, ?)
-                    ";
+            INSERT INTO question_list(user_id, title, question, question_date)
+            VALUES(?, ?, ?, ?)
+        ";
         $result = $this->exec($sql, [$user_id, $title, $question, $question_date]);
         if ($result) {
             return '';
@@ -59,16 +59,16 @@ class Question extends DbData
     public function select_question($title, $question)
     {
         $sql = "
-                    SELECT
-                        *
-                    FROM
-                        question_list
-                    WHERE
-                        title = ?
-                        AND question = ?
-                    ORDER BY
-                        question_date DESC
-                    ";
+            SELECT
+                *
+            FROM
+                question_list
+            WHERE
+                title = ?
+                AND question = ?
+            ORDER BY
+                question_date DESC
+        ";
         $stmt = $this->query($sql, [$title, $question]);
         return $stmt->fetch();
     }

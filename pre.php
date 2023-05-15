@@ -37,6 +37,7 @@ $mypage_php = $http_host . '/' . $id . '/user/user_details.php';
 $article_show_php = $http_host . '/' . $id . '/article/article_show.php';
 $question_show_php = $http_host . '/' . $id . '/question/question_show.php';
 $search_php = $http_host . '/' . $id . '/search/search_result.php';
+$tag_search_php = $http_host . '/' . $id . '/search/tag_search_result.php';
 
 
 
@@ -52,3 +53,4 @@ $userpage_css = $http_host . '/' . $id . '/css/userpage.css';
 $update_css = $http_host . '/' . $id . '/css/update.css';
 $button_css = $http_host . '/' . $id . '/css/button.css';
 $icon_css = $http_host . '/' . $id . '/css/.css';
+
