@@ -20,10 +20,10 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
   <link rel="stylesheet" href="<?= $login_css ?>">
   <link rel="stylesheet" href="<?= $article_post_css ?>">
   <link rel="stylesheet" href="<?= $retop_css ?>">
-
 </head>
 
 <body>
+  <script src="<?= $no_post_js ?>"></script>
   <!-- header部分 -->
   <header>
     <div class="top-info">
