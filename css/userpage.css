@@ -13,9 +13,10 @@
 
 .user-icon {
   border-radius: 50%;
-  width: 7rem;
-  height: 7rem;
-  border: 0.2rem solid #02b4a5b6;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 0.2rem solid rgba(30, 139, 158, 0.7);
   position: relative;
   top: 60px;
   left: 240px;
