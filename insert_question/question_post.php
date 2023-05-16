@@ -43,9 +43,9 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
             </ul>
         <?php } ?>
     </div>
-    <div>
+    <div class="image_select">
         画像選択：<input type="file" name="image" accept="image/*">
-    <div>
+    </div>
     <div class="item">
         <label class="label_left-q" for="num1">
             本文
