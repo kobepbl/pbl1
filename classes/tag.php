@@ -21,6 +21,13 @@ class  Tag  extends  DbData
     return $article_tags;
   }
 
+  public function insert_q_Tags($question_id, $tag_id)
+  {
+    $sql = "insert into question_list_tags(question_id,tags_id) values(?,?)";
+    $question_tags = $this->exec($sql, [$question_id, $tag_id]);
+    return $question_tags;
+  }
+
   // public  function  getArticleid()
   // {
   //   $sql  =  "select  article_id  from  article_list order by article_list.article_id desc LIMIT 0,1";
