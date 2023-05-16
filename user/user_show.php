@@ -104,6 +104,18 @@ $userdetail['grade'] .= "年生";
           <article class="article-one">
             <p class="article-user"><object><a href=<?= $user_php ?>?user_id=<?= $userarticle['user_id'] ?>><?= $userarticle['name'] ?></a></object></p>
             <h2 class="article-title"><object><a href=<?= $article_show_php ?>?article_id=<?= $userarticle['article_id'] ?>><?= $userarticle['title'] ?></a></object></h2>
+            <?php
+            // 選択されたタグを取り出す
+            $tags = $post->getTags($userarticle['article_id']);
+            foreach ($tags as $tag) {
+            ?>
+              <label>
+                <p class="index-tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>>#<?= $tag['tags'] ?></a></p>
+              </label>
+            <?php
+            }
+            ?>
+            <br>
             <p class="article-date"><?= date('Y年m月d日', strtotime($userarticle['creation_date'])) ?></p>
             <span class="heart">♥</span>
             <span class="article-like"><?= $userarticle['like_count'] ?></span>
@@ -123,6 +135,18 @@ $userdetail['grade'] .= "年生";
           <article class="question-one">
             <p class="article-user"><object><a href=<?= $user_php ?>?user_id=<?= $userquestion['user_id'] ?>><?= $userquestion['name'] ?></a></object></p>
             <h2 class="article-title"><object><a href=<?= $question_show_php ?>?question_id=<?= $userquestion['question_id'] ?>><?= $userquestion['title'] ?></a></object></h2>
+            <?php
+            // 選択されたタグを取り出す
+            $tags = $post->get_q_Tags($userquestion['question_id']);
+            foreach ($tags as $tag) {
+            ?>
+              <label>
+                <p class="index-tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>>#<?= $tag['tags'] ?></a></p>
+              </label>
+            <?php
+            }
+            ?>
+            <br>
             <p class="article-date"><?= date('Y年m月d日', strtotime($userquestion['question_date'])) ?></p>
             <span class="heart">♥</span>
             <span class="article-like"><?= $userquestion['like_count'] ?></span>
