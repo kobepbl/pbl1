@@ -29,20 +29,20 @@ tags_linking AS(
         tags.tags_id = intermediate_linking.tags_id
 )
 SELECT
-    article_id,
-    user_id,
-    name,
-    title,
-    sentence,
-    like_count,
-    creation_date,
-    tags
+    ta.article_id,
+    ta.user_id,
+    ta.name,
+    ta.title,
+    ta.sentence,
+    ta.like_count,
+    ta.creation_date,
+    ta.tags
 FROM
-    tags_linking
+    tags_linking AS ta
 WHERE
-    sentence LIKE '" . "%" . $search_word . "%" . "'
-    OR title LIKE '" . "%" . $search_word . "%" . "'
-    OR tags LIKE '" . $search_word . "'
+    ta.sentence LIKE '" . "%" . $search_word . "%" . "'
+    OR ta.title LIKE '" . "%" . $search_word . "%" . "'
+    OR ta.tags LIKE '" . $search_word . "'
 ORDER BY
     creation_date DESC
 ;";
