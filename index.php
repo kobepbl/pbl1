@@ -47,9 +47,7 @@ require_once __DIR__ . '/header.php';
             foreach ($tags as $tag) {
             ?>
             <label>
-            <b>
-            <p class="index-tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>><?= $tag['tags'] ?></a></p>
-            </b>
+            <p class="index-tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>>#<?= $tag['tags'] ?></a></p>
             </label>
             <?php
             }
