@@ -16,7 +16,7 @@ intermediate_linking AS(
     INNER JOIN
         article_list_tags
     ON
-        users_article_linking.article_id = article_list_tags.user_id
+        users_article_linking.article_id = article_list_tags.article_id
 ),
 tags_linking AS(
     SELECT
