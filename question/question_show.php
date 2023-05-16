@@ -14,8 +14,6 @@ $question_comment_q = new Question_comment();
 // 選択された質問を取り出す
 $question = $post->getQuestion($question_id);
 
-// 選択された質問のコメントを抽出
-$question_comments = $post->getQuestioncomments($question_id);
 
 $_SESSION['question_id'] = $question_id;
 $_SESSION['details_user_id'] = $question['user_id'];
@@ -44,12 +42,17 @@ require_once __DIR__ . '/q_markdown.php';
     </div>
   </div>
 
+  <?php
+  require_once __DIR__ . '/../question_comment/question_comment.php'
+  ?>
 
 
   <div class="anser">
     <h1 class="anser-border">回答一覧</h1>
   </div>
   <?php
+  $question_comments = $post->getQuestioncomments($question_id);
+
   foreach ($question_comments  as  $question_comment) {
     if ($question_comment['user_id'] == $question['user_id']) {
       $author = "質問者:";
@@ -62,20 +65,12 @@ require_once __DIR__ . '/q_markdown.php';
       <p class="comment-user"><a href=<?= $user_php ?>?user_id=<?= $question_comment['user_id'] ?>><?= $author, " ", $question_comment['name'] ?></a></p>
       <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($question_comment['posted_date'])) ?></p>
       <p class="comment-border"><?= nl2br($question_comment['comment']) ?></p>
+    </div>
       <?php
-        $column_id=$question_comment['comment_id'];
-        if(isset($_SESSION['question_comment_error'] )){
-          echo '<p class="error_class">' . $_SESSION['question_comment_error'] . '</p>';
-          unset($_SESSION['question_comment_error'] );
-        }
-        if(isset($_SESSION['commentanser_id'])){
-          unset($_SESSION['commentanser_id']);
-        }
+        $comment_id=$question_comment['comment_id'];
         
-        if($column_id!==0)
-       // コメントの返信を古い順にを取り出す
-        $comment_ansers_asc = $question_comment_q->getcomment_anser($column_id);
-
+        $comment_ansers_asc = $question_comment_q->getcomment_anser($comment_id);
+        if($comment_ansers_asc!=""){
         foreach($comment_ansers_asc as $comment_anser_asc){
           if ($question_comment['user_id'] == $comment_anser_asc['user_id']) {
             $comment_author = "質問者:";
@@ -91,28 +86,25 @@ require_once __DIR__ . '/q_markdown.php';
         
         <?php
         }
-        ?>
+      }
 
-    <br>
- 
-    <link rel="stylesheet" href="../css/article_post.css">
-    <div class="comment_anser">
-    <form method="POST" action="../question_comment/comment_anser_db.php">
-    <input type="hidden" name="commentanser_id" value=<?= $column_id?>>
-      <input type="hidden" name="question_comment_id" value=<?= $_SESSION['question_comment_id']?>>
-      <?php
-         }
-      ?>
-      <h1 class="comment_left">返信入力</h1>
-      <textarea class="comment-text" name="comment" placeholder="質問の回答を入力" maxlength="400" required></textarea>
-      <input type="submit" value="返信" class="comment_button">
-    </form>
-      </div>
-    </div>
-
-  <?php
-  require_once __DIR__ . '/../question_comment/question_comment.php'
+        ?> <link rel="stylesheet" href="../css/article_post.css">
+        <div class="comment_anser">
+        <form method="POST" action="../question_comment/comment_anser_db.php">
+        <input type="hidden" name="commentanser_id" value=<?= $comment_id?>>
+          <input type="hidden" name="question_comment_id" value=<?= $_SESSION['question_comment_id']?>>
+    
+          <h1 class="comment_left">返信入力</h1>
+          <textarea class="comment-text" name="comment" placeholder="質問の回答を入力" maxlength="400" required></textarea>
+          <input type="submit" value="返信" class="comment_button">
+        </form>
+          </div> <?php
+      
+    }
   ?>
+    
+
+
 
 </main>
 <?php

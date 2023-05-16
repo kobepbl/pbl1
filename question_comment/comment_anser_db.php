@@ -37,7 +37,7 @@ if(isset($_SESSION['commentanser_id'])){
     unset($_SESSION['commentanser_id']);
   }
 
-// header("Location:../question/question_show.php?question_id={$question_id}");
+header("Location:../question/question_show.php?question_id={$question_id}");
 
 require_once __DIR__ . '/../footer.php';
 ?>
