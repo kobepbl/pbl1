@@ -46,9 +46,9 @@ require_once __DIR__ . '/header.php';
             $tags = $post->getTags($article['article_id']);
             foreach ($tags as $tag) {
             ?>
-            <label>
-            <p class="index-tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>>#<?= $tag['tags'] ?></a></p>
-            </label>
+              <label>
+                <p class="index-tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>>#<?= $tag['tags'] ?></a></p>
+              </label>
             <?php
             }
             ?>
@@ -73,6 +73,18 @@ require_once __DIR__ . '/header.php';
           <article class="question-one">
             <p class="article-user"><object><a href=<?= $user_php ?>?user_id=<?= $question['user_id'] ?>><?= $question['name'] ?></a></object></p>
             <h2 class="article-title"><object><a href="question/question_show.php?question_id=<?= $question['question_id'] ?>"><?= $question['title'] ?></a></object></h2>
+            <?php
+            // 選択されたタグを取り出す
+            $tags = $post->get_q_Tags($question['question_id']);
+            foreach ($tags as $tag) {
+            ?>
+              <label>
+                <p class="index-tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>>#<?= $tag['tags'] ?></a></p>
+              </label>
+            <?php
+            }
+            ?>
+            <br>
             <p class="article-date"><?= date('Y年m月d日', strtotime($question['question_date'])) ?></p>
             <span class="heart">♥</span>
             <span class="article-like"><?= $question['like_count'] ?></span>
