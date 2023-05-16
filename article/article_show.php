@@ -51,7 +51,9 @@ require_once __DIR__ . '/a_markdown.php';
       <p class="article-text"><?= nl2br($html) ?></p>
     </div>
     <?php if($article['article_image']!="") { ?>
-    <div><img class="article_image" src="../article_image/<?=$article['article_image']?>" alt=""></div>
+    <div class="article_img_box">
+      <img class="article_image" src="../article_image/<?=$article['article_image']?>" alt="">
+    </div>
     <?php } ?>
     </div>
 

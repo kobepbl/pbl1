@@ -192,3 +192,7 @@
   opacity: 0.75;
   color: #aaa;
 }
+
+.image_select {
+  margin: 20px auto;
+}

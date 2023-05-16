@@ -22,7 +22,7 @@ require_once __DIR__ . '/../header.php';
 <main class="bg">
   <div class="index-style">
     <article class="article-style">
-      <h1>「<?= $search_tag ?>」で検索された記事</h1>
+      <h1>「<?= $search_tag ?>」タグで登録された記事</h1>
       <?php
       foreach ($article_data  as  $article) {
       ?>
@@ -53,7 +53,7 @@ require_once __DIR__ . '/../header.php';
       ?>
     </article>
     <article class="article-style">
-      <h1>「<?= $search_tag ?>」で検索された質問</h1>
+      <h1>「<?= $search_tag ?>」タグで登録された質問</h1>
       <?php
       foreach ($question_data  as  $question) {
       ?>
