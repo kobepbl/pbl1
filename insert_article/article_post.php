@@ -6,6 +6,7 @@ $tag = new Tag();
 $tags = $tag->getTags();
 ?>
 
+<main>
 <div class="outer">
     <div class="inner">
         <div class="a-post">
@@ -41,7 +42,7 @@ if (isset($_SESSION['article_error'])) {
             </ul>
         <?php } ?>
     </div>
-    <div>
+    <div class="image_select">
         画像選択：<input type="file" name="up_image" accept="image/*">
     <div>
     <div class="item">
@@ -52,7 +53,7 @@ if (isset($_SESSION['article_error'])) {
         <input type="submit" value="送信" class="button"><input type="reset" value="リセット" class="button">
     </div>
 </form>
-
+</main>
 <?php
 require_once __DIR__ . '/../footer.php';
 ?>

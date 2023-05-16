@@ -13,6 +13,7 @@ if (isset($_SESSION['question_error'])) {
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 ?>
 
+<main>
 <div class="outer">
     <div class="inner">
         <div class="q-post">
@@ -57,6 +58,7 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
         <input type="reset" value="リセット" class="button">
     </div>
 </form>
+</main>
 
 <?php
 require_once __DIR__ . '/../footer.php';
