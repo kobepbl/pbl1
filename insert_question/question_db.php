@@ -10,7 +10,10 @@
 
 
     $question_image = $_FILES['image']['name'];
-    $question_image=$user_id.$question_image;
+    if ($question_image!=""){
+        $question_image=$user_id.$question_image;
+    }
+
     
       //画像を保存
     move_uploaded_file($_FILES['image']['tmp_name'], '../question_image/' . $question_image);
@@ -25,7 +28,7 @@
     }
 
     // 本文
-    if(mb_strlen($sentence) > 400){
+    if(mb_strlen($sentence) > 2000){
         $_SESSION['question_error'] = '400文字以下でタイトルをつけてください';
         header('Location: question_post.php');
         exit();

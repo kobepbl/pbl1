@@ -28,7 +28,7 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
         <label class="label_left-q" for="num1">
             本文
         </label>
-        <textarea class="form-text1-q" id="num" name="sentence" placeholder="本文を入力（リンクを貼る場合は「[タイトル](URL)」と記入）" maxlength="400" required></textarea>
+        <textarea class="form-text1-q" id="num" name="sentence" placeholder="本文を入力（リンクを貼る場合は「[タイトル](URL)」と記入）" maxlength="2000" required></textarea>
     </div>
 
     <div class="item">
