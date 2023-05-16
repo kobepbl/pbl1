@@ -122,6 +122,14 @@ class Question_comment extends DbData
             return '返信を投稿できませんでした。管理者にお問い合わせください。';
         }
     }
+
+    public function getcomment_anser($column_id){
+        $sql  =  "select  *  from  question_comment_list join current_users on question_comment_list.user_id = current_users.user_id where comment_id = '" . $column_id . "' and comment_id!='" . $column_id . "' order by question_comment_list.comment_id desc";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $comment_ansers_asc = $stmt->fetchAll();
+        return  $comment_ansers_asc;
+        }
 }
 
 

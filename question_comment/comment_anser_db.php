@@ -21,9 +21,8 @@ if (mb_strlen($comment) > 400) {
     exit();
 }
 
-
+// Question_commentオブジェクトを生成する
 require_once __DIR__ . '/../classes/user.php';
-
 $question_comment = new Question_comment();
 $result = $question_comment->insertcomment_anser($question_id, $user_id, $comment, $posted_date,$column_id);
 
