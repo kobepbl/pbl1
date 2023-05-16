@@ -30,7 +30,7 @@ tags_linking AS(
 )
 SELECT
     article_id,
-    cu.user_id,
+    user_id,
     name,
     title,
     sentence,
