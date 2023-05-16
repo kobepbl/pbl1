@@ -38,7 +38,18 @@ require_once __DIR__ . '/a_markdown.php';
     <div class="text-pos">
       <p class="article-text"><?= nl2br($html) ?></p>
     </div>
+    <label for="pu-on">
     <img class="article_image" src="../article_image/<?=$article['article_image']?>" alt="">
+    </label>
+    <input type="checkbox" id="pu-on">
+    <div class="pu">
+        <label for="pu-on" class="icon-close">×</label>
+        <div>
+          <img class="pu-content" src="../article_image/<?=$article['article_image']?>" alt="">
+        </div>
+      </div>  
+    </div>
+
   </div>
 
 
