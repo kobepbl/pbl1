@@ -3,11 +3,11 @@ require_once __DIR__ . '/dbdata.php';
 class Article extends DbData
 {
 
-    public function Insertarticle($user_id, $title, $sentence, $creation_date)
+    public function Insertarticle($user_id, $title, $sentence, $creation_date,$article_image)
     {
 
-        $sql = "insert into article_list(user_id,title,sentence,creation_date) values(?, ?, ?, ?)";
-        $result = $this->exec($sql, [$user_id, $title, $sentence, $creation_date]);
+        $sql = "insert into article_list(user_id,title,sentence,creation_date,article_image) values(?, ?, ?, ?,?)";
+        $result = $this->exec($sql, [$user_id, $title, $sentence, $creation_date,$article_image]);
 
         if ($result) {
             return ''; // ここも空文字を返すので「''」はシングルクォーテーションが２つ
@@ -42,13 +42,13 @@ class Article_comment extends DbData
 }
 class Question extends DbData
 {
-    public function insert_question($user_id, $title, $question, $question_date)
+    public function insert_question($user_id, $title, $question, $question_date, $question_image)
     {
         $sql = "
-            INSERT INTO question_list(user_id, title, question, question_date)
-            VALUES(?, ?, ?, ?)
-        ";
-        $result = $this->exec($sql, [$user_id, $title, $question, $question_date]);
+                    INSERT INTO question_list(user_id, title, question, question_date, question_image)
+                    VALUES(?, ?, ?, ?, ?)
+                    ";
+        $result = $this->exec($sql, [$user_id, $title, $question, $question_date, $question_image]);
         if ($result) {
             return '';
         } else {

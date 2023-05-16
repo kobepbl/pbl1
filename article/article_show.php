@@ -50,7 +50,11 @@ require_once __DIR__ . '/a_markdown.php';
     <div class="text-pos">
       <p class="article-text"><?= nl2br($html) ?></p>
     </div>
-  </div>
+    <?php if($article['article_image']!="") { ?>
+    <div><img class="article_image" src="../article_image/<?=$article['article_image']?>" alt=""></div>
+    <?php } ?>
+    </div>
+
   <div class="anser-show">
     <h1 class="comment">コメント</h1>
     <?php

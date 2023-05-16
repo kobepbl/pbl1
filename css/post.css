@@ -272,6 +272,16 @@ a.page_number:visited {
   float: left;
 }
 
+.article_image{
+  width: 50%;
+  height: 50%;
+  margin: 0px 25px 25px 25px;
+}
+
+.question_image{
+  width: 50%;
+  height: 50%;
+  margin: 0px 25px 25px 25px;
 .tags {
   display: flex;
   flex-wrap: wrap;

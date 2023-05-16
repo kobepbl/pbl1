@@ -9,6 +9,14 @@ $sentence = $_POST['sentence']; //本文
 $creation_date = date('Y-m-d ') . date('H:i:s');
 $tags_id = $_POST['tags_id'];
 
+$article_image = $_FILES['up_image']['name'];
+if ($article_image!=""){
+    $article_image=$user_id.$article_image;
+}
+  //画像を保存
+move_uploaded_file($_FILES['up_image']['tmp_name'], '../article_image/' . $article_image);
+
+
 if (mb_strlen($title) > 30) {
     $_SESSION['article_error'] = '30文字以下でタイトルをつけてください'; // エラーメッセージをセット
     header('Location: article_post.php');
@@ -25,7 +33,7 @@ if (preg_match('/[&"\'<>]/', $sentence)) {
     exit();
 }
 
-if (mb_strlen($sentence) > 400) {
+if (mb_strlen($sentence) > 2000) {
     $_SESSION['article_error'] = '400文字以下でタイトルをつけてください'; // エラーメッセージをセット
     header('Location: article_post.php');
     exit();
@@ -35,7 +43,7 @@ if (mb_strlen($sentence) > 400) {
 require_once __DIR__ . '/../classes/user.php';
 
 $article = new Article();
-$result = $article->Insertarticle($user_id, $title, $sentence, $creation_date);
+$result = $article->Insertarticle($user_id, $title, $sentence, $creation_date,$article_image);
 
 
 if ($result !== '') {

@@ -52,6 +52,9 @@ require_once __DIR__ . '/q_markdown.php';
     <div class="text-pos">
       <p class="article-text"><?= nl2br($html) ?></p>
     </div>
+    <?php if($question['question_image']!="") { ?>
+    <div><img class="article_image" src="../question_image/<?=$question['question_image']?>" alt=""></div>
+    <?php } ?>
   </div>
 
 
