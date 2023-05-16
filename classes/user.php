@@ -59,16 +59,16 @@ class Question extends DbData
     public function select_question($title, $question)
     {
         $sql = "
-                    SELECT
-                        *
-                    FROM
-                        question_list
-                    WHERE
-                        title = ?
-                        AND question = ?
-                    ORDER BY
-                        question_date DESC
-                    ";
+            SELECT
+                *
+            FROM
+                question_list
+            WHERE
+                title = ?
+                AND question = ?
+            ORDER BY
+                question_date DESC
+        ";
         $stmt = $this->query($sql, [$title, $question]);
         return $stmt->fetch();
     }

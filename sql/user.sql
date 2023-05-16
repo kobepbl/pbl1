@@ -2,13 +2,13 @@
 -- 性別　0男　1女 2その他（デフォルトは「その他」）
 
 CREATE TABLE current_users(
-    user_id int PRIMARY KEY AUTO_INCREMENT,
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(20) NOT NULL,
-    grade tinyint NOT NULL,
-    graduation_year smallint NOT NULL,
-    gender tinyint DEFAULT 2,
+    grade TINYINT NOT NULL,
+    graduation_year SMALLINT NOT NULL,
+    gender TINYINT DEFAULT 2,
     mail VARCHAR(50) UNIQUE NOT NULL,
-    icon VARCHAR(25), 
+    icon VARCHAR(25),
     password VARCHAR(40) NOT NULL,
     INDEX current_users_index(
         user_id,
@@ -19,6 +19,8 @@ CREATE TABLE current_users(
         icon
     )
 );
+-- icon追加
+ALTER TABLE Document ADD icon VARCHAR(25);
 
 -- sign_up(gender != 2)
 INSERT INTO current_users(name, grade, graduation_year, gender, mail, password)

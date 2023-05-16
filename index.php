@@ -6,6 +6,8 @@ $post = new Post();
 // すべての記事を抽出
 $articles = $post->getArticles();
 
+
+
 // すべての質問を抽出
 $questions = $post->getQuestions();
 
@@ -39,6 +41,18 @@ require_once __DIR__ . '/header.php';
           <article class="article-one">
             <p class="article-user"><object><a href=<?= $user_php ?>?user_id=<?= $article['user_id'] ?>><?= $article['name'] ?></a></object></p>
             <h2 class="article-title"><object><a href="article/article_show.php?article_id=<?= $article['article_id'] ?>"><?= $article['title'] ?></a></object></h2>
+            <?php
+            // 選択されたタグを取り出す
+            $tags = $post->getTags($article['article_id']);
+            foreach ($tags as $tag) {
+            ?>
+              <label>
+                <p class="index-tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>>#<?= $tag['tags'] ?></a></p>
+              </label>
+            <?php
+            }
+            ?>
+            <br>
             <p class="article-date"><?= date('Y年m月d日', strtotime($article['creation_date'])) ?></p>
             <span class="heart">♥</span>
             <span class="article-like"><?= $article['like_count'] ?></span>
@@ -59,6 +73,18 @@ require_once __DIR__ . '/header.php';
           <article class="question-one">
             <p class="article-user"><object><a href=<?= $user_php ?>?user_id=<?= $question['user_id'] ?>><?= $question['name'] ?></a></object></p>
             <h2 class="article-title"><object><a href="question/question_show.php?question_id=<?= $question['question_id'] ?>"><?= $question['title'] ?></a></object></h2>
+            <?php
+            // 選択されたタグを取り出す
+            $tags = $post->get_q_Tags($question['question_id']);
+            foreach ($tags as $tag) {
+            ?>
+              <label>
+                <p class="index-tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>>#<?= $tag['tags'] ?></a></p>
+              </label>
+            <?php
+            }
+            ?>
+            <br>
             <p class="article-date"><?= date('Y年m月d日', strtotime($question['question_date'])) ?></p>
             <span class="heart">♥</span>
             <span class="article-like"><?= $question['like_count'] ?></span>

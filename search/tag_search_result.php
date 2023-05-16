@@ -1,6 +1,6 @@
 <?php
 // 送られてきた検索ワードを受け取る
-$search_word = $_GET['q'];
+$search_tag = $_GET['tag'];
 
 // Postオブジェクトを生成する
 require_once __DIR__ . '/../classes/search.php';
@@ -8,14 +8,13 @@ $search = new Search();
 require_once __DIR__ . '/../classes/post.php';
 $post = new Post();
 
-// 検索された記事を全て取り出す
-$search_articles = $search->getSearcharticles($search_word);
+// タグで検索された記事を全て取り出す
+$search_tag_articles = $search->getSearch_tag_articles($search_tag);
 
-// 検索された質問を全て取り出す
-$search_questions = $search->getSearchquestions($search_word);
+// タグで検索された質問を全て取り出す
+$search_tag_questions = $search->getSearch_tag_questions($search_tag);
 
-
-require_once __DIR__ . '/../paging/search_paging_controller.php';
+require_once __DIR__ . '/../paging/tag_search_paging_controller.php';
 require_once __DIR__ . '/../header.php';
 ?>
 
@@ -23,7 +22,7 @@ require_once __DIR__ . '/../header.php';
 <main class="bg">
   <div class="index-style">
     <article class="article-style">
-      <h1>「<?= $search_word ?>」で検索された記事</h1>
+      <h1>「<?= $search_tag ?>」で検索された記事</h1>
       <?php
       foreach ($article_data  as  $article) {
       ?>
@@ -33,11 +32,11 @@ require_once __DIR__ . '/../header.php';
             <h2 class="article-title"><object><a href=<?= $article_show_php ?>?article_id=<?= $article['article_id'] ?>><?= $article['title'] ?></a></object></h2>
             <?php
             // 選択されたタグを取り出す
-            $tags = $post->getTags($article['article_id']);
-            foreach ($tags as $tag) {
+            $article_tags = $post->getTags($article['article_id']);
+            foreach ($article_tags as $article_tag) {
             ?>
               <label>
-                <p class="index-tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>>#<?= $tag['tags'] ?></a></p>
+                <p class="index-tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $article_tag['tags']  ?>>#<?= $article_tag['tags'] ?></a></p>
               </label>
             <?php
             }
@@ -50,11 +49,11 @@ require_once __DIR__ . '/../header.php';
         </a>
       <?php
       }
-      require_once __DIR__ . '/../paging/search_paging.php';
+      require_once __DIR__ . '/../paging/tag_search_paging.php';
       ?>
     </article>
     <article class="article-style">
-      <h1>「<?= $word ?>」で検索された質問</h1>
+      <h1>「<?= $search_tag ?>」で検索された質問</h1>
       <?php
       foreach ($question_data  as  $question) {
       ?>
@@ -64,11 +63,11 @@ require_once __DIR__ . '/../header.php';
             <h2 class="article-title"><object><a href=<?= $question_show_php ?>?question_id=<?= $question['question_id'] ?>><?= $question['title'] ?></a></object></h2>
             <?php
             // 選択されたタグを取り出す
-            $tags = $post->get_q_Tags($question['question_id']);
-            foreach ($tags as $tag) {
+            $question_tags = $post->get_q_Tags($question['question_id']);
+            foreach ($question_tags as $question_tag) {
             ?>
               <label>
-                <p class="index-tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>>#<?= $tag['tags'] ?></a></p>
+                <p class="index-tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $question_tag['tags']  ?>>#<?= $question_tag['tags'] ?></a></p>
               </label>
             <?php
             }
@@ -81,7 +80,7 @@ require_once __DIR__ . '/../header.php';
         </a>
       <?php
       }
-      require_once __DIR__ . '/../paging/search_q_paging.php';
+      require_once __DIR__ . '/../paging/tag_q_search_paging.php';
       ?>
     </article>
   </div>

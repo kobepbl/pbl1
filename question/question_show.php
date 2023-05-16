@@ -11,6 +11,9 @@ $post = new Post();
 // 選択された質問を取り出す
 $question = $post->getQuestion($question_id);
 
+// 選択されたタグを取り出す
+$tags = $post->get_q_Tags($question_id);
+
 // 選択された質問のコメントを抽出
 $question_comments = $post->getQuestioncomments($question_id);
 
@@ -35,6 +38,17 @@ require_once __DIR__ . '/q_markdown.php';
 
     </div>
     <h1 class="article-show-title"><?= $question['title'] ?></h1>
+    <div class="tag">
+      <?php
+      foreach ($tags as $tag) {
+      ?>
+        <label>
+          <p class="tag-button"><a href=<?= $tag_search_php ?>?tag=<?= $tag['tags']  ?>><?= $tag['tags'] ?></a></p>
+        </label>
+      <?php
+      }
+      ?>
+    </div>
     <div class="text-pos">
       <p class="article-text"><?= nl2br($html) ?></p>
     </div>

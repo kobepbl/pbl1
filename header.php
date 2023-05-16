@@ -14,12 +14,12 @@ if (($name == "no_login" && !strstr($url, 'login.php')) && ($name == "no_login" 
   <meta charset="UTF-8">
   <title>神戸電子情報共有サイト</title>
   <script src="https://kit.fontawesome.com/a269103010.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" href="<?= $layout_css ?>">
   <link rel="stylesheet" href="<?= $post_css ?>">
   <link rel="stylesheet" href="<?= $login_css ?>">
   <link rel="stylesheet" href="<?= $article_post_css ?>">
   <link rel="stylesheet" href="<?= $retop_css ?>">
-
 </head>
 
 <body>

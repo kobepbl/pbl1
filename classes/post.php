@@ -24,6 +24,25 @@ class  Post  extends  DbData
         return $article;
     }
 
+    // 選択された記事のタグを取り出す
+    public function getTags($article_id)
+    {
+        $sql = "select * from article_list join article_list_tags on article_list.article_id = article_list_tags.article_id join tags on article_list_tags.tags_id = tags.tags_id where article_list.article_id = '" . $article_id . "'";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $tags = $stmt->fetchAll();
+        return $tags;
+    }
+
+    // 選択された記事のタグを取り出す
+    // public function getTag($tags_id)
+    // {
+    //     $sql = "select * from article_list join article_list_tags on article_list.article_id = article_list_tags.article_id join tags on article_list_tags.tags_id = tags.tags_id where article_list.article_id = ?";
+    //     $stmt = $this->query($sql, [$tags_id]);
+    //     $tag = $stmt->fetch();
+    //     return $tag;
+    // }
+
     // ユーザーの記事を取り出す
     public function userArticles($user_show_id)
     {
@@ -50,6 +69,16 @@ class  Post  extends  DbData
         $stmt = $this->query($sql, [$question_id]);
         $question = $stmt->fetch();
         return $question;
+    }
+
+    // 選択された質問のすべてのタグを取り出す
+    public function get_q_Tags($question_id)
+    {
+        $sql = "select * from question_list join question_list_tags on question_list.question_id = question_list_tags.question_id join tags on question_list_tags.tags_id = tags.tags_id where question_list.question_id = '" . $question_id . "'";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $tags = $stmt->fetchAll();
+        return $tags;
     }
 
     // ユーザーの質問を取り出す

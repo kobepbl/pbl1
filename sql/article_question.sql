@@ -1,8 +1,8 @@
 -- 作成日は日付と時間
 
 CREATE TABLE article_list(
-    article_id int PRIMARY KEY AUTO_INCREMENT,
-    user_id int NOT NULL,
+    article_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
     title VARCHAR(30) NOT NULL,
     sentence VARCHAR(2000) NOT NULL,
     like_count int NOT NULL DEFAULT 0,
@@ -19,7 +19,7 @@ CREATE TABLE article_list(
 );
 
 CREATE TABLE question_list(
-    question_id int PRIMARY KEY AUTO_INCREMENT,
+    question_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id int NOT NULL,
     title VARCHAR(30) NOT NULL,
     question VARCHAR(2000) NOT NULL,

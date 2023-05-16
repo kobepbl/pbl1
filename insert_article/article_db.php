@@ -5,8 +5,9 @@ require_once __DIR__ . '/../header.php';
 
 $user_id = $_SESSION["user_id"];
 $title = $_POST['title']; //タイトル
-$sentence = $_POST['sentence']; //本文 
+$sentence = $_POST['sentence']; //本文
 $creation_date = date('Y-m-d ') . date('H:i:s');
+$tags_id = $_POST['tags_id'];
 
 $article_image = $_FILES['up_image']['name'];
 if ($article_image!=""){
@@ -51,11 +52,17 @@ if ($result !== '') {
     exit();
 }
 
+require_once __DIR__ . '/../classes/tag.php';
+
 $_SESSION['title'] = $title;
 $_SESSION['sentence'] = $sentence;
 
 $result = $article->SelectArticle($title, $sentence);
-header("Location:../article/article_show.php?article_id={$result['article_id']}");
+$article_id = $result['article_id'];
+$tags = new Tag();
+foreach ($tags_id as $tag_id) {
+    $tags->insertTags($article_id, $tag_id);
+}
+header("Location:../article/article_show.php?article_id={$article_id}");
 
 require_once __DIR__ . '/../footer.php';
-?>

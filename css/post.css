@@ -76,7 +76,7 @@ article a {
 }
 
 .article-date {
-  padding: 15px 0px 10px 15px;
+  padding: 0px 0px 10px 15px;
   margin: 0 auto;
   font-size: 12px;
   display: inline-block;
@@ -176,7 +176,7 @@ a.page_number:visited {
 
 .article-show-title {
   font-size: 40px;
-  margin: 25px 25px;
+  margin: 25px 25px 0px 25px;
 }
 
 .article-show-user {
@@ -193,7 +193,7 @@ a.page_number:visited {
 }
 
 .text-pos {
-  margin: 10px 25px 25px 25px;
+  margin: 35px 25px 25px 25px;
 }
 
 .text-pos a {
@@ -282,4 +282,34 @@ a.page_number:visited {
   width: 50%;
   height: 50%;
   margin: 0px 25px 25px 25px;
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-button {
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 0px -15px 10px 25px;
+  background-color: #eaeaea;
+  color: #333;
+  border-radius: 5px;
+}
+
+.article-img {
+  width: 30%;
+  height: 30%;
+}
+
+.index-tag-button {
+  padding: 1px 5px;
+  margin: 0px 5px 0px 11px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.index-tag-button:hover {
+  text-decoration: underline;
 }

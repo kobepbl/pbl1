@@ -1,6 +1,6 @@
 <?php
 define('MAX', '20');
-$count = count($search_articles);
+$count = count($search_tag_articles);
 $max_page = ceil($count / MAX);
 
 if (!isset($_GET['a_page_id'])) {
@@ -8,11 +8,11 @@ if (!isset($_GET['a_page_id'])) {
 } else {
   $page = $_GET['a_page_id'];
 }
-$word = $_GET['q'];
+$tag = $_GET['tag'];
 
 $start_no = ($page - 1) * MAX;
 
-$article_data = array_slice($search_articles, $start_no, MAX, true);
+$article_data = array_slice($search_tag_articles, $start_no, MAX, true);
 
 if ($page == 1 || $page == $max_page) {
   $range = 4;
@@ -31,7 +31,7 @@ if ($page == $max_page && $count % 20 !== 0) {
 }
 
 define('max', '20');
-$q_count = count($search_questions);
+$q_count = count($search_tag_questions);
 $q_max_page = ceil($q_count / max);
 
 if (!isset($_GET['q_page_id'])) {
@@ -42,7 +42,7 @@ if (!isset($_GET['q_page_id'])) {
 
 $q_start_no = ($q_page - 1) * max;
 
-$question_data = array_slice($search_questions, $q_start_no, MAX, true);
+$question_data = array_slice($search_tag_questions, $q_start_no, MAX, true);
 
 if ($q_page == 1 || $q_page == $q_max_page) {
   $q_range = 4;
