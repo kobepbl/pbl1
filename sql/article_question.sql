@@ -7,11 +7,13 @@ CREATE TABLE article_list(
     sentence VARCHAR(400) NOT NULL,
     like_count INT NOT NULL DEFAULT 0,
     creation_date DATETIME NOT NULL,
+    is_public BOOLEAN NOT NULL DEFAULT 0,
     INDEX article_list_index(
         article_id,
         title,
         like_count,
-        creation_date
+        creation_date,
+        is_public
     ),
     FOREIGN KEY (user_id) REFERENCES current_users(user_id)
 );
@@ -23,10 +25,12 @@ CREATE TABLE question_list(
     question VARCHAR(400) NOT NULL,
     like_count INT NOT NULL DEFAULT 0,
     question_date DATETIME NOT NULL,
+    is_public BOOLEAN NOT NULL DEFAULT 0,
     INDEX question_list_index(
         question_id,
         title,
-        question_date
+        question_date,
+        is_public
     ),
     FOREIGN KEY (user_id) REFERENCES current_users(user_id)
 );
