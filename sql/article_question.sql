@@ -7,7 +7,7 @@ CREATE TABLE article_list(
     sentence VARCHAR(2000) NOT NULL,
     like_count int NOT NULL DEFAULT 0,
     creation_date DATETIME NOT NULL,
-    article_image VARCHAR(25),
+    article_image VARCHAR(70),
     INDEX article_list_index(
         article_id,
         title,
@@ -25,7 +25,7 @@ CREATE TABLE question_list(
     question VARCHAR(2000) NOT NULL,
     like_count int NOT NULL DEFAULT 0,
     question_date DATETIME NOT NULL,
-    question_image VARCHAR(25),
+    question_image VARCHAR(70),
     INDEX question_list_index(
         question_id,
         title,

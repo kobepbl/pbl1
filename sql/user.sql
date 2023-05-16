@@ -8,7 +8,7 @@ CREATE TABLE current_users(
     graduation_year SMALLINT NOT NULL,
     gender TINYINT DEFAULT 2,
     mail VARCHAR(50) UNIQUE NOT NULL,
-    icon VARCHAR(25),
+    icon VARCHAR(70),
     password VARCHAR(40) NOT NULL,
     INDEX current_users_index(
         user_id,

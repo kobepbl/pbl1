@@ -21,6 +21,7 @@ CREATE TABLE question_comment_list(
     user_id int NOT NULL,
     comment VARCHAR(1200) NOT NULL,
     like_count int NOT NULL DEFAULT 0,
+    column_id int NOT NULL,
     posted_date DATETIME NOT NULL,
     INDEX article_comment_list_index(
         comment_id,

@@ -58,73 +58,83 @@ require_once __DIR__ . '/q_markdown.php';
     </div>
     <?php if ($question['question_image'] != "") { ?>
       <div class="article_img_box">
-        <img class="article_image" src="../question_image/<?= $question['question_image'] ?>" alt="">
-      </div>
-    <?php } ?>
-  </div>
-
-  <?php
-  require_once __DIR__ . '/../question_comment/question_comment.php'
-  ?>
-
-
-  <div class="anser-title">
-    <h1 class="anser-border">回答一覧</h1>
-  </div>
-  <?php
-  $question_comments = $post->getQuestioncomments($question_id);
-
-  foreach ($question_comments  as  $question_comment) {
-    if ($question_comment['user_id'] == $question['user_id']) {
-      $author = "質問者:";
-    } else {
-      $author = "";
-    }
-
-  ?>
-    <div class="anser">
-      <div class="anser-show">
-        <p class="comment-user"><a href=<?= $user_php ?>?user_id=<?= $question_comment['user_id'] ?>><?= $author, " ", $question_comment['name'] ?></a></p>
-        <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($question_comment['posted_date'])) ?></p>
-        <p class="comment-border"><?= nl2br($question_comment['comment']) ?></p>
-      </div>
-      <?php
-      $comment_id = $question_comment['comment_id'];
-
-      $comment_ansers_asc = $question_comment_q->getcomment_anser($comment_id);
-      if ($comment_ansers_asc != "") {
-        foreach ($comment_ansers_asc as $comment_anser_asc) {
-          if ($question_comment['user_id'] == $comment_anser_asc['user_id']) {
-            $comment_author = "質問者:";
-          } else {
-            $comment_author = "";
-          }
-      ?>
-          <div class="anser-show-reply">
-            <p class="comment-user"><a href=<?= $user_php ?>?user_id=<?= $comment_anser_asc['user_id'] ?>><?= $comment_author, " ", $comment_anser_asc['name'] ?></a></p>
-            <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($comment_anser_asc['posted_date'])) ?></p>
-            <p class="comment-border"><?= nl2br($comment_anser_asc['comment']) ?></p>
+        <label for="pu-on">
+          <img class="article_image" src="../question_image/<?= $question['question_image'] ?>" alt="">
+        </label>
+        <input type="checkbox" id="pu-on">
+        <div class="pu">
+          <label for="pu-on" class="icon-close">×</label>
+          <div>
+            <img class="pu-content" src="../question_image/<?= $question['question_image'] ?>" alt="">
           </div>
-
-      <?php
-        }
-      }
-      ?>
-
-
-      <div class="comment_anser">
-        <form method="POST" action="../question_comment/comment_anser_db.php">
-          <input type="hidden" name="commentanser_id" value=<?= $comment_id ?>>
-          <input type="hidden" name="question_comment_id" value=<?= $_SESSION['question_comment_id'] ?>>
-          <h1 class="comment_left-q">返信入力</h1>
-          <textarea class="comment-text-q" name="comment" id="comment" placeholder="質問の回答を入力" maxlength="400" required></textarea>
-          <input type="submit" value="返信" class="comment_button">
-        </form>
+        </div>
       </div>
-    </div>
-  <?php
+  </div>
+<?php } ?>
+</div>
+
+<?php
+require_once __DIR__ . '/../question_comment/question_comment.php'
+?>
+
+
+<div class="anser-title">
+  <h1 class="anser-border">回答一覧</h1>
+</div>
+<?php
+$question_comments = $post->getQuestioncomments($question_id);
+
+foreach ($question_comments  as  $question_comment) {
+  if ($question_comment['user_id'] == $question['user_id']) {
+    $author = "質問者:";
+  } else {
+    $author = "";
   }
-  ?>
+
+?>
+  <div class="anser">
+    <div class="anser-show">
+      <p class="comment-user"><a href=<?= $user_php ?>?user_id=<?= $question_comment['user_id'] ?>><?= $author, " ", $question_comment['name'] ?></a></p>
+      <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($question_comment['posted_date'])) ?></p>
+      <p class="comment-border"><?= nl2br($question_comment['comment']) ?></p>
+    </div>
+    <?php
+    $comment_id = $question_comment['comment_id'];
+
+    $comment_ansers_asc = $question_comment_q->getcomment_anser($comment_id);
+    if ($comment_ansers_asc != "") {
+      foreach ($comment_ansers_asc as $comment_anser_asc) {
+        if ($question_comment['user_id'] == $comment_anser_asc['user_id']) {
+          $comment_author = "質問者:";
+        } else {
+          $comment_author = "";
+        }
+    ?>
+        <div class="anser-show-reply">
+          <p class="comment-user"><a href=<?= $user_php ?>?user_id=<?= $comment_anser_asc['user_id'] ?>><?= $comment_author, " ", $comment_anser_asc['name'] ?></a></p>
+          <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($comment_anser_asc['posted_date'])) ?></p>
+          <p class="comment-border"><?= nl2br($comment_anser_asc['comment']) ?></p>
+        </div>
+
+    <?php
+      }
+    }
+    ?>
+
+
+    <div class="comment_anser">
+      <form method="POST" action="../question_comment/comment_anser_db.php">
+        <input type="hidden" name="commentanser_id" value=<?= $comment_id ?>>
+        <input type="hidden" name="question_comment_id" value=<?= $_SESSION['question_comment_id'] ?>>
+        <h1 class="comment_left-q">返信入力</h1>
+        <textarea class="comment-text-q" name="comment" id="comment" placeholder="質問の回答を入力" maxlength="400" required></textarea>
+        <input type="submit" value="返信" class="comment_button">
+      </form>
+    </div>
+  </div>
+<?php
+}
+?>
 
 
 

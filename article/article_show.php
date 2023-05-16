@@ -21,18 +21,6 @@ $_SESSION['article_id'] = $article_id;
 $_SESSION['details_user_id'] = $article['user_id'];
 $_SESSION['like_count'] = $article['like_count'];
 
-
-
-require_once __DIR__ . '/../classes/tag.php';
-$tags = new Tag();
-$tags_id = $tags->getTags_id($article_id);
-foreach ($tags_id as $tag_id) {
-  $tag_names = $tags->tagShow($tags_id);
-}
-foreach ($tag_names as $tag_name) {
-  echo $tag_name;
-}
-
 require_once __DIR__ . '/a_markdown.php';
 ?>
 <main>
@@ -64,37 +52,47 @@ require_once __DIR__ . '/a_markdown.php';
     </div>
     <?php if ($article['article_image'] != "") { ?>
       <div class="article_img_box">
-        <img class="article_image" src="../article_image/<?= $article['article_image'] ?>" alt="">
+        <label for="pu-on">
+          <img class="article_image" src="../article_image/<?= $article['article_image'] ?>" alt="">
+        </label>
+        <input type="checkbox" id="pu-on">
+        <div class="pu">
+          <label for="pu-on" class="icon-close">×</label>
+          <div>
+            <img class="pu-content" src="../article_image/<?= $article['article_image'] ?>" alt="">
+          </div>
+        </div>
       </div>
-    <?php } ?>
+  </div>
+<?php } ?>
+</div>
+
+<?php
+foreach ($article_comments as $article_comment) {
+?>
+  <div class="anser-show">
+    <a href="../article_comment/comment_show.php?comment_id=<?= $article_comment['comment_id'] ?>">
+      <h1 class="comment">コメント</h1>
+      <?php
+      if ($article_comment['user_id'] == $article['user_id']) {
+        $author = "投稿者:";
+      } else {
+        $author = "";
+      }
+      ?>
+      <div class="text-pos">
+        <p class="comment-user"><a href=<?= $user_php ?>?user_id=<?= $article_comment['user_id'] ?>><?= $author, " ", $article_comment['name'] ?></a></p>
+        <p class="article-show-date">投稿日 <?= date('Y年m月d日 H時i分s秒', strtotime($article_comment['posted_date'])) ?></p>
+        <p class="comment-border"><?= nl2br($article_comment['comment']) ?></p>
+      </div>
+    <?php
+  }
+    ?>
   </div>
 
   <?php
-  foreach ($article_comments as $article_comment) {
+  require_once __DIR__ . '/../article_comment/article_comment.php'
   ?>
-    <div class="anser-show">
-      <a href="../article_comment/comment_show.php?comment_id=<?= $article_comment['comment_id'] ?>">
-        <h1 class="comment">コメント</h1>
-        <?php
-        if ($article_comment['user_id'] == $article['user_id']) {
-          $author = "投稿者:";
-        } else {
-          $author = "";
-        }
-        ?>
-        <div class="text-pos">
-          <p class="comment-user"><a href=<?= $user_php ?>?user_id=<?= $article_comment['user_id'] ?>><?= $author, " ", $article_comment['name'] ?></a></p>
-          <p class="article-show-date">投稿日 <?= date('Y年m月d日 H時i分s秒', strtotime($article_comment['posted_date'])) ?></p>
-          <p class="comment-border"><?= nl2br($article_comment['comment']) ?></p>
-        </div>
-      <?php
-    }
-      ?>
-    </div>
-
-    <?php
-    require_once __DIR__ . '/../article_comment/article_comment.php'
-    ?>
 
 </main>
 <?php
