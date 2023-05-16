@@ -223,7 +223,7 @@ a.page_number:visited {
   padding: 10px 0px 20px 0px;
 }
 
-.anser {
+.anser-title {
   width: 75%;
   margin: 50px auto 0px auto;
   padding: 10px 25px 10px 25px;
@@ -234,20 +234,25 @@ a.page_number:visited {
   border-bottom: 2px solid #6c6b6b;
 }
 
-.anser-show {
+.anser {
   width: 75%;
-  margin: 20px auto;
-  padding: 25px;
+  margin: 25px auto;
+  padding-bottom: 25px 0;
   background-color: #eeeeee8d;
   border-radius: 10px;
 }
 
-.anser-show-2 {
-  width: 75%;
-  margin: 5px auto 50px auto;
+.anser-show {
   padding: 25px;
-  background-color: #eeeeee8d;
   border-radius: 10px;
+}
+
+.anser-show-reply {
+  padding: 25px;
+}
+
+.comment_anser {
+  padding-bottom: 20px;
 }
 
 .iine_button {
@@ -271,15 +276,16 @@ a.page_number:visited {
 .left {
   float: left;
 }
-.article_img_box{
+
+.article_img_box {
   width: 80%;
-  margin:0 auto 25px;
+  margin: 0 auto 25px;
 }
 
 .article_image {
   width: 100%;
   height: 100%;
-  
+
 }
 
 .question_image {

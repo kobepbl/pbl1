@@ -72,6 +72,23 @@ class Question extends DbData
         $stmt = $this->query($sql, [$title, $question]);
         return $stmt->fetch();
     }
+
+    public function select_commentanser($title, $comment_anser)
+    {
+        $sql = "
+                    SELECT
+                        *
+                    FROM
+                        question_list
+                    WHERE
+                        title = ?
+                        AND comment_anser = ?
+                    ORDER BY
+                        question_date DESC
+                    ";
+        $stmt = $this->query($sql, [$title, $comment_anser]);
+        return $stmt->fetch();
+    }
 }
 
 class Question_comment extends DbData
@@ -90,6 +107,29 @@ class Question_comment extends DbData
             return '答えを投稿できませんでした。管理者にお問い合わせください。';
         }
     }
+
+    public function insertcomment_anser($question_id, $user_id, $comment, $posted_date,$column_id)
+    {
+
+        $sql = "
+                    INSERT INTO question_comment_list(question_id, user_id, comment, posted_date,column_id)
+                    VALUES(?, ?, ?, ?,?)";
+        $result = $this->exec($sql, [$question_id, $user_id, $comment, $posted_date,$column_id]);
+
+        if ($result) {
+            return '';
+        } else {
+            return '返信を投稿できませんでした。管理者にお問い合わせください。';
+        }
+    }
+
+    public function getcomment_anser($column_id){
+        $sql  =  "select  *  from  question_comment_list join current_users on question_comment_list.user_id = current_users.user_id where column_id = '" . $column_id . "'";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $comment_ansers_asc = $stmt->fetchAll();
+        return  $comment_ansers_asc;
+        }
 }
 
 
