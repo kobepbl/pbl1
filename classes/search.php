@@ -8,28 +8,41 @@ class  Search  extends  DbData
     // 検索されたすべての記事を逆順でを取り出す
     public  function  getSearcharticles($search_word)
     {
-        $sql  = "SELECT
-    article_id,
-    cu.user_id,
-    name,
-    title,
-    sentence,
-    like_count,
-    creation_date
-FROM
-    article_list AS al
-INNER JOIN
-    current_users AS cu
-ON
-    cu.user_id = al.user_id
-WHERE
-    sentence LIKE '" . "%" . $search_word . "%" . "'
-    OR title LIKE '" . "%" . $search_word . "%" . "'
-ORDER BY
-    creation_date DESC
+        $sql  = "
+        SELECT
+            article_id,
+            current_users.user_id,
+            name,
+            title,
+            sentence,
+            like_count,
+            creation_date
+        FROM
+            article_list
+        INNER JOIN
+            current_users
+        ON
+            article_list.user_id = current_users.user_id
+        WHERE
+            article_id IN (
+        SELECT
+            article_id
+        FROM
+            tags
+        INNER JOIN
+            article_list_tags
+        ON
+            tags.tags_id = article_list_tags.tags_id
+        WHERE
+            tags = ?
+        )
+        OR
+        sentence LIKE '" . "%" . $search_word . "%" . "'
+        OR title LIKE '" . "%" . $search_word . "%" . "'
+        ORDER BY
+            creation_date DESC
 ;";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute();
+        $stmt = $this->query($sql, [$search_word]);
         $search_articles = $stmt->fetchAll();
         return  $search_articles;
     }
@@ -37,28 +50,41 @@ ORDER BY
     // 検索されたすべての質問を逆順でを取り出す
     public  function  getSearchquestions($search_word)
     {
-        $sql  = "SELECT
-    question_id,
-    cu.user_id,
-    name,
-    title,
-    question,
-    like_count,
-    question_date
-FROM
-    question_list AS ql
-INNER JOIN
-    current_users AS cu
-ON
-    cu.user_id = ql.user_id
-WHERE
-    question LIKE '" . "%" . $search_word . "%" . "'
-    OR title LIKE '" . "%" . $search_word . "%" . "'
-ORDER BY
-    question_date DESC
+        $sql  =  "
+        SELECT
+            question_id,
+            current_users.user_id,
+            name,
+            title,
+            question,
+            like_count,
+            question_date
+        FROM
+            question_list
+        INNER JOIN
+            current_users
+        ON
+            question_list.user_id = current_users.user_id
+        WHERE
+            question_id IN (
+        SELECT
+            question_id
+        FROM
+            tags
+        INNER JOIN
+            question_list_tags
+        ON
+            tags.tags_id = question_list_tags.tags_id
+        WHERE
+            tags = ?
+        )
+        OR
+        question LIKE '" . "%" . $search_word . "%" . "'
+        OR title LIKE '" . "%" . $search_word . "%" . "'
+        ORDER BY
+            question_date DESC
 ;";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute();
+        $stmt = $this->query($sql, [$search_word]);
         $search_questions = $stmt->fetchAll();
         return  $search_questions;
     }
