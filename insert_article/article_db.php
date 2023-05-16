@@ -46,9 +46,6 @@ if ($result !== '') {
 
 require_once __DIR__ . '/../classes/tag.php';
 
-
-
-
 $_SESSION['title'] = $title;
 $_SESSION['sentence'] = $sentence;
 

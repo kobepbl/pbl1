@@ -4,11 +4,11 @@ require_once __DIR__ . '/../classes/tag.php';
 
 $tag = new Tag();
 $tags = $tag->getTags();
-?>
+
 
 if (isset($_SESSION['question_error'])) {
-echo '<p class="error_class">' . $_SESSION['question_error'] . '</p>';
-unset($_SESSION['question_error']);
+    echo '<p class="error_class">' . $_SESSION['question_error'] . '</p>';
+    unset($_SESSION['question_error']);
 }
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 ?>
