@@ -124,7 +124,7 @@ class Question_comment extends DbData
     }
 
     public function getcomment_anser($column_id){
-        $sql  =  "select  *  from  question_comment_list join current_users on question_comment_list.user_id = current_users.user_id where comment_id = '" . $column_id . "' and comment_id!='" . $column_id . "' order by question_comment_list.comment_id desc";
+        $sql  =  "select  *  from  question_comment_list join current_users on question_comment_list.user_id = current_users.user_id where comment_id = '" . $column_id . "' and comment_id!='" . $column_id . "'";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         $comment_ansers_asc = $stmt->fetchAll();

@@ -7,6 +7,9 @@ $_SESSION['question_comment_id'] = $question_id; #セッションに入れる
 // Postオブジェクトを生成する
 require_once __DIR__ . '/../classes/post.php';
 $post = new Post();
+// Question_commentオブジェクトを生成する
+require_once __DIR__ . '/../classes/user.php';
+$question_comment_q = new Question_comment();
 
 // 選択された質問を取り出す
 $question = $post->getQuestion($question_id);
@@ -68,9 +71,8 @@ require_once __DIR__ . '/q_markdown.php';
         if(isset($_SESSION['commentanser_id'])){
           unset($_SESSION['commentanser_id']);
         }
-        // Question_commentオブジェクトを生成する
-        require_once __DIR__ . '/../classes/user.php';
-        $question_comment_q = new Question_comment();
+        
+        if($column_id!==0)
        // コメントの返信を古い順にを取り出す
         $comment_ansers_asc = $question_comment_q->getcomment_anser($column_id);
 
