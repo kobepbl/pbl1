@@ -16,7 +16,8 @@ class  Search  extends  DbData
             title,
             sentence,
             like_count,
-            creation_date
+            creation_date,
+            is_public
         FROM
             article_list
         INNER JOIN
@@ -24,7 +25,7 @@ class  Search  extends  DbData
         ON
             article_list.user_id = current_users.user_id
         WHERE
-            article_id IN (
+            (article_id IN (
         SELECT
             article_id
         FROM
@@ -38,7 +39,8 @@ class  Search  extends  DbData
         )
         OR
         sentence LIKE '" . "%" . $search_word . "%" . "'
-        OR title LIKE '" . "%" . $search_word . "%" . "'
+        OR title LIKE '" . "%" . $search_word . "%" . "')
+        AND is_public=false
         ORDER BY
             creation_date DESC
 ;";
@@ -94,35 +96,36 @@ class  Search  extends  DbData
     {
         $sql  = "
         SELECT
-    article_id,
-    current_users.user_id,
-    name,
-    title,
-    sentence,
-    like_count,
-    creation_date
-FROM
-    article_list
-INNER JOIN
-    current_users
-ON
-    article_list.user_id = current_users.user_id
-WHERE
-    article_id IN (
-        SELECT
-            article_id
+            article_id,
+            current_users.user_id,
+            name,
+            title,
+            sentence,
+            like_count,
+            creation_date
         FROM
-            tags
+            article_list
         INNER JOIN
-            article_list_tags
+            current_users
         ON
-            tags.tags_id = article_list_tags.tags_id
+            article_list.user_id = current_users.user_id
         WHERE
-            tags = ?
-    )
-    ORDER BY
-    creation_date DESC
-;";
+            article_id IN (
+                SELECT
+                    article_id
+                FROM
+                    tags
+                INNER JOIN
+                    article_list_tags
+                ON
+                    tags.tags_id = article_list_tags.tags_id
+                WHERE
+                    tags = ?
+            )
+            AND is_public=false
+            ORDER BY
+            creation_date DESC
+        ;";
 
         $stmt = $this->query($sql, [$search_tag]);
         $search_tag_articles = $stmt->fetchAll();
@@ -134,36 +137,35 @@ WHERE
     {
         $sql  = "
         SELECT
-    question_id,
-    current_users.user_id,
-    name,
-    title,
-    question,
-    like_count,
-    question_date
-FROM
-    question_list
-INNER JOIN
-    current_users
-ON
-question_list.user_id = current_users.user_id
-WHERE
-    question_id IN (
-        SELECT
-            question_id
+            question_id,
+            current_users.user_id,
+            name,
+            title,
+            question,
+            like_count,
+            question_date
         FROM
-            tags
+            question_list
         INNER JOIN
-            question_list_tags
+            current_users
         ON
-            tags.tags_id = question_list_tags.tags_id
+        question_list.user_id = current_users.user_id
         WHERE
-            tags = ?
-    )
-    ORDER BY
-    question_date DESC
-;";
-
+            question_id IN (
+                SELECT
+                    question_id
+                FROM
+                    tags
+                INNER JOIN
+                    question_list_tags
+                ON
+                    tags.tags_id = question_list_tags.tags_id
+                WHERE
+                    tags = ?
+            )
+            ORDER BY
+            question_date DESC
+        ;";
         $stmt = $this->query($sql, [$search_tag]);
         $search_tag_questions = $stmt->fetchAll();
         return  $search_tag_questions;

@@ -8,12 +8,14 @@ CREATE TABLE article_list(
     like_count int NOT NULL DEFAULT 0,
     creation_date DATETIME NOT NULL,
     article_image VARCHAR(70),
+    is_public BOOLEAN NOT NULL DEFAULT 0,
     INDEX article_list_index(
         article_id,
         title,
         like_count,
         creation_date,
         article_image
+        is_public
     ),
     FOREIGN KEY (user_id) REFERENCES current_users(user_id)
 );
@@ -26,11 +28,13 @@ CREATE TABLE question_list(
     like_count int NOT NULL DEFAULT 0,
     question_date DATETIME NOT NULL,
     question_image VARCHAR(70),
+    is_public BOOLEAN NOT NULL DEFAULT 0,
     INDEX question_list_index(
         question_id,
         title,
         question_date,
         question_image
+        is_public
     ),
     FOREIGN KEY (user_id) REFERENCES current_users(user_id)
 );

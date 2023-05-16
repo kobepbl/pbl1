@@ -192,6 +192,11 @@ a.page_number:visited {
   text-decoration: underline;
 }
 
+.article-show .article-show-change {
+  font-size: 25px;
+  color: rgb(255, 53, 120);
+}
+
 .text-pos {
   margin: 35px 25px 25px 25px;
 }
