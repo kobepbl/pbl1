@@ -8,7 +8,7 @@ class  Post  extends  DbData
     // すべての記事を逆順でを取り出す
     public  function  getArticles()
     {
-        $sql  =  "select  *  from  article_list join current_users on article_list.user_id = current_users.user_id order by article_list.article_id desc";
+        $sql  =  "select  *  from  article_list join current_users on article_list.user_id = current_users.user_id WHERE article_list.is_public=false order by article_list.article_id desc";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         $articles = $stmt->fetchAll();
@@ -23,7 +23,16 @@ class  Post  extends  DbData
         $article = $stmt->fetch();
         return $article;
     }
-
+    public function Article_delete($article_id)
+    {
+        $sql = "update article_list set is_public=true where article_id=?";
+        $result = $this->exec($sql, [ $article_id]);
+    }
+    public function Article_repost($article_id)
+    {
+        $sql = "update article_list set is_public=false where article_id=?";
+        $result = $this->exec($sql, [ $article_id]);
+    }
     // すべてのタグを取り出す
     public function getTags($article_id)
     {
@@ -55,7 +64,7 @@ class  Post  extends  DbData
     // すべての質問を逆順でを取り出す
     public  function  getQuestions()
     {
-        $sql  =  "select  *  from  question_list join current_users on question_list.user_id = current_users.user_id order by question_list.question_id desc";
+        $sql  =  "select  *  from  question_list join current_users on question_list.user_id = current_users.user_id WHERE question_list.is_public=false order by question_list.question_id desc";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         $questions = $stmt->fetchAll();

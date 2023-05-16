@@ -20,12 +20,25 @@ $article_comments = $post->getArticlecomments($article_id);
 $_SESSION['article_id'] = $article_id;
 $_SESSION['details_user_id'] = $article['user_id'];
 $_SESSION['like_count'] = $article['like_count'];
+$user_id=$_SESSION['user_id'];
 
 require_once __DIR__ . '/a_markdown.php';
 ?>
 <main>
   <div class="article-show">
     <div class="article-show-cover">
+      <?php
+        if ($article['user_id']==$user_id and $article['is_public']==false ){
+      ?>
+        <p class="article-show-user"><a href="./article_delete.php">記事削除</a></p>
+      <?php
+        } elseif ($article['user_id']==$user_id and $article['is_public']==true){
+      ?>
+        <p class="article-show-user"><a href="./article_repost.php">記事再公開</a></p>
+      <?php
+        }
+      ?>
+
       <p class="article-show-user"><a href=<?= $user_php ?>?user_id=<?= $article['user_id'] ?>><?= $article['name'] ?></a></p>
       <p class="article-show-date">投稿日 <?= date('Y年m月d日', strtotime($article['creation_date'])) ?></p>
       <p class="like_button">
