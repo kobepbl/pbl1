@@ -3,11 +3,11 @@ require_once __DIR__ . '/dbdata.php';
 class Article extends DbData
 {
 
-    public function Insertarticle($user_id, $title, $sentence, $creation_date,$article_image)
+    public function Insertarticle($user_id, $title, $sentence, $creation_date, $article_image)
     {
 
         $sql = "insert into article_list(user_id,title,sentence,creation_date,article_image) values(?, ?, ?, ?,?)";
-        $result = $this->exec($sql, [$user_id, $title, $sentence, $creation_date,$article_image]);
+        $result = $this->exec($sql, [$user_id, $title, $sentence, $creation_date, $article_image]);
 
         if ($result) {
             return ''; // ここも空文字を返すので「''」はシングルクォーテーションが２つ
@@ -108,13 +108,13 @@ class Question_comment extends DbData
         }
     }
 
-    public function insertcomment_anser($question_id, $user_id, $comment, $posted_date,$column_id)
+    public function insertcomment_anser($question_id, $user_id, $comment, $posted_date, $column_id)
     {
 
         $sql = "
                     INSERT INTO question_comment_list(question_id, user_id, comment, posted_date,column_id)
                     VALUES(?, ?, ?, ?,?)";
-        $result = $this->exec($sql, [$question_id, $user_id, $comment, $posted_date,$column_id]);
+        $result = $this->exec($sql, [$question_id, $user_id, $comment, $posted_date, $column_id]);
 
         if ($result) {
             return '';
@@ -123,13 +123,14 @@ class Question_comment extends DbData
         }
     }
 
-    public function getcomment_anser($column_id){
-        $sql  =  "select  *  from  question_comment_list join current_users on question_comment_list.user_id = current_users.user_id where column_id = '" . $column_id . "'";
+    public function getcomment_anser($column_id)
+    {
+        $sql  =  "select  *  from  question_comment_list join current_users on question_comment_list.user_id = current_users.user_id where column_id = '" . $column_id .  "' order by  question_comment_list.posted_date";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         $comment_ansers_asc = $stmt->fetchAll();
         return  $comment_ansers_asc;
-        }
+    }
 }
 
 

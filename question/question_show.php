@@ -28,6 +28,7 @@ $_SESSION['like_count'] = $question['like_count'];
 require_once __DIR__ . '/q_markdown.php';
 ?>
 <link rel="stylesheet" href="../css/article_post.css">
+<script src="<?= $no_comment_js ?>"></script>
 <main>
   <div class="article-show">
     <div class="question-show-cover">
@@ -104,7 +105,7 @@ foreach ($question_comments  as  $question_comment) {
     $comment_ansers_asc = $question_comment_q->getcomment_anser($comment_id);
     if ($comment_ansers_asc != "") {
       foreach ($comment_ansers_asc as $comment_anser_asc) {
-        if ($question_comment['user_id'] == $comment_anser_asc['user_id']) {
+        if ($question['user_id'] == $comment_anser_asc['user_id']) {
           $comment_author = "質問者:";
         } else {
           $comment_author = "";
@@ -121,7 +122,7 @@ foreach ($question_comments  as  $question_comment) {
     }
     ?>
 
-
+    <script src="<?= $no_anser_js ?>"></script>
     <div class="comment_anser">
       <form method="POST" action="../question_comment/comment_anser_db.php">
         <input type="hidden" name="commentanser_id" value=<?= $comment_id ?>>

@@ -41,6 +41,7 @@ $tag_search_php = $http_host . '/' . $id . '/search/tag_search_result.php';
 $tag_q_search_php = $http_host . '/' . $id . '/search/tag_q_search_result.php';
 $no_post_js = $http_host . '/' . $id . '/js/no_continue_post.js';
 $no_comment_js = $http_host . '/' . $id . '/js/no_continue_comment.js';
+$no_anser_js = $http_host . '/' . $id . '/js/no_anser.js';
 
 
 
