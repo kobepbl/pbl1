@@ -78,13 +78,14 @@ require_once __DIR__ . '/a_markdown.php';
     <?php } ?>
   </div>
   </div>
-
+  <div class="anser-title">
+    <h1 class="anser-border">コメント</h1>
+  </div>
   <?php
   foreach ($article_comments as $article_comment) {
   ?>
-    <div class="anser-show">
-      <a href="../article_comment/comment_show.php?comment_id=<?= $article_comment['comment_id'] ?>">
-        <h1 class="comment">コメント</h1>
+    <div class="anser">
+      <div class="anser-show">
         <?php
         if ($article_comment['user_id'] == $article['user_id']) {
           $author = "投稿者:";
@@ -97,14 +98,17 @@ require_once __DIR__ . '/a_markdown.php';
           <p class="article-show-date">投稿日 <?= date('Y年m月d日 H時i分s秒', strtotime($article_comment['posted_date'])) ?></p>
           <p class="comment-border"><?= nl2br($article_comment['comment']) ?></p>
         </div>
-      <?php
-    }
-      ?>
+      </div>
     </div>
+  <?php
+  }
+  ?>
 
-    <?php
-    require_once __DIR__ . '/../article_comment/article_comment.php'
-    ?>
+
+
+  <?php
+  require_once __DIR__ . '/../article_comment/article_comment.php'
+  ?>
 
 </main>
 <?php
